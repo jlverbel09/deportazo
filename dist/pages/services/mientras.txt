@@ -1,0 +1,538 @@
+  $inicioPJ = 0;
+    foreach ($clasificacion as $cEquipo) {
+
+        array_push($arrayTabla, $cEquipo);
+
+        $inicioPJ = $cEquipo['PJ'] + $inicioPJ;
+
+        if ($i <=    $cantClasificado) {
+            $clasificado = 'class="clasificado"';
+        } else {
+            $clasificado = '';
+        }
+        if ($i ==    $cantRepechaje) {
+            $repechaje = 'class="repechaje"';
+        } else {
+            $repechaje = 'class="noclasificado"';
+        }
+        if (empty($cEquipo['G'])) {
+            $cEquipo['G'] = 0;
+        }
+        if (empty($cEquipo['P'])) {
+            $cEquipo['P'] = 0;
+        }
+        if (empty($cEquipo['PUNTOS'])) {
+            $cEquipo['PUNTOS'] = 0;
+        }
+
+        $nombreEquipo = '';
+        if (strpos($cEquipo['nombre'], 'EQUIPO') !== false) {
+            $nombreEquipo = substr($cEquipo['nombre'], 0, 2) . '.&nbsp;' . substr($cEquipo['nombre'], -1);
+        }
+
+        $clasificacionEquipo .= '<tr ' . $clasificado . ' ' . $repechaje . '>
+                            <th scope="row">' . $i . '</th>
+                            <td class="nombreEquipoTabla nt1 " style="font-size: 15px; text-align: left"><i class="bi bi-shield-fill mt-1 me-1" style="color:' . $cEquipo['color'] . '"></i>' . $nombreEquipo . '</td>
+                            <td class="nombreEquipoTabla nt2" style="font-size: 15px; text-align: left"><i class="bi bi-shield-fill mt-1 me-1" style="color:' . $cEquipo['color'] . '"></i>' . $cEquipo['nombre'] . '</td>
+                            <td>' . $cEquipo['PJ'] . '</td>
+                            <td>' . $cEquipo['G'] . '</td>
+                            <td>' . $cEquipo['P'] . '</td>
+                            <td>' . $cEquipo['AF'] . '</td>
+                            <td>' . $cEquipo['AC'] . '</td>
+                            <td class="text-center">' . $cEquipo['DA'] . '</td>
+                            <td class="text-center"><b>' . $cEquipo['PUNTOS'] . '</b></td>
+                        </tr>';
+        $i++;
+    }
+    if (empty($list_enfrentamientos)) {
+        $msjEnfrentamiento = '<div class="mensajeEnf">NO HAY ENFRENTAMIENTOS AUN</div>';
+        $enfrentamiento = $msjEnfrentamiento;
+    } else {
+        $msjEnfrentamiento = '';
+    }
+
+    foreach ($list_enfrentamientos as $listEnfrentamientos) {
+
+        if ($listEnfrentamientos['ganador'] == 0) {
+            $listEnfrentamientos['marcador_local'] = "-";
+            $listEnfrentamientos['marcador_visitante'] = "-";
+        }
+
+        $fase = $listEnfrentamientos['fase'];
+        $espacioCol = '';
+        $style = '';
+        if ($tipo == 1) {
+            if ($fase == 1) {
+                $col = 5;
+                $espacioCol = '<div class="col-12"></div>';
+                $colorbtn = "info";
+                $style = "    background-color: #0dcaf082;border: 1px solid;border-radius: 5px;";
+            } else if ($fase == 0) {
+                $col = 3;
+                $colorbtn = "primary";
+                $style = "    background-color: #0d6efd6e;border: 1px solid;border-radius: 5px;";
+            } else if ($fase == 2) {
+                $col = 5;
+                $colorbtn = "warning";
+                $style = "    background-color: #ffc1077d;border: 1px solid;border-radius: 5px;";
+            } else if ($fase == 3) {
+                $col = 7;
+                $colorbtn = "success";
+                $style = "    background-color: #1987549e;border: 1px solid;border-radius: 5px;";
+            }
+        } else if ($tipo == 2) {
+
+            if ($fase == 3) {
+                $col = 7;
+                $espacioCol = '<div class="col-12"></div>';
+                $colorbtn = "success";
+                $style = "    background-color: #1987549e;border: 1px solid;border-radius: 5px;";
+            } else if ($fase == 0) {
+                $col = 3;
+                $colorbtn = "primary";
+                $style = "    background-color: #0d6efd6e;border: 1px solid;border-radius: 5px;";
+            }
+        }
+
+
+        if ($_SESSION['usuario']['id_rol'] == 1 or $_SESSION['usuario']['id_rol'] == 2) {
+            $enfrentamientoResult = ' <button class="btn btn-' . $colorbtn . ' w-100" data-bs-toggle="modal" data-bs-target="#finalizar" onclick="vermarcador(' . $listEnfrentamientos['id'] . ')">
+            <i class="bi bi-pencil-square"></i>
+            ANOTAR
+         </button>';
+        } else {
+            $enfrentamientoResult = '';
+        }
+
+
+        $enfrentamiento .=  '
+    
+    <div style="' . $style . '" class=" row col-sm-12  col-md-' . $col . '  d-flex align-items-center justify-content-center m-1 mb-3 p-0 cardsenfrentamientos" >
+    <div class="d-flex col-12 m-0 p-0">
+        <div class="card mb-0 w-100" >
+            <div class="row g-0 align-items-center d-flex p-0">
+                <div class="col-md-3 text-center">
+                <i class="bi bi-shield-fill escudo" style="color:' . $listEnfrentamientos['color_equipo_local'] . '"></i>
+                </div>
+                <div class="col-md-9 ">
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title p-0 " style="font-size: 15px;width: 100%" >' . $listEnfrentamientos['equipo_local'] . '</h5><br>
+                        <h5 class="p-0 m-0 text-center">' . $listEnfrentamientos['marcador_local'] . '</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 align-items-center d-flex">Vs</div>
+        <div class="card mb-0 w-100" >
+            <div class="row g-0 align-items-center d-flex cuadrovisitante">
+            
+                <div class="col-md-9">
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title p-0" style="font-size: 15px;width: 100%">' . str_replace(" ", "&nbsp;", $listEnfrentamientos['equipo_visitante']) . '</h5><br>
+                        <h5 class="p-0 m-0 text-center">' . $listEnfrentamientos['marcador_visitante'] . '</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <i class="bi bi-shield-fill escudo" style="color:' . $listEnfrentamientos['color_equipo_visitante'] . '"></i>
+                </div>
+            </div>
+        </div>
+        </div>
+
+          <div class="col-12 m-0 p-0">
+            ' . $enfrentamientoResult . '
+        </div>
+    </div>' . $espacioCol;
+    }
+
+
+
+
+
+    $contenido = '
+
+    <!-- Modal -->
+    <div class="modal fade p-0" id="enfrentamiento" tabindex="-1" aria-labelledby="enfrentamientoLabel" aria-hidden="false">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+            <div class="modal-header bg-principal text-white">
+                <h5 class="modal-title" id="enfrentamientoLabel">ENFRENTAMIENTOS </h5>
+                <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row justify-content-center d-flex">
+                    ' . $enfrentamiento . '
+                </div>
+            </div>
+            <div class="modal-footer bg-principal">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+        
+        
+        <!-- Modal -->
+        <div class="modal fade p-0" id="finalizar" tabindex="-1" aria-labelledby="finalizarLabel" aria-hidden="false">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="finalizarLabel">Marcador </h5>
+            </div>
+            <div class="modal-body">
+
+            <input type="hidden" value="" id="id_enfrentamiento">
+            <input type="hidden" value="" id="id_equipoLocal">
+            <input type="hidden" value="" id="id_equipoVisitante">
+
+            <div class="d-flex col-12 m-0 p-0">
+                <div class="card mb-0 w-100">
+                    <div class="row g-0 align-items-center d-flex p-0" >
+                        <div class="col-md-12 text-center">
+                        <i class="bi bi-shield-fill escudo" id="color_equipo_local"></i>
+                        </div>
+                        <div class="col-md-12 ">
+                            <div class="card-body text-center p-2">
+                                <h5 class="card-title p-0 " style="font-size: 13px;width: 100%" id="marcador_equipo_local"></h5><br>
+                            <div class="justify-content-center d-flex inputpuntos ">
+                                    <button class="btn btn-danger mb-2 w-100" onclick="marcar(`restar`,`local`)"><i class="bi bi-dash h2"></i></button>
+                                        <input type="text" readonly id="m_equipoLocal" value="0" class="form-control w-100 mb-2  " style="height: 120px;font-size: 42px;text-align: center;" >
+                                    <button class="btn btn-success mb-2 w-100" onclick="marcar(`sumar`,`local`)"><i class="bi bi-plus h2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 align-items-center d-flex">Vs</div>
+                <div class="card mb-0 w-100">
+                    <div class="row g-0 align-items-center d-flex cuadrovisitante" style="flex-direction: column-reverse;">
+                    
+                        <div class="col-md-12">
+                            <div class="card-body text-center p-2">
+                                <h5 class="card-title p-0" style="font-size: 13px;width: 100%" id="marcador_equipo_visitante"></h5><br>
+                            <div class="justify-content-center d-flex inputpuntos ">
+                                    <button class="btn btn-danger mb-2 w-100" onclick="marcar(`restar`,`visitante`)"><i class="bi bi-dash h2"></i></button>
+                                        <input type="text" readonly id="m_equipoVisitante" value="0" class="form-control w-100 mb-2  " style="height: 120px;font-size: 42px;text-align: center;" >
+                                    <button class="btn btn-success mb-2 w-100" onclick="marcar(`sumar`,`visitante`)"><i class="bi bi-plus h2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <i class="bi bi-shield-fill escudo" id="color_equipo_visitante"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="actualizarEnfrentamientos(' . $_GET['id_torneo'] . ')" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>';
+
+
+    if ($_SESSION['usuario']['id_rol'] == 1) {
+
+        $enfrentarEquipos = ' <div class="col-6 col-md-6 "> <button class="btn btn-info w-100 text-white h-100" onclick="simuladorEnfrentamientoGrupo(' . $_GET['id_torneo'] . ')">
+                    <i class="bi bi-shuffle h5"></i><br> ENFRENTAR EQUIPOS
+                </button></div>';
+    } else {
+        $enfrentarEquipos = '';
+    }
+
+
+    $contenido .= ' 
+    <div class="row">
+        <div class="torneo_descripcion  m-0 mb-2 justify-content-center col-md-6 ">
+        
+              <!--<div class="col-sm-12 col-md-3">
+                  <h5>Descripcion</h5>
+                    <p class="m-0">' . $responseTorneo['descripcion'] . '</p>
+                  
+            </div>-->
+            <div class="col-sm-12 col-md-6 p-0">
+               <p class="card-text m-0">
+                    <small class="text-muted">
+                        Fecha: ' . date_format($fecha, 'Y-m-d') . '
+                    </small>
+                </p>
+                <p class="card-text m-0 p-0">
+                    <small class="text-muted">
+                        Hora: ' . date_format($fecha, 'H:i') . '
+                    </small>
+                </p>
+                <p class="card-text mb-2 p-0">
+                    <small class="text-muted">
+                        Lugar: ' . $responseTorneo['direccion'] . '
+                    </small>
+                </p>
+            </div>
+           
+            <div class="row col-sm-12 col-md-12 justify-content-center">
+                
+                <div  class="col-6 col-md-6 border border-1  text-white p-0 mb-0" data-bs-toggle="modal" data-bs-target="#enfrentamiento"> 
+                    <button class="btn btn-primary w-100">ENFRENTAMIENTOS</button>
+                    <div class="text-center mt-1   "><i class="bi bi-shield-fill h2 text-primary"></i></div>
+                </div>
+
+                
+                ' . $enfrentarEquipos . '
+                 
+
+            </div>
+
+            <!--<div class="col-sm-6 col-md-1 d-flex justify-content-center">
+                 <button class="btn btn-info w-75 h-75 m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+                    <i class="bi bi-arrow-clockwise h3 m-0"></i>
+                </button>
+            </div>  -->
+                
+    </div>';
+
+
+    /* GRUPOS */
+    $contenido .= '
+        ';
+    $letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+
+
+
+    $res = $conexion->query("select e.* , e2.nombre  as equipo, e2.color  from enfrentamientos2 e 
+                            inner join equipos e2 on e2.id = e.ganador
+                            where (fase = 1 or fase = 2) and ganador <> 0 and perdedor  <> 0  and e.id_torneo  = " . $_GET['id_torneo'])->fetchAll();
+
+    if (isset($res)) {
+        if (!empty($res[0])) {
+
+            $primerFinalista = '
+        <input type="hidden" id="primerEquipoFinal" value="' . $res[0]['ganador'] . '">
+        <i class="bi bi-shield-fill mt-1 me-1" style="color:' . $res[0]['color'] . '"></i>' . $res[0]['equipo'];
+        } else {
+            $primerFinalista = '1vs3';
+        }
+        if (!empty($res[1])) {
+            $segundoFinalista = '
+        <input type="hidden" id="segundoEquipoFinal" value="' . $res[1]['ganador'] . '">
+        <i class="bi bi-shield-fill mt-1 me-1" style="color:' . $res[1]['color'] . '"></i>' . $res[1]['equipo'];
+        } else {
+            $segundoFinalista = '2vs4';
+        }
+    } else {
+        $primerFinalista = '3roVS4to';
+        $segundoFinalista = '2doVS?';
+    }
+
+
+    $sql = "select * from enfrentamientos2 e
+                inner join equipos e2 on e2.id = e.ganador
+                where e.id_torneo = " . $_GET['id_torneo'] . " and fase = 3 ";
+
+    $res = $conexion->query($sql)->fetch();
+
+    if ($res) {
+        $finalista = '<i class="bi bi-shield-fill mt-1 me-1 h1" style="color: ' . ($res['color']) . '"  ></i><br>' . $res['nombre'];
+    } else {
+        $finalista = '<i class="bi bi-shield-fill mt-1 me-1 h1" style="color: #e8bb48"  ></i><br>CAMPEÓN';
+    }
+
+
+    $esquemaClasificatorio = '';
+    if ($tipo == 1) {
+
+        if ($inicioPJ < 3) {
+            $inicioPJ = ' 
+                <p class="equipoA equipo1">Equipo 1</p>
+                <p class="equipoA equipo2">Equipo 3</p>
+                <p class="equipoA equipo3">Equipo 2</p>
+                <p class="equipoA equipo4">Equipo 4</p>
+                ';
+        } else {
+            $inicioPJ = ' <p class="equipoA equipo1"><i class="bi bi-shield-fill mt-1 me-1" style="color: ' . ($arrayTabla[0]['color']) . '"  ></i>' . ($arrayTabla[0]['nombre']) . '</p>
+                <p class="equipoA equipo2"><i class="bi bi-shield-fill mt-1 me-1" style="color: ' . ($arrayTabla[1]['color']) . '"  ></i>' . ($arrayTabla[1]['nombre']) . '</p>
+                <p class="equipoA equipo3"><i class="bi bi-shield-fill mt-1 me-1" style="color: ' . ($arrayTabla[2]['color']) . '"  ></i>' . ($arrayTabla[2]['nombre']) . '</p>
+                <p class="equipoA equipo4"><i class="bi bi-shield-fill mt-1 me-1" style="color: ' . ($arrayTabla[3]['color']) . '"  ></i>' . ($arrayTabla[3]['nombre']) . '</p>
+        ';
+        }
+
+        $esquemaClasificatorio = '
+
+            <div class="row p-0 m-0 mt-4 text-center justify-content-center">
+                <div class="col-sm-12 col-md-12 esquema">
+                    <input type="hidden" id="id_torneo" value="' . $_GET['id_torneo'] . '" >
+                    <input type="hidden" id="primerEquipo" value="' . $arrayTabla[0]['id'] . '">
+                    <input type="hidden" id="segundoEquipo" value="' . $arrayTabla[1]['id'] . '">
+                    <input type="hidden" id="tercerEquipo" value="' . $arrayTabla[2]['id'] . '">
+                    <input type="hidden" id="cuartoEquipo" value="' . $arrayTabla[3]['id'] . '">
+                    <div class="row p-0 m-0">
+
+
+                    <div class="titulosdiagrama">
+                    ' . $inicioPJ . '
+                        <p class="equipoA equipoA1">' . $primerFinalista . '</p>
+                        <p class="equipoA equipoA2">' . $segundoFinalista . '</p>
+                        <p class="equipoB equipofinalCuarto ">' . $finalista . '</p>
+                    </div>
+
+                        
+
+                    <div class="tablero col-12">
+                        <div class="casilla casilla1ro">
+                            <div class="lineaH lh1"></div>
+                            <div class="lineaV lv1"></div>
+                            <div class="lineaH2 lh3"></div>
+                            <div class="casilla c2 lh2  ">
+                            <div class="lineaH"></div>
+                                <div class="lineaV2 lv4"></div>
+                                    <div class="lineaV lv5"></div>
+                                <div class="lineaH3 lh5"></div>
+                                <div class="lineaH3 lh6"></div>
+
+                                <div class="casilla c5"></div>
+                            </div>
+                        </div>
+                        <div class="casilla casilla2do">
+                            <div class="lineaH "></div>
+                        </div>
+                        <div class="casilla casilla3ro4to">
+                            <div class="lineaH"></div>
+                            <div class="lineaV"></div>
+                            <div class="lineaH2"></div>
+                            <div class="casilla c2">
+                            <div class="lineaH lh7"></div>   
+                        </div>
+
+                        </div>
+                            <div class="casilla casilla3ro4to">
+                                <div class="lineaH"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+   ';
+    }
+    if ($tipo == 2) {
+
+        if ($inicioPJ < 3) {
+            $inicioPJ = ' 
+                <p class="equipoA equipo1">1RO</p>
+                <p class="equipoA equipo4">2DO</p>
+                ';
+        } else {
+            $inicioPJ = ' <p class="equipoA equipo1"><i class="bi bi-shield-fill mt-1 me-1" style="color: ' . ($arrayTabla[0]['color']) . '"  ></i>' . ($arrayTabla[0]['nombre']) . '</p>
+                <p class="equipoA equipo4"><i class="bi bi-shield-fill mt-1 me-1" style="color: ' . ($arrayTabla[1]['color']) . '"  ></i>' . ($arrayTabla[1]['nombre']) . '</p>
+        ';
+        }
+        $esquemaClasificatorio = '
+            <div class="row p-0 m-0 mt-4 text-center justify-content-center">
+                <div class="col-sm-12 col-md-12 esquema">
+                    <input type="hidden" id="id_torneo" value="' . $_GET['id_torneo'] . '" >
+                    <input type="hidden" id="primerEquipo" value="' . $arrayTabla[0]['id'] . '">
+                    <input type="hidden" id="segundoEquipo" value="' . $arrayTabla[1]['id'] . '">
+                    <input type="hidden" id="tercerEquipo" value="' . $arrayTabla[2]['id'] . '">
+                    <input type="hidden" id="cuartoEquipo" value="' . $arrayTabla[3]['id'] . '">
+                    <div class="row p-0 m-0">
+
+
+                    <div class="titulosdiagrama">
+                    ' . $inicioPJ . '
+                        <p class="equipoA equipoA1 invisible">' . $primerFinalista . '</p>
+                        <p class="equipoA equipoA2 invisible">' . $segundoFinalista . '</p>
+                        <p class="equipoB equipofinalCuarto ef2">' . $finalista . '</p>
+                    </div>
+
+                        
+
+                    <div class="tablero col-12">
+                        <div class="casilla casilla1ro">
+                            <div class="lineaH lh1"></div>
+                            <div class="lineaH lh1 lh1-2"></div>
+                            <div class="lineaV lv1 invisible"></div>
+                            <div class="lineaH2 lh3 invisible"></div>
+                            <div class="casilla casilla-trans c2 lh2  ">
+                            <div class="lineaH invisible"></div>
+                                <div class="lineaV2 lv4"></div>
+                                <div class="lineaV2 lv4 lv4-2"></div>
+                                    <div class="lineaV lv5 lv5-2"></div>
+                                <div class="lineaH3 lh5 lh52 "></div>
+                                <div class="lineaH3 lh5 lh5-2"></div>
+                                <div class="lineaH3 lh6"></div>
+
+                                <div class="casilla c5 "></div>
+                            </div>
+                        </div>
+                        <div class="casilla casilla2do invisible">
+                            <div class="lineaH "></div>
+                        </div>
+                        <div class="casilla casilla3ro4to invisible  ">
+                            <div class="lineaH"></div>
+                            <div class="lineaV"></div>
+                            <div class="lineaH2"></div>
+                            <div class="casilla c2">
+                            <div class="lineaH lh7"></div>   
+                        </div>
+
+                        </div>
+                            <div class="casilla casilla3ro4to casilla2do2">
+                                <div class="lineaH invisible"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+   ';
+    }
+
+
+    $contenido .= '
+            <div class="col-sm-12 col-md-6 p-0 mt-3" id="tablaClasificacion" style="z-index: 1000">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="6">CLASIFICACIÓN</th>
+                            <th colspan="3" class="text-end">
+                                 <button class="btn btn-info m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+                                    <i class="bi bi-arrow-clockwise m-0"></i>
+                                </button>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Equipo</th>
+                            <th scope="col">PJ</th>
+                            <th scope="col">G</th>
+                            <th scope="col">P</th>
+                            <th scope="col">AF</th>
+                            <th scope="col">AC</th>
+                            <th scope="col" class="text-center">DIF</th>
+                            <th scope="col" class="text-center">T</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ' . $clasificacionEquipo . '
+                       
+                       
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            ' . $esquemaClasificatorio . '
+        </div>';
+
+    $data = [
+        'titulo' => '<i class="bi bi-arrow-left-circle" style="cursor:pointer" onclick="redireccion(`lista_torneos`)"></i> ' . $responseTorneo['nombre'],
+        'contenido' => $contenido
+    ];
+
+
+    echo json_encode($data);

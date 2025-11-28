@@ -1,0 +1,298 @@
+body {
+  /* #f2f4f7 */
+  background-color: #fff !important;
+}
+
+iframe{
+  background: initial !important;
+}
+.app-wrapper{
+  background-color: #1c435445 !important;
+}
+.content{
+ /*  background-color: #1c435445 !important; */
+}
+.bg-principal {
+  background-color: #223143 !important;
+
+}
+
+.bg-principal a {
+  color: #fff;
+}
+
+.bg-principal a:hover {
+  color: #ffffffcb;
+}
+
+.bg-principal p {
+  color: #fff;
+}
+
+.nav-child-indent ul li {
+  padding-left: 10px;
+}
+
+div.loading {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000014;
+}
+
+.loading .balon {
+  position: absolute;
+  width: 100px;
+}
+
+.team {
+  font-weight: bold;
+}
+
+.torneosVoley {
+  display: flex;
+  overflow: scroll;
+  border: 2px solid #40aadb;
+  border-radius: 6px;
+  padding: 7px 0px 0 0px !important;
+}
+
+
+/* ----------------- */
+
+
+*::-webkit-scrollbar {
+  width: 10px;
+  /* width of the entire scrollbar */
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #40aadb;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid transparent;
+  /* creates padding around scroll thumb */
+}
+
+.logotipo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.logotipo img {
+  width: 85%;
+  border-radius: 5px;
+}
+
+
+#calendar .fc-view-container {
+  padding: 5px !important;
+}
+
+.imagen_torneo {
+  display: flex;
+  /* height: 80%; width: 100px; */
+  width: auto;
+  border-radius: 5px;
+  margin-left: 8px;
+}
+
+.seleccionado,
+.seleccionado th,
+.seleccionado td {
+  background-color: #223143;
+  color: #fff;
+}
+
+.seleccionado td {
+  background-color: transparent !important;
+}
+
+.clasificado th {
+  background-color: transparent;
+  border-left: 5px solid #2cb228;
+  color: #fff;
+}
+
+.clasificado td {
+  background-color: #fff;
+  color: #FFF ;
+}
+
+.noclasificado th {
+  border-left: 5px solid rgb(197, 145, 49);
+}
+
+.repechaje th {
+  border-left: 5px solid #2cb228;
+  color: #fff;
+}
+
+.repechaje td {
+  background-color: #fff;
+  color: #FFF;
+}
+
+.tercerClasificado th {
+
+  border-left: 5px solid #2cb228;
+  color: #fff;
+}
+.tercerClasificado td{
+  color: #fff;
+}
+
+.cuartoClasificado th {
+
+  border-left: 5px solid #2cb228;
+  color: #fff;
+}
+.cuartoClasificado td{
+  color: #fff;
+}
+
+.nombreEquipoTabla{
+  color: #000 !important;
+}
+.titulosdiagrama {
+  position: relative;
+  top: -136px;
+  z-index: 5;
+  left: -10px;
+}
+
+.equipofinalCuarto {
+  right: 94px !important;
+}
+
+.cardsenfrentamientos {
+  border: 1px solid #21252963;
+  border-radius: 7px;
+}
+
+.torneoSeleccionado,
+.torneoSeleccionado small {
+  background-color: #223143;
+  color: #fff !important;
+}
+
+
+button.btn-close {
+  color: #fff !important;
+}
+
+
+@media screen and (max-width: 500px) {
+  #tablaClasificacion {
+    overflow-x: scroll;
+  }
+}
+
+/* lineas */
+
+.lh,
+.lv {
+  border: 1px solid;
+  border: 1px solid;
+  position: relative;
+}
+
+.lhl1 {
+  top: 65px;
+  width: 55px;
+  height: 1px;
+  left: 164px;
+}
+
+.lhl2 {
+  top: 157px;
+  width: 55px;
+  height: 1px;
+  left: 164px;
+}
+
+.lhl3 {
+  top: 246px;
+  width: 55px;
+  height: 1px;
+  left: 164px;
+}
+
+.lhl4 {
+  top: 336px;
+  width: 55px;
+  height: 1px;
+  left: 164px;
+}
+
+.lhl5 {
+  top: 110px;
+  width: 55px;
+  height: 1px;
+  left: 219px;
+}
+
+.lhl6 {
+  top: 285px;
+  width: 55px;
+  height: 1px;
+  left: 219px;
+}
+
+.lhl7 {
+  top: 107px;
+  width: 113px;
+  height: 1px;
+  left: 438px;
+}
+
+.lhl8 {
+  top: 281px;
+  width: 113px;
+  height: 1px;
+  left: 438px;
+}
+
+.lhl9 {
+  top: 187px;
+  width: 71px;
+  height: 1px;
+  left: 550px;
+}
+
+.lineas {
+  position: absolute;
+}
+
+.lvl1 {
+  top: 51px;
+  width: 1px;
+  height: 94px;
+  left: 219px;
+}
+
+.lvl2 {
+  top: 141px;
+  width: 1px;
+  height: 94px;
+  left: 219px;
+}
+
+.lvl3 {
+  top: -85px;
+  width: 1px;
+  height: 176px;
+  left: 550px;
+}

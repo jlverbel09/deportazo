@@ -1,0 +1,163 @@
+@media screen and (max-width: 500px) {
+  .tablausuarios {
+    width: 100%;
+    overflow-x: scroll
+  }
+
+  .cardemcabezado {
+    width: 27rem;
+  }
+
+  .imagen_torneo {
+    max-width: 80px;
+  }
+
+
+  .cuadrovisitante {
+    flex-direction: column-reverse;
+  }
+
+
+
+  .esquema {
+    overflow: scroll;
+    position: relative;
+    top: -90px;
+    padding: 0 !important;
+  }
+
+
+  .tablero {
+    padding: 0 !important;
+  }
+
+  .equipofinalCuarto {
+    left: 749px !important;
+    position: relative !important;
+    top: 302px !important;
+  }
+
+  .titulosdiagrama {
+    position: relative;
+    top: -40px;
+    z-index: 5;
+    left: -20px;
+  }
+
+  .inputpuntos {
+    flex-wrap: wrap;
+  }
+
+
+  .footerText {
+    position: absolute;
+    bottom: -49px;
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #contenido .card div {
+    height: auto !important;
+  }
+
+  #contenido .list_triunfos {
+    flex-direction: column-reverse;
+
+
+  }
+  .cardfoto{
+    height: auto !important;
+  }
+
+  .list_triunfos {
+    width: 100% !important;
+            flex-flow: column-reverse;
+  }
+
+  .cardTorneo {
+    width: 95%;
+    padding: 16px 8px 0;
+  }
+
+  .nt1 {
+    display: flex;
+  }
+
+  .nt2 {
+    display: none;
+  }
+
+  div.casi_final {
+    top: 131px !important;
+    left: 620px !important;
+  }
+
+
+  div.casi_final {
+    position: absolute !important;
+    top: 10px;
+    left: 640px;
+    font-size: 26px;
+  }
+
+  .equipo1 {
+    top: 282px !important;
+    left: 12px !important;
+  }
+
+  .equipo2 {
+    top: 372px !important;
+    left: 258px !important;
+  }
+
+  .equipo3 {
+    top: 463px !important;
+    left: 12px !important;
+  }
+
+  .equipo4 {
+    top: 553px !important;
+    left: 12px !important;
+  }
+
+  .equipoA1 {
+    top: 508px !important;
+    left: 259px !important;
+  }
+
+  .equipoA2 {
+    top: 483px !important;
+    left: 494px !important;
+  }
+
+  .equipofinalCuarto {
+    left: 739px !important;
+    top: 398px !important;
+  }
+
+
+
+
+
+
+}
+
+
+@media screen and (min-width: 500px) {
+  .cardsenfrentamientos {
+    margin: 1% 3% !important;
+  }
+
+  .nt1 {
+    display: none;
+  }
+
+  .nt2 {
+    display: flex;
+  }
+
+
+}

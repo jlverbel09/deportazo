@@ -1,0 +1,9 @@
+1- Crud  usuarios                                       LISTO
+2- crud torneos y equipos                               LISTO
+3 -posiciones jugadores cancha                          LISTO
+4- enfrentamentios aleatorio ocultar                    LISTO
+5- registrar enfrentamientos                            LISTO
+6- calendario de enfrentamientos por fechas             
+7- galerias por fechas                                  LISTO
+8- visualizacion de likes y datos en el inicio          LISTO
+9- sesionada de usuarios en total por roles             LISTO

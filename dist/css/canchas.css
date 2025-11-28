@@ -1,0 +1,265 @@
+.cancha{
+    border: 3px solid;
+    height: 30rem;
+    width: 15.3rem;
+    background: green;
+    border-color: black;
+}
+.area{
+    border: 2px solid;
+    width: 71px;
+    height: 50px;
+    margin-left: 37%;
+    border-top: initial;
+}
+.circlemedio{
+    width: 70px;
+    height: 70px;
+    position: relative;
+    border: 2px solid;
+    border-radius: 100px;
+    top: 9.3rem;
+    left: 5.5rem;
+}
+.medio{
+    border: 1px solid;
+    position: relative;
+    top: 24%;
+}
+.areacontraria{
+    border: 2px solid;
+    width: 71px;
+    height: 50px;
+    margin-left: 37%;
+    position: relative;
+    top: 64%;
+    border-bottom: initial;
+}
+.canchavoley{
+    background-color: orange;
+}
+.areavoley1{
+    border: 2px solid;
+    position: relative;
+    top: 74px;
+    width: 90%;
+    margin-left: 5%;
+    height: 70%;
+}
+.mediovoley{
+    border: 1px solid;
+    position: relative;
+    top: -21%;
+}
+
+.jugador{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    
+    border-radius: 19px;
+    border: 2px solid white;
+}
+
+.jugadorSeleccionado{
+    background-color: #0d6efd;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.jugador1{
+   
+    top: 10%;
+    left: 11%;
+}
+.jugador2{
+    top: 10%;
+    left: 43%;
+}
+.jugador3{
+    top: 10%;
+    left: 73%;
+}
+.jugador4{
+    top: 27%;
+    left: 11%;
+}
+.jugador5{
+    top: 27%;
+    left: 43%;
+}
+.jugador6{
+    top: 27%;
+    left: 73%;
+}
+
+
+/* TORNEOS --------------------------------- */
+
+.casilla{
+    width: 160px;
+    height: 60px;
+    border: 1px solid #223143;
+    border-radius: 6px;
+    margin-top: 30px;
+    background-color: #fff;
+}
+.lineaH{
+    border: 1px solid;
+    position: relative;
+    top: 30px;
+    width: 50px;
+    margin-left: 159px;
+}
+.lineaV{
+    border: 1px solid;
+    position: relative;
+    top: 30px;
+    width: 2px;
+    margin-left: 208px;
+    height: 89px;
+}
+.lineaV2{
+    border: 1px solid;
+    position: relative;
+    top: 30px;
+    width: 2px;
+    margin-left: 207px;
+    height: 179px;
+}
+.lineaH2{
+    border: 1px solid;
+    position: relative;
+    top: -15px;
+    width: 35px;
+    margin-left: 208px;
+}
+.lineaH3{
+    border: 1px solid;
+    position: relative;
+    top: -111px;
+    width: 24px;
+    margin-left: 208px;
+}
+.c2{
+    position: relative;
+    top: -78px;
+    left: 242px;
+}
+.c3{
+    position: relative;
+    top: -171px;
+    left: 231px;
+}
+
+.tablero-invertido{
+    position: relative;
+    transform:rotate(180deg);
+    top: 30px;
+}
+
+.c4{
+    position: relative;
+    top: -312px;
+    left: 246px;
+    width: 241px;
+    height: 113px;
+}
+
+.c5{
+    position: relative;
+    top: -162px;
+    left: 232px;
+    width: 241px;
+    height: 113px;
+}
+
+.equipoA{
+    position: absolute;
+    top: 185px;
+    left: 19px;
+    width: 160px;
+}
+.equipoB{
+    position: absolute;
+    top: 185px;
+    right: 19px;
+    width: 160px;
+    text-align: right;
+}
+.equipo1{
+    top: 185px;
+}
+.equipo2{
+    top: 274px;
+}
+.equipo3{
+    top: 364px;
+}
+.equipo4{
+    top: 453px;
+}
+
+.equipoA1{
+    top: 230px;
+    left: 263px;
+}
+.equipoB1{
+    top: 230px;
+    right: 263px;
+}
+
+.equipoA2{
+    top: 409px;
+    left: 263px;
+}
+.equipoB2{
+    top: 409px;
+    right: 263px;
+}
+
+.equipoA3{
+    top: 270px;
+    left: 494px;
+}
+.equipoB3{
+    top: 367px;
+    right: 494px;
+}
+
+.equipofinal{
+    top: 468px;
+    right: 514px;
+    width: 232px;
+    font-size: 40px;
+    text-align: center;
+}
+.equipofinalCuarto{
+    top: 279px;
+    left: 501px;
+    width: 232px;
+    font-size: 27px;
+    text-align: center;
+}
+
+/* TORNEOS --------------------------- */
+
+.torneo_descripcion{
+   /*  height: 64px; */
+   /*  width: 100%; */
+}
+
+.listadoAlineacionEquipos{
+    align-content: flex-start;
+}
+.activo{
+    border: 3px solid #4CAF50;
+}
+.escudo{
+    font-size: 35px;
+}

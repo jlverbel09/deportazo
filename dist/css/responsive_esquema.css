@@ -1,0 +1,100 @@
+@media screen and (max-width: 400px) {
+
+    .equipoA {
+        position: relative
+    }
+
+    .equipoA.equipo1 {
+        top: -336px !important;
+        left: -12px !important;
+    }
+
+    .equipoA.equipo2 {
+        top: -315px !important;
+        left: -12px !important;
+    }
+
+    .equipoA.equipo3 {
+        top: -292px !important;
+        left: -12px !important;
+    }
+
+    .equipoA.equipo4 {
+        top: -270px !important;
+        left: -12px !important;
+    }
+
+
+    .equipoB {
+        position: relative
+    }
+
+    .equipoB.equipo1 {
+        top: -607px !important;
+        left: 1041px !important;
+    }
+
+    .equipoB.equipo2 {
+        top: -587px !important;
+        left: 1041px !important;
+    }
+
+    .equipoB.equipo3 {
+        top: -566px !important;
+        left: 1041px !important;
+    }
+
+    .equipoB.equipo4 {
+        top: -541px !important;
+        left: 1041px !important;
+    }
+
+    .tablero-invertido {
+        left: 891px;
+        top: 30px;
+    }
+
+    .equipoA1 {
+        top: -834px !important;
+        left: 236px !important;
+    }
+
+    .equipoA2 {
+        top: -724px !important;
+        left: 236px !important;
+    }
+
+    .equipoB1 {
+        top: -974px !important;
+        left: 794px !important;
+    }
+
+    .equipoB2 {
+        top: -863px !important;
+        left: 794px !important;
+    }
+
+
+
+    .equipoA3 {
+        top: -1067px !important;
+        left: 471px !important;
+    }
+
+    .equipoB3 {
+        top: -1040px !important;
+        left: 559px !important;
+    }
+
+    .equipoB.equipofinal {
+        top: -1004px !important;
+        right: -479px !important;
+        width: 232px !important;
+    }
+
+    .esquema_enfrentamiento {
+        overflow: scroll;
+        height: 480px;
+        overflow-y: hidden;
+    }
+}

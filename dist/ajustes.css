@@ -1,0 +1,25 @@
+
+
+
+div 
+
+  position: fixed;
+  top: -13px;
+  z-index: 10000;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(27, 39, 54);
+  padding: 68% !important;
+
+
+
+table 
+
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  left: 0;
+  margin: 5% 5%;
+  width: 90%;
+  zoom: 2.5;

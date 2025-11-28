@@ -1,0 +1,28 @@
+.equipo2 {
+    left: 20px;
+}
+
+.casi_1ro4to {
+    position: relative;
+    top: -314px;
+    left: 275px;
+}
+
+.casi_2do3ro {
+    position: relative;
+    top: -229px;
+    left: 275px;
+}
+
+
+div.casi_final {
+        position: relative;
+    top: -425px;
+    left: 620px;
+    font-size: 26px;
+}
+
+/* .esquema2 {
+    margin-top: 10%;
+    position: relative;
+} */
