@@ -81,7 +81,7 @@ inner join torneo t on t.id  = f.id_torneo
       </div>
 
       <div class="col-6 m-0 mb-2" title="Redirección a torneo que se esta jugando actualmente, tabla de posiciones">
-        <a href="../dist/pages/services/visualizador_general.php?torneo=5" target="_blank" class="btn btn-outline-success w-100"><i class="fa fa-users"></i> Torneo</a>
+        <a href="../dist/pages/services/visualizador_general.php?torneo=6" target="_blank" class="btn btn-outline-success w-100"><i class="fa fa-users"></i> Torneo</a>
       </div>
     </div>
 
