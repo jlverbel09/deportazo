@@ -20,7 +20,7 @@
             <li class="nav-item "> <a class="nav-link ps-0" data-lte-toggle="sidebar" href="#" role="button"> <i
                         class="bi bi-list"></i> </a>
             </li>
-            <li class="nav-item pt-2">
+            <li class="nav-item pt-2 ps-2">
                 <b  class="shadows-into-light-regular text-white">🏐CORAZÓN LATINO🏐</b>
             </li>
             <!-- <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Home</a> </li> -->

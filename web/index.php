@@ -35,7 +35,8 @@ inner join torneo t on t.id  = f.id_torneo
   <link href="https://cdn.jsdelivr.net/npm/mediaelement@latest/build/mediaelementplayer.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement-plugins@latest/dist/quality/quality.min.css">
 
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+        integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
 </head>
 
 
@@ -67,10 +68,13 @@ inner join torneo t on t.id  = f.id_torneo
 
     <div class="row m-0 p-0 text-center mb-2">
 
+      <div class="col-12 m-0 mb-1" title="Redireccionamiento a la aplicacion, puedes iniciar sesión y consultar mas detalles sobre el contenido del grupo.">
+        <a href="../dist/pages/app.php" target="_blank" class="btn btn-outline-info w-100"><i class="bi bi-phone"></i>DESCARGAR APP</a>
+      </div>
 
 
       <div class="col-6 m-0 mb-1" title="Redireccionamiento a la aplicacion, puedes iniciar sesión y consultar mas detalles sobre el contenido del grupo.">
-        <a href="../corazonlatino" target="_blank" class="btn btn-outline-info w-100"><i class="fa fa-globe"></i> APP</a>
+        <a href="../corazonlatino" target="_blank" class="btn btn-outline-dark w-100"><i class="fa fa-globe"></i> WEB</a>
       </div>
 
       <div class="col-6 m-0 mb-1" title="Videos grabados durante los enfrentamientos ya sean amistoso o de campeonatos del grupo.">
