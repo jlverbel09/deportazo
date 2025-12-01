@@ -20,7 +20,7 @@ $responseTorneo = $conexion->query("select id from torneo t where status !=2  or
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Deportazo</title>
     <link rel="icon" href="https://georkingweb.com/deportazo/dist/assets/img/logo2.png" type="image/x-icon">
-    <meta name="theme-color" content="#AE0909">
+    <meta name="theme-color" content="#000000">
 
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

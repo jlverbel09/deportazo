@@ -70,7 +70,7 @@ inner join torneo t on t.id  = f.id_torneo
 
 
       <div class="col-6 m-0 mb-1" title="Redireccionamiento a la aplicacion, puedes iniciar sesión y consultar mas detalles sobre el contenido del grupo.">
-        <a href="../index" target="_blank" class="btn btn-outline-info w-100"><i class="fa fa-globe"></i> APP</a>
+        <a href="../corazonlatino" target="_blank" class="btn btn-outline-info w-100"><i class="fa fa-globe"></i> APP</a>
       </div>
 
       <div class="col-6 m-0 mb-1" title="Videos grabados durante los enfrentamientos ya sean amistoso o de campeonatos del grupo.">

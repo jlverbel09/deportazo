@@ -1395,6 +1395,7 @@
 
         button.buttons_log:hover {
             background-color: var(--bs-primero);
+            border: 1px solid white;
         }
 
         .carousel-fade .carousel-item {
@@ -1516,7 +1517,7 @@
 
 
                                 </div>
-                                <div class="col-12"><input id="user" placeholder="Usuario" type="text"
+                                <div class="col-12"><input id="user" placeholder="Tu nombre" type="text"
                                         class="form-control inputs_log py-2 mb-2 mt-3" name="user"
                                         autofocus=""></div>
                                 <div class="col-12"><input id="password" type="hidden"

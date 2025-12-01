@@ -181,3 +181,6 @@ button.btn-close {
     overflow-x: scroll;
   }
 }
+.navbar-expand .navbar-nav .nav-link {
+  padding-right: 0 !important;
+}

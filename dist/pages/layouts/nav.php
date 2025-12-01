@@ -123,6 +123,13 @@
                     </a>
                 </div>
             </li> -->
+            <li class="nav-item "> <a class="nav-link btn border movil" target="_blank" href="./app.php" > 
+                
+                <i class="bi bi-phone"></i>
+                <span class="pe-3 textoapp">DESCARGAR APP CORAZON LATINO</span>
+            </a>
+            </li>
+
 
             <li class="nav-item"> <a class="nav-link" href="#" data-lte-toggle="fullscreen"> <i
                         data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i> <i

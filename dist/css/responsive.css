@@ -26,6 +26,10 @@
     padding: 0 !important;
   }
 
+  .textoapp {
+    display: none;
+  }
+
 
   .tablero {
     padding: 0 !important;
@@ -68,13 +72,14 @@
 
 
   }
-  .cardfoto{
+
+  .cardfoto {
     height: auto !important;
   }
 
   .list_triunfos {
     width: 100% !important;
-            flex-flow: column-reverse;
+    flex-flow: column-reverse;
   }
 
   .cardTorneo {
@@ -138,8 +143,10 @@
     top: 398px !important;
   }
 
-
-
+  .navbar-expand .navbar-nav .nav-link.movil {
+    padding: 5px 8px !important;
+    font-size: 23px;
+  }
 
 
 
