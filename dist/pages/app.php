@@ -1,16 +1,3 @@
-<?php
-require_once './conexion.php';
-ini_set('session.gc_maxlifetime', 3600);
-session_set_cookie_params(3600);
-session_start();
-
-
-if (empty($_SESSION['usuario']) && $_GET['public'] == 0) {
-    header('Location: login.php');
-}
-$responseTorneo = $conexion->query("select id from torneo t where status !=2  order by id desc limit 1")->fetch();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <!--begin::Head-->
