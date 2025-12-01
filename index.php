@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="I2wMMb24L7w0vrR0yjmryqLnn9nZkkyHQCXVkpVn">
     <title>🏐DEPORTAZO🏐</title>
     <link rel="icon" href="https://georkingweb.com/deportazo/dist/assets/img/logo2.png" type="image/x-icon">
-
+    <meta name="theme-color" content="#000000">
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Deportazo 1.0">
@@ -1528,7 +1528,7 @@
 
 
 
-                                   <!--  <div class="col-5 mx-2">
+                                    <!--  <div class="col-5 mx-2">
                                         <a href="./index">
                                             <img width="100%" style="border-radius: 10px;" src="./dist/assets/img/grupos/sentimientolatino.jpg" alt="">
                                         </a>

@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="I2wMMb24L7w0vrR0yjmryqLnn9nZkkyHQCXVkpVn">
     <title>🏐DEPORTAZO🏐</title>
     <link rel="icon" href="../../dist/assets/img/logo2.ico" type="image/x-icon">
-
+    <meta name="theme-color" content="#000000">
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Deportazo 1.0">
@@ -1438,10 +1438,12 @@
             .logologin2 {
                 display: none;
             }
-            .logo_tiktok{
+
+            .logo_tiktok {
                 top: -15px !important;
             }
-            .logo_tiktok img{
+
+            .logo_tiktok img {
                 width: 20% !important;
             }
         }
@@ -1454,7 +1456,7 @@
             .logologin2 {
                 display: block;
             }
-            
+
         }
     </style>
 </head>

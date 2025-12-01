@@ -13,7 +13,7 @@ if (isset($_GET['public'])) {
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>🏐CORAZÓN LATINO🏐</title>
   <link rel="icon" href="https://georkingweb.com/deportazo/dist/assets/img/logo2.png" type="image/x-icon">
-  <meta name="theme-color" content="#AE0909">
+  <meta name="theme-color" content="#000000">
 
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta property="og:title" content="DEPORTAZO 1.0">
