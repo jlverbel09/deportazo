@@ -15,7 +15,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear'){
         $_POST['usuario'],
         $_POST['contraseña'],
         $_POST['correo'],
-        'avatar_default.png',
+        'default.png',
         3,
         date('Y-m-d')
     ]);
