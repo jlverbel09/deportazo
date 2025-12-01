@@ -25,7 +25,7 @@
             <img width="70%"  class=" mx-5" src="../assets/img/logo.png" alt="">
 
             <img  width="30%" src="../assets/img/app/qr.png" alt=""><br><br>
-            <a class="btn btn-secondary" href="../assets/img/app/appCorazonLatino.apk">
+            <a class="btn btn-secondary" href="../../appCorazonLatino.apk">
                 <i class="bi bi-phone display-4"></i><br><small>Click aquí para descargar</small><br>
                 <span class="pe-3 textoapp"> APP CORAZON LATINO</span>
                 
