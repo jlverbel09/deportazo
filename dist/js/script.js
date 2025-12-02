@@ -6,6 +6,7 @@ $(document).ready(function () {
     /* redireccion('lista_torneos') */
     /* redireccion('triunfos') */
     /*  redireccion('galeria') */
+    /*  redireccion('miembros') */
 
     /* setTimeout(() => {
         $('#enfrentamiento').modal('show')

@@ -10,7 +10,7 @@ if(isset($_GET['torneo'])){
 
 require_once '../conexion.php';
 
-$response = $conexion->query("select u.id, u.nombre, count(j.id) as triunfos, u.foto from usuario u  
+$response = $conexion->query("select u.id, u.nombre, count(j.id) as triunfos, u.foto, u.numero from usuario u  
 left join (select u.* from enfrentamientos2 en
 inner join equipos e  on e.id = en.ganador 
 inner join equipo_jugador ej  on ej.id_torneo = en.id_torneo and ej.id_equipo = e.id 
@@ -41,7 +41,7 @@ foreach ($response as $res) {
     }
     $list_usuarios .= '<tr>
         <td>' . $i . '</td>
-        <td >' . $res['nombre'] . '</td>
+        <td >' . $res['nombre'] . ' </td>
         <td>' . $trofeos . '</td>
     </tr>';
 }
@@ -75,7 +75,11 @@ foreach ($response as $miembro) {
         $contenido .= '<div class="col-md-3 mb-2" style="    padding: 5px;"><div class="card m-0 px-2" style="height: auto">
   <div class="cardfoto" style="height:150px"><img src="' . $urlfoto . '' . $foto . '" class="card-img-top mt-2 w-100"  ></div>
   <div class="card-body " >
-    <h5 class="card-title text-center w-100">' . $miembro['nombre'] . '</h5><br>
+   <div class="justify-content-between d-flex card-title w-100">
+    <h6 class=" text-center ">' . $miembro['nombre'] . '</h6>
+    <h6><b>' . $miembro['numero'] . '</b></h6>
+   </div>
+    <br>
       <div class="w-100 text-center">';
 
         for ($i=0; $i < $miembro['triunfos']; $i++) { 

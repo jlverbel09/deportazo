@@ -57,9 +57,13 @@ foreach ($listMiembros as $miembro) {
     }
 
     $contenido .= '<div class="card col-md-2 m-2" >
+    <div style="height: 200px">
   <img src="' . $urlfoto . '' . $foto . '" class="card-img-top mt-2" >
+  </div>
   <div class="card-body">
-    <h5 class="card-title text-center w-100">' . $miembro['nombre'] . '</h5><br>
+    <h5 class="card-title text-center w-100">' . $miembro['nombre'] . '</h5>
+
+    <h5 class="card-title text-center w-100"><b>' . $miembro['numero'] . '</b></h5>
   
         <!--<ul>
             <li class="mt-2">Matador</li>
