@@ -1,6 +1,6 @@
 $(document).ready(function () {
     redireccion('inicio')
-    /* redireccion('torneos', { 'id_torneo': 5 }) */
+    /* redireccion('lista_torneos', { 'id_torneo': 6 }) */
     /* redireccion('voleybol') */
     /* redireccion('torneos', { 'id_torneo': 2 }) */
     /* redireccion('lista_torneos') */
@@ -43,7 +43,21 @@ $.urlParam = function (name) {
     return decodeURI(results[1]) || 0;
 }
 
+function verGanadores(idTorneo){
+    $('#contenidoTorneoGanadores').html('')
+    $.ajax({
+        type: "GET",
+        url: './services/equipo_campeon.php?idTorneo='+idTorneo,
+        dataType: "html",
+        success: async function (respuesta) {
+            
+            
+            $('#contenidoTorneoGanadores').html(respuesta)
 
+
+        }
+    });
+}
 
 
 function redireccion(ruta, data = {}) {

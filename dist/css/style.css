@@ -175,12 +175,52 @@ button.btn-close {
   color: #fff !important;
 }
 
+div.ganadoresList {
+  transform: none;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+div.ganadoresList div.modal-content {
+  width: auto;
+  justify-content: center;
+}
+
+
+
+.ganadorestorneo {
+  position: absolute;
+  right: 0;
+  margin: -62px 10px;
+  font-size: 43px;
+  border: 1.5px solid #c2ccd1;
+  padding: 4px 3px 0 9px;
+  border-radius: 5px;
+}
+
 
 @media screen and (max-width: 500px) {
   #tablaClasificacion {
     overflow-x: scroll;
   }
+  .ganadoresList .card-body{
+    font-size: 25px;
+  }
+  div#modalTorneoGanadores .modal-dialog{
+    margin-left: 0;
+  }
 }
+
+
+@media screen and (min-width: 500px) {
+  div.ganadoresList .col-md-2 {
+    width: 15%;
+  }
+
+}
+
 .navbar-expand .navbar-nav .nav-link {
   padding-right: 0 !important;
 }
