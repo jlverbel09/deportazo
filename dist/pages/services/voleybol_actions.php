@@ -120,12 +120,12 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'guardarEnfrentamiento') {
     $stm->execute([
         $_POST['cant_equipos'],
         'A',
-        $_POST['equipo_1'],
-        $_POST['equipo_2'],
-        $_POST['equipo_3'],
-        $_POST['equipo_4'],
-        $_POST['equipo_5'],
-        $_POST['equipo_6'],
+        'A-'. $_POST['equipo_1'],
+        'B-'. $_POST['equipo_2'],
+        'C-'. $_POST['equipo_3'],
+        'D-'. $_POST['equipo_4'],
+        'E-'. $_POST['equipo_5'],
+        'F-'. $_POST['equipo_6'],
         date('Y-m-d')
     ]);
 
