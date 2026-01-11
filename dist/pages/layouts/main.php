@@ -177,7 +177,7 @@ if (empty($responseTorneo['id'])) {
                     </li>
 
                     <?php
-                    if ($_SESSION['usuario']['id_rol'] == 1):
+                    if ($_SESSION['usuario']['id_rol'] == 1 || $_SESSION['usuario']['id_rol'] == 2):
                     ?>
                         <li class="nav-item">
                             <a type="button" onclick="redireccion('enfrentamiento_rapido')" class="nav-link"> <i class="nav-icon fa fa-group"></i>

@@ -215,12 +215,11 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'cargarEnfrentamiento') {
                 $icono = 'square';
             }
             $td = '<td class="d-flex align-items-center ' . $estado . '">
+             <button class="btn ' . $btnEstado . ' me-2" onclick="cambiarEstado(' . $l['id'] . ')"><i class="fa fa-' . $icono . '"></i></button>
                     <input type="text" readonly value="' . strtoupper($l['local']) . '" class="form-control" >
                     <b>&nbsp;&nbsp;VS&nbsp;&nbsp;</b>    
                     <input type="text" readonly value="' . strtoupper($visitante) . '" class="form-control" >
-                </td>
-                <td class="' . $estado . '">
-                    <button class="btn ' . $btnEstado . '" onclick="cambiarEstado(' . $l['id'] . ')"><i class="fa fa-' . $icono . '"></i></button>
+                     <button class="btn ' . $btnEstado . ' ms-2" onclick="cambiarEstado(' . $l['id'] . ')"><i class="fa fa-' . $icono . '"></i></button>
                 </td>';
         }
 

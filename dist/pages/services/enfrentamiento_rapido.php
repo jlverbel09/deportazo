@@ -23,7 +23,7 @@ $contenido = '<div class="row m-0 p-0">
                 <div class="col-2 mt-4 mx-0 px-0 " style="display:none" id="cuadroPararEnfrentamientos">
                     <button class="w-100 btn btn-danger" onclick="finalizarEnfrentamiento()"><i class="fa fa-stop"></i></button>
                 </div>
-                <div class="col-md-12 mt-1" id="listInputs"></div>
+                <div class="col-md-12 mt-1 p-0" id="listInputs"></div>
             </div>';
 
 $data = [
