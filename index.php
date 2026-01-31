@@ -6,7 +6,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="I2wMMb24L7w0vrR0yjmryqLnn9nZkkyHQCXVkpVn">
     <title>🏐DEPORTAZO🏐</title>
-    <link rel="icon" href="https://georkingweb.com/deportazo/dist/assets/img/logo2.png" type="image/x-icon">
+    <link rel="icon" href="https://deportazo.com/dist/assets/img/logo2.png" type="image/x-icon">
     <meta name="theme-color" content="#000000">
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +18,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta property="og:title" content="DEPORTAZO 1.0">
     <meta property="og:description" content="Esta es una plataforma interactiva para el registro de campenonatos, visitantes y deportistas interesados en formar parte de la comundad deportiva en Madrid - España. Fomentando el deporte de tu mano en nuestra app">
-    <meta property="og:image" content="https://georkingweb.com/deportazo/dist/assets/img/logo2.png">
-    <meta property="og:url" content="https://georkingweb.com/deportazo">
+    <meta property="og:image" content="https://deportazo.com/dist/assets/img/logo2.png">
+    <meta property="og:url" content="https://deportazo.com">
     <meta property="og:type" content="website">
 
 
