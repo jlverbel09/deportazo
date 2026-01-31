@@ -4,7 +4,7 @@ $(document).ready(function () {
     /* redireccion('voleybol') */
     /* redireccion('torneos', { 'id_torneo': 2 }) */
     /* redireccion('lista_torneos') */
-    redireccion('triunfos')
+    /* redireccion('triunfos') */
     /*  redireccion('galeria') */
     /*  redireccion('miembros') */
 
