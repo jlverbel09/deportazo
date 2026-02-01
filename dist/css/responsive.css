@@ -166,7 +166,7 @@
     display: flex;
   }
 
-  .card h6 {
+  .card h6  small{
     display: none;
   }
 }
