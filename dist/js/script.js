@@ -2,7 +2,7 @@ $(document).ready(function () {
     redireccion('inicio')
     /* redireccion('lista_torneos', { 'id_torneo': 6 }) */
     /* redireccion('voleybol') */
-    /* redireccion('torneos', { 'id_torneo': 2 }) */
+    /* redireccion('torneos', { 'id_torneo': 10 }) */
     /* redireccion('lista_torneos') */
     /* redireccion('triunfos') */
     /*  redireccion('galeria') */

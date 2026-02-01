@@ -15,17 +15,17 @@ $responseTorneo = $conexion->query("select * from torneo t where id  =  " . $_GE
 $listTorneos = '';
 $fecha = date_create($responseTorneo['fecha']);
 
-$list_enfrentamientos  = $conexion->query("select e.*, e2.nombre  as equipo_local, e2.color as color_equipo_local, e3.nombre as equipo_visitante,e3.color as color_equipo_visitante from enfrentamientos2 e 
+$list_enfrentamientos  = $conexion->query("select e.*, e2.nombre  as equipo_local, e2.apodo as apodo_local,  e2.color as color_equipo_local, e3.nombre as equipo_visitante, e3.apodo as apodo_visitante,e3.color as color_equipo_visitante from enfrentamientos2 e 
 inner join equipos e2 on e2.id = e.id_equipo_local
 inner join equipos e3 on e3.id = e.id_equipo_visitante 
 where e.id_torneo  =  " . $_GET['id_torneo'] . " order by fase desc, orden, rand(1)")->fetchAll();
 $query = "
-select id, nombre, PJ,  coalesce(p.G,0) as G,
+select id, nombre,apodo, PJ,  coalesce(p.G,0) as G,
 coalesce(p.P,0) as P,coalesce(p.AF,0) as AF,coalesce(p.AC,0) as AC,
 color, coalesce(p.PUNTOS,0) as PUNTOS,
 (coalesce(p.AF,0) - coalesce(p.AC,0) ) as DA from (select k.*, e4.color, (g * 3 ) as PUNTOS from (
 
-select eq.id, eq.nombre,
+select eq.id, eq.nombre, eq.apodo,
 (
 select count(id) from (
 select id,  id_equipo_local as equipo , marcador_local as marcador , ganador from enfrentamientos2 e1  where e1.fase = 0 
@@ -74,7 +74,7 @@ coalesce (
 from equipos eq  
 where id_torneo  = " . $_GET['id_torneo'] . "  ) k 
 inner join equipos e4 on e4.id = k.id
-) p order by PUNTOS desc, DA desc, AF desc";
+) p order by PUNTOS desc, DA desc, AF desc, id  asc";
 
 /* print_r('<pre>'.$query.'</pre>');
 die(); */
@@ -1213,7 +1213,9 @@ if ($tipo == 1 or $tipo == 2) {
                 </div>
                 <div class="col-md-9 ">
                     <div class="card-body text-center p-2">
-                        <h5 class="card-title p-0 " style="font-size: 15px;width: 100%" >' . $listEnfrentamientos['equipo_local'] . '</h5><br>
+                        <h5 class="card-title p-0 " style="font-size: 15px;width: 100%" >' . $listEnfrentamientos['equipo_local'] . '</h5>
+                        <h6><small>' .  ucwords(strtolower($listEnfrentamientos['apodo_local'])) . '</small></h6>
+    
                         <h5 class="p-0 m-0 text-center">' . $listEnfrentamientos['marcador_local'] . '</h5>
                     </div>
                 </div>
@@ -1225,7 +1227,9 @@ if ($tipo == 1 or $tipo == 2) {
             
                 <div class="col-md-9">
                     <div class="card-body text-center p-2">
-                        <h5 class="card-title p-0" style="font-size: 15px;width: 100%">' . str_replace(" ", "&nbsp;", $listEnfrentamientos['equipo_visitante']) . '</h5><br>
+                        <h5 class="card-title p-0" style="font-size: 15px;width: 100%">' . str_replace(" ", "&nbsp;", $listEnfrentamientos['equipo_visitante']) . '</h5>
+                        <h6><small>' .  ucwords(strtolower($listEnfrentamientos['apodo_visitante'])) . '</small></h6>
+                        
                         <h5 class="p-0 m-0 text-center">' . $listEnfrentamientos['marcador_visitante'] . '</h5>
                     </div>
                 </div>
@@ -1825,7 +1829,7 @@ if ($tipo == 1 or $tipo == 2) {
 
 
     /* GRUPOS */
-  
+
     $esquemaClasificatorio = '';
     if ($tipo == 5) {
 
@@ -1943,14 +1947,12 @@ if ($tipo == 1 or $tipo == 2) {
                             where e.id_torneo  = " . $_GET['id_torneo'] . " and fase = 3";
             $res = $conexion->query($sqlCampeon)->fetch();
             if (!empty($res)) {
-                $campeon = '<div class="campeon"><i class="bi bi-trophy-fill  mt-1 me-1" style="color: #ffc107"></i><br><i class="bi bi-shield-fill mt-1 me-1" style="color:' . $res['color'] . '"></i>' . $res['nombre'].'</div>';
-               
-                
+                $campeon = '<div class="campeon"><i class="bi bi-trophy-fill  mt-1 me-1" style="color: #ffc107"></i><br><i class="bi bi-shield-fill mt-1 me-1" style="color:' . $res['color'] . '"></i>' . $res['nombre'] . '</div>';
             }
         }
 
 
-        
+
 
         $esquemaClasificatorio .= '<div class="row p-0 m-0 esquema_enfrentamiento">
         
