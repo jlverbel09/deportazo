@@ -2,9 +2,9 @@
 
 <?php
 
-if(isset($_GET['torneo'])){
+if (isset($_GET['torneo'])) {
     $link = '../';
-}else{
+} else {
     $link = '';
 }
 
@@ -69,31 +69,28 @@ foreach ($response as $miembro) {
         $foto = 'default.png';
     }
 
-    if ($miembro['triunfos'] > 0) {
+    if ($miembro['triunfos'] > 0 && $miembro['foto'] != 0) {
 
 
         $contenido .= '<div class="col-md-3 mb-2" style="    padding: 5px;"><div class="card m-0 px-2" style="height: auto">
-  <div class="cardfoto" style="height:150px"><img src="' . $urlfoto . '' . $foto . '" class="card-img-top mt-2 w-100"  ></div>
-  <div class="card-body " >
-   <div class="justify-content-between d-flex card-title w-100">
-    <h6 class=" text-center ">' . $miembro['nombre'] . '</h6>
-    <h6><b>' . $miembro['numero'] . '</b></h6>
-   </div>
-    <br>
-      <div class="w-100 text-center">';
-
-        for ($i=0; $i < $miembro['triunfos']; $i++) { 
-             $contenido .= '
-            <i class="bi bi-trophy-fill text-warning me-2"></i>
-            ';
-        }
-
-
-
-    $contenido .= '
-    </div>
-  </div>
-</div></div>';
+                        <div class="cardfoto" style="height:150px"><img src="' . $urlfoto . '' . $foto . '" class="card-img-top mt-2 w-100"  ></div>
+                        <div class="card-body " >
+                        <div class="justify-content-between d-flex card-title w-100">
+                            <h6 class=" text-center ">' . $miembro['nombre'] . '</h6>
+                            <h6><b>' . $miembro['numero'] . '</b></h6>
+                        </div>
+                            <br>
+                            <div class="w-100 text-center">';
+                                for ($i = 0; $i < $miembro['triunfos']; $i++) {
+                                    $contenido .= '
+                                    <i class="bi bi-trophy-fill text-warning me-2"></i>
+                                    ';
+                                }
+                                $contenido .= '
+                            </div>
+                        </div>
+                        </div>
+                    </div>';
     }
 }
 
