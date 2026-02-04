@@ -15,7 +15,7 @@ $responseTorneo = $conexion->query("select * from torneo t where id  =  " . $_GE
 $listTorneos = '';
 $fecha = date_create($responseTorneo['fecha']);
 
-$list_enfrentamientos  = $conexion->query("select e.*, e2.nombre  as equipo_local, e2.apodo as apodo_local,  e2.color as color_equipo_local, e3.nombre as equipo_visitante, e3.apodo as apodo_visitante,e3.color as color_equipo_visitante from enfrentamientos2 e 
+$list_enfrentamientos  = $conexion->query("select e.*, e2.nombre  as equipo_local, COALESCE(e2.apodo,'') as apodo_local,  e2.color as color_equipo_local, e3.nombre as equipo_visitante, COALESCE(e3.apodo,'') as apodo_visitante,e3.color as color_equipo_visitante from enfrentamientos2 e 
 inner join equipos e2 on e2.id = e.id_equipo_local
 inner join equipos e3 on e3.id = e.id_equipo_visitante 
 where e.id_torneo  =  " . $_GET['id_torneo'] . " order by fase desc, orden, rand(1)")->fetchAll();
