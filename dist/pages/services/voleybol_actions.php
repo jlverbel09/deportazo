@@ -209,9 +209,6 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'cargarEnfrentamiento') {
 
             if ($l['estado'] == 'A') {
             } else {
-
-
-                
             }
 
             if (explode('-', $l['local'])[0] == $l['ganador']) {
@@ -324,6 +321,7 @@ select 6 as posicion,equipo6 as equipo , punt_equipo6  as puntos from enfrentami
 
 
 
+
     $tablaHtml = '<table class="table table-bordered mt-3">
                     <thead>
                         <tr>
@@ -338,12 +336,11 @@ select 6 as posicion,equipo6 as equipo , punt_equipo6  as puntos from enfrentami
                     <tbody>';
 
 
+    static $i = 0;
     foreach ($resEnfRapidos as $r) {
-        static $i = 0;
-        if ($i == 0) {
+        $estado = '';
+        if ($resEnfRapidos[0]['puntos'] == $r['puntos'] && $resEnfRapidos[0]['puntos'] != 0) {
             $estado = 'bg-success text-white';
-        } else {
-            $estado = '';
         }
         $i++;
 

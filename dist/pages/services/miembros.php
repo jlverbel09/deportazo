@@ -8,7 +8,7 @@ session_start();
 $listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and convocado = 1")->fetchAll();
 
 $contenido = "<div class='row justify-content-center d-flex'>
-<div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> CONVOCADOS</h2></div>
+<div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> CONVOCADAS</h2></div>
 ";
 
 $urlfoto = "./../assets/img/miembros/";
@@ -21,7 +21,7 @@ foreach ($listMiembros as $miembro) {
         $foto = 'default.png';
     }
 
-    $contenido .= '<div class="card col-md-2 mx-4 my-1" >
+    $contenido .= '<div class="card col-md-3 mx-4 my-1" >
   <img src="' . $urlfoto . '' . $foto . '" class="card-img-top mt-2" >
   <div class="card-body">
     <h5 class="card-title text-center w-100">' . $miembro['nombre'] . '</h5><br>
