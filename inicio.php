@@ -1526,6 +1526,13 @@
                                         <p class="text-white">CORAZÓN LATINO</p>
                                     </div>
 
+                                    <div class="col-5 mx-2">
+                                        <a href="./">
+                                            <img width="100%" style="border-radius: 10px;" src="./dist/assets/img/grupos/latinforce.jpg" alt="">
+                                        </a>
+                                        <p class="text-white">LATIN <br>FORCE</p>
+                                    </div>
+
 
 
                                     <!--  <div class="col-5 mx-2">
