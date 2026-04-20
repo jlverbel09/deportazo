@@ -7,7 +7,6 @@ session_start();
 
 if (empty($_SESSION['usuario']) && $_GET['public'] == 0) {
     header('Location: login.php');
- 
 }
 $responseTorneo = $conexion->query("select id from torneo t where status !=2  order by id desc limit 1")->fetch();
 ?>
@@ -18,16 +17,27 @@ $responseTorneo = $conexion->query("select id from torneo t where status !=2  or
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Deportazo</title>
+
+    <!-- META TAGS DEPORTAZO -->
+   <!--  <title>Deportazo</title>
     <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
     <meta name="theme-color" content="#000000">
-
-    <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Deportazo 1.0">
     <meta name="author" content="GeorkingWeb">
     <meta name="description"
         content="Plataforma interactiva para el registro de campeonatos, deportistas interesados en formar parte de la comunidad deportiva en Madrid - España.">
+ -->
+
+    <!-- META TAGS DEPORTAZO -->
+    <title>CORAZÓN LATINO</title>
+    <link rel="icon" href=" https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.png" type="image/x-icon">
+    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Corazón Latino 1.0">
+    <meta name="author" content="Deportazo By GeorkingWeb">
+    <meta name="description"
+        content="Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.">
 
 
     <!--end::Primary Meta Tags-->
