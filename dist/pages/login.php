@@ -3,18 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="I2wMMb24L7w0vrR0yjmryqLnn9nZkkyHQCXVkpVn">
-    <title>🏐DEPORTAZO🏐</title>
-    <link rel="icon" href="../../dist/assets/img/logo2.ico" type="image/x-icon">
-    <meta name="theme-color" content="#000000">
-    <!--begin::Primary Meta Tags-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Deportazo 1.0">
-    <meta name="author" content="GeorkingWeb">
-    <meta name="description"
-        content="Esta es una plataforma interactiva para el registro de campenonatos, visitantes y deportistas interesados en formar parte de la comundad deportiva en Madrid - España.">
 
+    <title>CORAZÓN LATINO</title>
+    <link rel="icon" href=" https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.png" type="image/x-icon">
+    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Corazón Latino 1.0">
+    <meta name="author" content="Deportazo By GeorkingWeb">
+    <meta name="description"
+        content="Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.">
 
 
 
