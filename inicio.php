@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="I2wMMb24L7w0vrR0yjmryqLnn9nZkkyHQCXVkpVn">
-    <title>🏐DEPORTAZO🏐</title>
+    <!-- META TAGS DEPORTAZO -->
+    <title>Deportazo</title>
     <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
     <meta name="theme-color" content="#000000">
-    <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Deportazo 1.0">
     <meta name="author" content="GeorkingWeb">
     <meta name="description"
-        content="Esta es una plataforma interactiva para el registro de campenonatos, visitantes y deportistas interesados en formar parte de la comundad deportiva en Madrid - España.">
+        content="Plataforma interactiva para el registro de campeonatos, deportistas interesados en formar parte de la comunidad deportiva en Madrid - España.">
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta property="og:title" content="DEPORTAZO 1.0">
@@ -1481,7 +1481,7 @@
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
                                 style="background-image: url(./dist/assets/img/portadas/5.jpg?1); background-size: cover;">
                             </div>
-                           <!--  <div class="carousel-item w-100 h-100" data-bs-interval="3000"
+                            <!--  <div class="carousel-item w-100 h-100" data-bs-interval="3000"
                                 style="background-image: url(./dist/assets/img/portadas/8.jpg); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"

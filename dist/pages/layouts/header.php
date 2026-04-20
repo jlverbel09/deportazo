@@ -29,7 +29,7 @@ $responseTorneo = $conexion->query("select id from torneo t where status !=2  or
         content="Plataforma interactiva para el registro de campeonatos, deportistas interesados en formar parte de la comunidad deportiva en Madrid - España.">
  -->
 
-    <!-- META TAGS DEPORTAZO -->
+    <!-- META TAGS CORAZON LATINO -->
     <title>CORAZÓN LATINO</title>
     <link rel="icon" href=" https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.png" type="image/x-icon">
     <meta name="theme-color" content="#000000">
