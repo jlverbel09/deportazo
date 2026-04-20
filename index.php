@@ -32,6 +32,13 @@ if (isset($_GET['public'])) {
   <meta name="description"
     content="Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.">
 
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta property="og:title" content="CORAZÓN LATINO 1.0">
+  <meta property="og:description" content="pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.">
+  <meta property="og:image" content="https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.png">
+  <meta property="og:url" content="https://deportazo.com/corazonlatino/">
+  <meta property="og:type" content="website">
+
 
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
