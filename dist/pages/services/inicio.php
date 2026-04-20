@@ -69,11 +69,9 @@ where
     <div class="col-lg-8 col-sm-10 my-sm-1 my-auto p-auto h4">
         
         <p class="mx-2 text-justify ">
-            Esta es una plataforma interactiva para el registro de campenonatos, visitantes y deportistas interesados en formar parte de la comunidad deportiva en Madrid - España.
+            Bienvenido a la plataforma interactiva líder para la gestión de campeonatos y el encuentro de deportistas en Madrid. </p><p class="mx-2 text-justify ">Unimos a la comunidad deportiva e impulsamos el talento local, paso a paso, desde nuestra app.
         </p>
-        <p class="mx-2 text-justify ">
-            Fomentando el deporte de tu mano en nuestra app
-        </p>
+
 
         <!--<div class="mt-5 pt-5">
         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61568196323522&tabs=timeline&width=340&height=270&small_header=true&adapt_container_width=false&hide_cover=true&show_facepile=false&appId" width="340" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="false" allow="autoplay; clipboard-write; encrypted-media;  web-share"></iframe>

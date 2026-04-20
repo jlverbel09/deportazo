@@ -11,7 +11,7 @@ error_reporting(0);
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Deportazo</title>
-    <link rel="icon" href="https://deportazo.com/dist/assets/img/logo2.png" type="image/x-icon">
+    <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
     <meta name="theme-color" content="#AE0909">
 
     <!--begin::Primary Meta Tags-->
@@ -97,7 +97,7 @@ error_reporting(0);
     <div class="row principal">
         <div class="col-3">
             
-            <img class="bordered" src="https://deportazo.com/dist/assets/img/torneo/<?=$idtorneo?>.jpg" width="100%" alt="">
+            <img class="bordered" src="https://deportazo.com/corazonlatino/dist/assets/img/torneo/<?=$idtorneo?>.jpg" width="100%" alt="">
         </div>
        <div class="col-9">
          <h1 class="text-center"><?= $nombreTorneo['nombre'] ?></h1>

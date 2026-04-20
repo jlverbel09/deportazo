@@ -193,11 +193,11 @@ if (empty($responseTorneo['id'])) {
                             <p>Miembros</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a type="button" target="_blank" href="./../../web/index" class="nav-link"> <i class="nav-icon bi bi-globe"></i>
-                            <p>Web</p>
+                  <!--   <li class="nav-item">
+                        <a type="button" target="_blank" href="./../../dist/pages/services/visualizador_general.php?torneo=9" class="nav-link"> <i class="nav-icon bi bi-globe"></i>
+                            <p>En Vivo</p>
                         </a>
-                    </li>
+                    </li> -->
 
 
 

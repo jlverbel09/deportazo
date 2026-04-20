@@ -23,12 +23,22 @@ foreach ($data2 as $d2) {
 }
 $data2Texto = rtrim($data2Texto, ',');
 
+if (empty($data2Texto)) {
+    $sql3 = "select ej.id_jugador  from torneo t
+inner join equipos e  on e.id_torneo  = t.id 
+inner join equipo_jugador ej on ej.id_equipo = e.id and t.id = ej.id_torneo 
+where t.status  = 4 and t.id = $id_torneo";
 
-
+    $data3 = $conexion->query($sql3)->fetchAll();
+    foreach ($data3 as $d3) {
+        $data2Texto .= $d3['id_jugador'] . ',';
+    }
+    $data2Texto = rtrim($data2Texto, ',');
+}
 $sql = "select * from torneo t where id = " . $id_torneo;
 $nombreTorneo = $conexion->query($sql)->fetch();
 $tituloTorneo = $nombreTorneo['nombre'];
-$query = "select * from  (select  u.id, u.nombre, count(j.id) as triunfos, u.foto, u.numero from usuario u  
+$query = "select id, nombre, sum(triunfos)as triunfos, foto, numero from  ((select  u.id, u.nombre, count(j.id) as triunfos, u.foto, u.numero,0 from usuario u  
 left join (select u.* from enfrentamientos2 en
 inner join equipos e  on e.id = en.ganador 
 inner join equipo_jugador ej  on ej.id_torneo = en.id_torneo and ej.id_equipo = e.id 
@@ -41,10 +51,21 @@ where
 	end 
 	) j on j.id = u.id
 where u.id_rol  = 3 and u.id <> 3 and u.oficial = 1
-group by 1,2 order by triunfos desc,u.nombre ) k  where k.id in ($data2Texto)
+group by 1,2 order by triunfos desc,u.nombre ) union 
+
+select u.id, u.nombre, 1 as triunfos, u.foto, u.numero,1 from usuario u  
+where u.id  in (
+select ej.id_jugador  from torneo t
+inner join equipos e  on e.id_torneo  = t.id 
+inner join equipo_jugador ej on ej.id_equipo = e.id and t.id = ej.id_torneo 
+where t.status  = 4 and t.id = $id_torneo) 
+) k  where k.id in ($data2Texto) group by  1,2,4,5 order by 3 desc
 	
 	
 	";
+/* 
+print_r($query);
+die(); */
 
 $response = $conexion->query($query)->fetchAll();
 
@@ -91,7 +112,7 @@ foreach ($response as $miembro) {
 
     for ($i = 0; $i < $miembro['triunfos']; $i++) {
         $contenido .= '
-            <i class="bi bi-trophy-fill text-warning me-2"></i>
+            <i class="bi bi-trophy-fill text-warning me-1"></i>
             ';
     }
 

@@ -6,7 +6,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="I2wMMb24L7w0vrR0yjmryqLnn9nZkkyHQCXVkpVn">
     <title>🏐DEPORTAZO🏐</title>
-    <link rel="icon" href="https://deportazo.com/dist/assets/img/logo2.png" type="image/x-icon">
+    <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
     <meta name="theme-color" content="#000000">
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta property="og:title" content="DEPORTAZO 1.0">
     <meta property="og:description" content="Esta es una plataforma interactiva para el registro de campenonatos, visitantes y deportistas interesados en formar parte de la comundad deportiva en Madrid - España. Fomentando el deporte de tu mano en nuestra app">
-    <meta property="og:image" content="https://deportazo.com/dist/assets/img/logo2.png">
+    <meta property="og:image" content="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png">
     <meta property="og:url" content="https://deportazo.com">
     <meta property="og:type" content="website">
 
@@ -1466,22 +1466,22 @@
                         data-bs-ride="carousel">
                         <div class="carousel-inner height-100">
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(./dist/assets/img/portadas/6.jpg); background-size: cover;">
+                                style="background-image: url(./dist/assets/img/portadas/1.jpg?1); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100 active carousel-item-start" data-bs-interval="3000"
-                                style="background-image: url(./dist/assets/img/portadas/1.jpg); background-size: cover;">
+                                style="background-image: url(./dist/assets/img/portadas/2.jpg?1); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100 carousel-item-next carousel-item-start"
                                 data-bs-interval="3000"
-                                style="background-image: url(./dist/assets/img/portadas/6.jpg); background-size: cover;">
+                                style="background-image: url(./dist/assets/img/portadas/3.jpg?1); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(./dist/assets/img/portadas/1.jpg); background-size: cover;">
+                                style="background-image: url(./dist/assets/img/portadas/4.jpg?1); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(./dist/assets/img/portadas/3.jpg); background-size: cover;">
+                                style="background-image: url(./dist/assets/img/portadas/6.jpg?1); background-size: cover;">
                             </div>
-                            <div class="carousel-item w-100 h-100" data-bs-interval="3000"
+                           <!--  <div class="carousel-item w-100 h-100" data-bs-interval="3000"
                                 style="background-image: url(./dist/assets/img/portadas/8.jpg); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
@@ -1495,7 +1495,7 @@
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
                                 style="background-image: url(./dist/assets/img/portadas/6.jpg); background-size: cover;">
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="row  pt-4 fondo text-center justify-content-center">

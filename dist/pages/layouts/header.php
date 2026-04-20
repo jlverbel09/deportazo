@@ -19,7 +19,7 @@ $responseTorneo = $conexion->query("select id from torneo t where status !=2  or
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Deportazo</title>
-    <link rel="icon" href="https://deportazo.com/dist/assets/img/logo2.png" type="image/x-icon">
+    <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
     <meta name="theme-color" content="#000000">
 
     <!--begin::Primary Meta Tags-->

@@ -1473,25 +1473,22 @@
                     <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade height-100"
                         data-bs-ride="carousel">
                         <div class="carousel-inner height-100">
-                            <div class="carousel-item w-100 h-100" data-bs-interval="3000"
+                            <!--    <div class="carousel-item w-100 h-100" data-bs-interval="3000"
                                 style="background-image: url(../assets/img/portadas/6.jpg); background-size: cover;">
-                            </div>
+                            </div> -->
                             <div class="carousel-item w-100 h-100 active carousel-item-start" data-bs-interval="5000"
-                                style="background-image: url(../assets/img/galeria/847f24d2-67aa-47fc-bb99-f13fa11193e4.jpeg); background-size: cover;">
+                                style="background-image: url(../assets/img/portadas/4.jpg); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/1.jpg); background-size: cover;">
+                                style="background-image: url(../assets/img/portadas/2.jpg); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
                                 style="background-image: url(../assets/img/portadas/3.jpg); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/8.jpg); background-size: cover;">
+                                style="background-image: url(../assets/img/galeria/847f24d2-67aa-47fc-bb99-f13fa11193e4.jpeg); background-size: cover;">
                             </div>
-                            <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/7.jpg); background-size: cover;">
-                            </div>
-                            <div class="carousel-item w-100 h-100" data-bs-interval="3000"
+                            <!--  <div class="carousel-item w-100 h-100" data-bs-interval="3000"
                                 style="background-image: url(../assets/img/portadas/5.jpg); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
@@ -1499,7 +1496,7 @@
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
                                 style="background-image: url(../assets/img/portadas/6.jpg); background-size: cover;">
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="row justify-content-center d-flex align-items-center fondo">
@@ -1519,9 +1516,16 @@
 
 
                                 </div>
-                                <div class="col-12"><input id="user" placeholder="Tu nombre" type="text"
+                                <div class="col-12">
+
+                                    <input id="user" placeholder="Usuario" type="text"
                                         class="form-control inputs_log py-2 mb-2 mt-3" name="user"
-                                        autofocus=""></div>
+                                        autofocus="" style="    padding-left: 30px;">
+                                    <i style="position: relative;
+    color: white;
+    top: -37px;
+    left: 13px;" class="fa fa-user"></i>
+                                </div>
                                 <div class="col-12"><input id="password" type="hidden"
                                         class="form-control inputs_log py-2 mb-2" name="password"
                                         placeholder="Contraseña" value="123456"></div>
@@ -1570,7 +1574,7 @@
     </script>
 
     <script src="../js/login.js"></script>
-
+    <script src="https://kit.fontawesome.com/c54258ed61.js" crossorigin="anonymous"></script>
 
 
 </body>

@@ -19,11 +19,15 @@ foreach ($responseTorneo as $resTorneo) {
 
     $fecha = date_create($resTorneo['fecha']);
     $urlImg = '../../dist/assets/img/torneo/' . $resTorneo['id'] . '.jpg';
+
+
+
+    $redireccion = ($resTorneo['status'] <> 4) ? 'onClick=" redireccion(`torneos`,{id_torneo:' . $resTorneo['id'] . '})"' : '';  
     $listTorneos .= ' 
     <div class="col-lg-4 col-sm-12">
         <div class="card d-grid mb-3 ' . $estado . '" style="max-width: 540px; " >
             <div class="row g-0">
-                <div class="col-md-4 align-items-center d-flex" style="cursor:pointer" onClick=" redireccion(`torneos`,{id_torneo:' . $resTorneo['id'] . '})">
+                <div class="col-md-4 align-items-center d-flex" style="cursor:pointer" '.$redireccion.'>
                     <img style="    display: flex;" src="' . $urlImg . '" class="img-fluid  rounded ms-2 cardTorneo" alt="...">
                 </div>
                 <div class="col-md-8">

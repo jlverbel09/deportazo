@@ -126,7 +126,7 @@
             <li class="nav-item "> <a class="nav-link btn border movil" target="_blank" href="./app.php" > 
                 
                 <i class="bi bi-phone"></i>
-                <span class="pe-3 textoapp">DESCARGAR APP CORAZON LATINO</span>
+                <span class="pe-3 textoapp">DESCARGAR APP</span>
             </a>
             </li>
 

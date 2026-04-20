@@ -8,7 +8,7 @@ session_start();
 $listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and convocado = 1")->fetchAll();
 
 $contenido = "<div class='row justify-content-center d-flex'>
-<div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> CONVOCADAS</h2></div>
+<div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> CONVOCADOS</h2></div>
 ";
 
 $urlfoto = "./../assets/img/miembros/";

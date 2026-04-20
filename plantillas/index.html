@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deportazo - Corazón Latino (Bootstrap)</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --navy-800: #1e293b;
+            --navy-900: #0f172a;
+            --cyan-500: #06b6d4;
+            --cyan-50: #ecfeff;
+            --slate-50: #f8fafc;
+            --slate-200: #e2e8f0;
+            --slate-500: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--slate-50);
+            color: #1e293b;
+            overflow: hidden;
+        }
+
+        /* Estructura Principal */
+        .wrapper {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* Sidebar Personalizado */
+        .sidebar {
+            width: 260px;
+            background-color: var(--navy-800);
+            color: #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+            box-shadow: 10px 0 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 1.5rem;
+            background-color: var(--navy-900);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-user {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--slate-500);
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 1rem 0.75rem;
+            overflow-y: auto;
+        }
+
+        .nav-custom-link {
+            display: flex;
+            align-items: center;
+            padding: 0.65rem 1rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin-bottom: 0.25rem;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .nav-custom-link:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+
+        .nav-custom-link.active {
+            background-color: rgba(6, 182, 212, 0.15);
+            color: var(--cyan-400);
+        }
+
+        .nav-custom-link i {
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+        }
+
+        /* Contenido Principal */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .top-navbar {
+            height: 64px;
+            background: white;
+            border-bottom: 1px solid var(--slate-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        /* Tarjetas de Estadísticas */
+        .stat-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 0.75rem;
+            background-color: var(--cyan-50);
+            color: var(--cyan-500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Banner Hero */
+        .hero-section {
+            background: white;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #06b6d4 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-cyan {
+            background-color: var(--cyan-500);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-cyan:hover {
+            background-color: #0891b2;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="ph-fill ph-volleyball text-info fs-4 me-2"></i>
+                <span class="fw-bold fs-5 text-white">DEPORTAZO</span>
+            </div>
+
+            <div class="sidebar-user d-flex align-items-center">
+                <img src="https://ui-avatars.com/api/?name=Super+Admin&background=475569&color=fff" alt="Avatar" class="avatar me-3">
+                <div class="overflow-hidden">
+                    <p class="mb-0 fw-semibold text-white small">SuperAdministrador</p>
+                    <p class="mb-0 text-muted extra-small" style="font-size: 0.7rem;">En línea</p>
+                </div>
+            </div>
+
+            <div class="p-3">
+                <div class="position-relative rounded-4 overflow-hidden shadow-sm" style="height: 120px;">
+                    <div class="position-absolute inset-0 bg-dark opacity-50 z-1 w-100 h-100"></div>
+                    <img src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=400&q=80" class="w-100 h-100 object-fit-cover">
+                    <div class="position-absolute bottom-0 start-0 end-0 text-center pb-2 z-2">
+                        <span class="badge bg-dark bg-opacity-75 text-uppercase small" style="letter-spacing: 1px;">Corazón Latino</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-custom-link active">
+                    <i class="ph ph-house"></i> Inicio
+                </a>
+                <a href="#" class="nav-custom-link">
+                    <i class="ph ph-users"></i> Usuarios
+                </a>
+                <a href="#" class="nav-custom-link">
+                    <i class="ph ph-volleyball"></i> Voleibol
+                </a>
+                <a href="#" class="nav-custom-link">
+                    <i class="ph ph-trophy"></i> Torneos
+                </a>
+                <a href="#" class="nav-custom-link">
+                    <i class="ph ph-image"></i> Galería
+                </a>
+                <a href="#" class="nav-custom-link">
+                    <i class="ph ph-medal"></i> Triunfos
+                </a>
+                <a href="#" class="nav-custom-link">
+                    <i class="ph ph-lightning"></i> Enfrentamiento
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+            
+            <!-- Navbar -->
+            <header class="top-navbar">
+                <div class="d-flex align-items-center">
+                    <button class="btn d-md-none border-0 p-0 me-3 text-secondary">
+                        <i class="ph ph-list fs-3"></i>
+                    </button>
+                    <div class="d-flex align-items-center fw-semibold text-dark">
+                        <div class="bg-danger bg-gradient rounded-circle d-flex align-items-center justify-center text-white me-2" style="width: 24px; height: 24px;">
+                            <i class="ph-fill ph-heart" style="font-size: 0.7rem;"></i>
+                        </div>
+                        <span class="d-none d-sm-inline">CORAZÓN LATINO</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <a href="#" class="btn btn-outline-light text-secondary border rounded-3 px-3 py-2 small d-none d-sm-flex align-items-center">
+                        <i class="ph ph-device-mobile me-2 fs-5"></i> Descargar App
+                    </a>
+                    <div class="vr mx-2 d-none d-sm-block" style="height: 30px;"></div>
+                    <div class="dropdown">
+                        <button class="btn d-flex align-items-center p-0 border-0" data-bs-toggle="dropdown">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=e2e8f0" class="rounded-circle me-2" width="32">
+                            <span class="small fw-medium d-none d-md-block me-1">SuperAdmin</span>
+                            <i class="ph ph-caret-down text-muted" style="font-size: 0.7rem;"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scroll Area -->
+            <div class="flex-grow-1 overflow-auto p-4 p-lg-5">
+                
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-4">
+                    <h2 class="fw-bold mb-0">Inicio</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 mt-2 mt-sm-0">
+                            <li class="breadcrumb-item"><a href="#" class="text-info text-decoration-none">Inicio</a></li>
+                            <li class="breadcrumb-item active text-secondary">Panel Principal</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="row g-4 mb-5">
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="stat-card">
+                            <div class="stat-icon text-info bg-info bg-opacity-10">
+                                <i class="ph ph-chart-bar"></i>
+                            </div>
+                            <div class="ms-3">
+                                <p class="mb-0 text-muted small fw-medium text-uppercase">Torneos</p>
+                                <h4 class="mb-0 fw-bold">8</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="stat-card">
+                            <div class="stat-icon text-info bg-info bg-opacity-10">
+                                <i class="ph ph-image"></i>
+                            </div>
+                            <div class="ms-3">
+                                <p class="mb-0 text-muted small fw-medium text-uppercase">Fotos</p>
+                                <h4 class="mb-0 fw-bold">35</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="stat-card">
+                            <div class="stat-icon text-info bg-info bg-opacity-10">
+                                <i class="ph ph-users-three"></i>
+                            </div>
+                            <div class="ms-3">
+                                <p class="mb-0 text-muted small fw-medium text-uppercase">Miembros</p>
+                                <h4 class="mb-0 fw-bold">45</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="stat-card">
+                            <div class="stat-icon text-info bg-info bg-opacity-10">
+                                <i class="ph ph-medal"></i>
+                            </div>
+                            <div class="ms-3">
+                                <p class="mb-0 text-muted small fw-medium text-uppercase">Triunfos</p>
+                                <h4 class="mb-0 fw-bold">17</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero -->
+                <div class="hero-section row g-0">
+                    <div class="col-lg-7 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                        <span class="badge bg-info-subtle text-info rounded-pill px-3 py-2 mb-4 align-self-start fw-semibold">
+                            <i class="ph-fill ph-sparkle me-1"></i> NUEVA PLATAFORMA
+                        </span>
+                        <h2 class="display-5 fw-bold text-dark mb-4 lh-sm">
+                            Bienvenido a la comunidad <br> 
+                            <span class="gradient-text">Corazón Latino</span>
+                        </h2>
+                        <p class="text-secondary fs-5 mb-5 opacity-75">
+                            Plataforma interactiva para el registro de campeonatos, visitantes y deportistas interesados en formar parte de la comunidad deportiva en Madrid.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <button class="btn btn-cyan btn-lg fs-6 px-4 py-3">Ver Torneos</button>
+                            <button class="btn btn-light btn-lg fs-6 px-4 py-3 border">Más información</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 bg-light d-flex align-items-center justify-content-center p-4 p-lg-5 position-relative border-start">
+                        <!-- Círculo decorativo -->
+                        <div class="position-absolute bg-info opacity-10 rounded-circle blur-3xl" style="width: 250px; height: 250px;"></div>
+                        
+                        <div class="position-relative z-1">
+                            <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=600&q=80" 
+                                 class="rounded-4 shadow-lg border border-5 border-white rotate-3" 
+                                 style="width: 280px; height: 280px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

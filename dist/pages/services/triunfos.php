@@ -10,7 +10,7 @@ if (isset($_GET['torneo'])) {
 
 require_once '../conexion.php';
 
-$response = $conexion->query("select u.id, u.nombre, count(j.id) as triunfos, u.foto, u.numero from usuario u  
+$query = "select id, nombre, sum(triunfos) as triunfos, foto, numero from ((select u.id, u.nombre, count(j.id) as triunfos, u.foto, u.numero,0 from usuario u  
 left join (select u.* from enfrentamientos2 en
 inner join equipos e  on e.id = en.ganador 
 inner join equipo_jugador ej  on ej.id_torneo = en.id_torneo and ej.id_equipo = e.id 
@@ -23,7 +23,16 @@ where
 	end 
 	) j on j.id = u.id
 where u.id_rol  = 3 and u.id <> 3 and u.oficial = 1
-group by 1,2 order by triunfos desc,u.nombre")->fetchAll();
+group by 1,2 order by triunfos desc,u.nombre)
+union 
+select u.id, u.nombre, 1 as triunfos, u.foto, u.numero,1 from usuario u  
+where u.id  in (
+select ej.id_jugador  from torneo t
+inner join equipos e  on e.id_torneo  = t.id 
+inner join equipo_jugador ej on ej.id_equipo = e.id and t.id = ej.id_torneo 
+where t.status  = 4) ) j  group by 1,2,4,5 order by triunfos desc , nombre "   ;
+
+$response = $conexion->query($query)->fetchAll();
 
 
 
@@ -68,8 +77,8 @@ foreach ($response as $miembro) {
     } else {
         $foto = 'default.png';
     }
-
-    if ($miembro['triunfos'] > 0 && $miembro['foto'] != 0) {
+//&& $miembro['foto'] != 0
+    if ($miembro['triunfos'] > 0 ) {
 
 
         $contenido .= '<div class="col-md-3 mb-2" style="    padding: 5px;"><div class="card m-0 px-2" style="height: auto">
@@ -83,7 +92,7 @@ foreach ($response as $miembro) {
                             <div class="w-100 text-center">';
                                 for ($i = 0; $i < $miembro['triunfos']; $i++) {
                                     $contenido .= '
-                                    <i class="bi bi-trophy-fill text-warning me-2"></i>
+                                    <i class="bi bi-trophy-fill text-warning me-1"></i>
                                     ';
                                 }
                                 $contenido .= '

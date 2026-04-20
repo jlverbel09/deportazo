@@ -12,13 +12,13 @@ if (isset($_GET['public'])) {
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>🏐CORAZÓN LATINO🏐</title>
-  <link rel="icon" href="https://deportazo.com/dist/assets/img/logo2.png" type="image/x-icon">
+  <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
   <meta name="theme-color" content="#000000">
 
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta property="og:title" content="DEPORTAZO 1.0">
   <meta property="og:description" content="Esta es una plataforma interactiva para el registro de campenonatos, visitantes y deportistas interesados en formar parte de la comundad deportiva en Madrid - España. Fomentando el deporte de tu mano en nuestra app">
-  <meta property="og:image" content="https://deportazo.com/dist/assets/img/logo2.png">
+  <meta property="og:image" content="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png">
   <meta property="og:url" content="https://deportazo.com">
   <meta property="og:type" content="website">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
