@@ -1520,7 +1520,7 @@
                                 <div class="d-flex flex-wrap justify-content-center">
 
                                     <div class="col-5 mx-2">
-                                        <a href="./corazonlatino">
+                                        <a href="./">
                                             <img width="100%" style="border-radius: 10px;" src="./dist/assets/img/grupos/corazonlatino.png" alt="">
                                         </a>
                                         <p class="text-white">CORAZÓN LATINO</p>
