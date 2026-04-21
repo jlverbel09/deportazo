@@ -4,6 +4,8 @@ $data =  (object) [];
 
 if (isset($_POST['accion']) && $_POST['accion'] == 'crear'){
 
+    $hashedPassword = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
+    
     $stm = $conexion->prepare("INSERT INTO usuario (nombre, `user`, password, correo, avatar, id_rol, created_at)  
     VALUES (?,?,?,?,?,?,?)");
     
@@ -13,7 +15,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear'){
     $stm->execute([
         $_POST['nombre'],
         $_POST['usuario'],
-        $_POST['contraseña'],
+        $hashedPassword,
         $_POST['correo'],
         'default.png',
         3,
@@ -43,35 +45,32 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'eliminar'){
 
 if (isset($_POST['accion']) && $_POST['accion'] == 'editar'){
 
-
-    
+    $array = [
+        $_POST['nombre'],
+        $_POST['usuario'],
+        $_POST['correo'],
+        date('Y-m-d'),
+        $_POST['id']
+    ];
 
     if(empty($_POST['contraseña'])){
-        $password = "";
-        $array = [
-            $_POST['nombre'],
-            $_POST['usuario'],
-            $_POST['correo'],
-            date('Y-m-d')
-        ];
+        $sql = "UPDATE usuario SET 
+           nombre = ?, 
+           `user` = ?, 
+           correo = ?, 
+           updated_at = ?
+           WHERE id = ?";
     }else {
-        $password = "password = ?, ";
-        $array = [
-            $_POST['nombre'],
-            $_POST['usuario'],
-            $_POST['contraseña'],
-            $_POST['correo'],
-            date('Y-m-d')
-        ];
+        $hashedPassword = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
+        $sql = "UPDATE usuario SET 
+           nombre = ?, 
+           `user` = ?, 
+           password = ?,
+           correo = ?, 
+           updated_at = ?
+           WHERE id = ?";
+        array_splice($array, 2, 0, $hashedPassword); // Insert hashed password at position 2
     }
-    $sql = "UPDATE usuario SET 
-       nombre = ?, 
-       `user` = ?, 
-       ".$password."
-       correo = ?, 
-       updated_at = ?
-       
-        WHERE id = ".$_POST['id'];
 
     $stmt = $conexion->prepare($sql);
     $response = $stmt->execute($array);
@@ -79,7 +78,6 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'editar'){
         $data->status = 'success';
         $data->sql = $stmt;
     }
-
 
     $data->estado = 'success';
     $data->mensaje = 'Usuario editado correctamente'; 

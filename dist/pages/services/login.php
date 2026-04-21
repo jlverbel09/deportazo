@@ -6,25 +6,29 @@ $data = (object) [];
 
 if (!empty($_GET['accion']) && $_GET['accion'] == 'iniciarSesion') {
 
-    $usuario = $_POST['user'];
+    $usuario = trim($_POST['user']);
     $contraseña = $_POST['password'];
 
-    $response = $conexion->query("select *  from usuario u where u.user = '$usuario' and u.password = '$contraseña'  ")->fetch();
-    if ($response) {
-        $data->response = $response;
-        $data->status = 'success';
-        
+    // Use prepared statement to prevent SQL injection
+    $stmt = $conexion->prepare("SELECT * FROM usuario WHERE user = ?");
+    $stmt->execute([$usuario]);
+    $response = $stmt->fetch();
 
-        $_SESSION['usuario'] = $response;;
+    if ($response) {
+        // Check password using password_verify
+        if (password_verify($contraseña, $response['password'])) {
+            $data->response = $response;
+            $data->status = 'success';
+            $_SESSION['usuario'] = $response;
+        } else {
+            $data->response = 'Contraseña incorrecta';
+        }
     } else {
-        $data->response = 'Error al iniciar session';
+        $data->response = 'Usuario no encontrado';
     }
 }
 
-
-
 if (!empty($_GET['accion']) && $_GET['accion'] == 'destruirSesion') {
-  
     if(session_destroy()){
         $data->response = 1;
     }else{

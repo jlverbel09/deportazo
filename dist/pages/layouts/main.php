@@ -155,11 +155,11 @@ if (empty($responseTorneo['id'])) {
                             <p>Torneos</p>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                <a type="button" onclick="redireccion('calendar')" class="nav-link"> <i class="nav-icon bi bi-calendar-check"></i>
-                <p>Calendario</p>
-                    </a>
-                </li> -->
+                  <!--   <li class="nav-item">
+                        <a type="button" onclick="redireccion('calendario')" class="nav-link"> <i class="nav-icon bi bi-calendar-check"></i>
+                            <p>Calendario</p>
+                        </a>
+                    </li> -->
                     <!-- <li class="nav-item">
                     <a type="button" onclick="redireccion()" class="nav-link"> <i class="nav-icon bi bi-newspaper"></i>
                     <p>Noticias y Eventos</p>
