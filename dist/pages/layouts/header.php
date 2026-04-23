@@ -20,7 +20,7 @@ $responseTorneo = $conexion->query("select id from torneo t where status !=2  or
 
     <!-- META TAGS DEPORTAZO -->
    <!--  <title>Deportazo</title>
-    <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
+    <link rel="icon" href="https://deportazo.com/dist/assets/img/logo2.png" type="image/x-icon">
     <meta name="theme-color" content="#000000">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Deportazo 1.0">
@@ -31,7 +31,7 @@ $responseTorneo = $conexion->query("select id from torneo t where status !=2  or
 
     <!-- META TAGS CORAZON LATINO -->
     <title>CORAZÓN LATINO</title>
-    <link rel="icon" href=" https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.png" type="image/x-icon">
+    <link rel="icon" href=" https://deportazo.com/dist/assets/img/grupos/corazonlatino.png" type="image/x-icon">
     <meta name="theme-color" content="#000000">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Corazón Latino 1.0">

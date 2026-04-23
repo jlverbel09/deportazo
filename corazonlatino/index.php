@@ -13,18 +13,18 @@ if (isset($_GET['public'])) {
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
 
   <!--   <title>🏐CORAZÓN LATINO🏐</title>
-  <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
+  <link rel="icon" href="https://deportazo.com/dist/assets/img/logo2.png" type="image/x-icon">
   <meta name="theme-color" content="#000000">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta property="og:title" content="DEPORTAZO 1.0">
   <meta property="og:description" content="Esta es una plataforma interactiva para el registro de campenonatos, visitantes y deportistas interesados en formar parte de la comundad deportiva en Madrid - España. Fomentando el deporte de tu mano en nuestra app">
-  <meta property="og:image" content="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png">
+  <meta property="og:image" content="https://deportazo.com/dist/assets/img/logo2.png">
   <meta property="og:url" content="https://deportazo.com">
   <meta property="og:type" content="website"> -->
 
   <!-- META TAGS CORAZON LATINO -->
   <title>CORAZÓN LATINO</title>
-  <link rel="icon" href=" https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.png" type="image/x-icon">
+  <link rel="icon" href=" https://deportazo.com/dist/assets/img/grupos/corazonlatino.png" type="image/x-icon">
   <meta name="theme-color" content="#000000">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="title" content="Corazón Latino 1.0">
@@ -35,7 +35,7 @@ if (isset($_GET['public'])) {
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta property="og:title" content="CORAZÓN LATINO">
   <meta property="og:description" content="Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.">
-  <meta property="og:image" content="https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.png">
+  <meta property="og:image" content="https://deportazo.com/dist/assets/img/grupos/corazonlatino.png">
   <meta property="og:url" content="https://deportazo.com/corazonlatino">
   <meta property="og:type" content="website">
 
@@ -50,7 +50,7 @@ if (isset($_GET['public'])) {
     window.location.href = './dist/pages/login.php'
   </script> -->
 
-  <iframe src="./dist/pages/index?public=<?= $public ?>" id="ventana" padding="0" frameborder="0" margin="0" width="100%"></iframe>
+  <iframe src="../dist/pages/index.php?public=<?= $public ?>" id="ventana" padding="0" frameborder="0" margin="0" width="100%"></iframe>
 
   <script>
     var height = $(window).height()

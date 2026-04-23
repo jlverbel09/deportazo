@@ -16,14 +16,14 @@ inner join torneo t on t.id  = f.id_torneo
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🏐CORAZÓN LATINO🏐</title>
-  <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.ico" type="image/x-icon">
+  <link rel="icon" href="https://deportazo.com/dist/assets/img/grupos/corazonlatino.ico" type="image/x-icon">
   <meta name="theme-color" content="#c7e0ff">
 
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta property="og:title" content="CORAZÓN LATINO">
   <meta property="og:description" content="🏐CORAZÓN LATINO, PASIÓN POR EL VOLEIBOL, ESPÍRITUD DE EQUIPO QUE LO DA TODO!!🏐">
-  <meta property="og:image" content="https://deportazo.com/corazonlatino/dist/assets/img/grupos/corazonlatino.ico">
-  <meta property="og:url" content="https://deportazo.com/corazonlatino/web/index">
+  <meta property="og:image" content="https://deportazo.com/dist/assets/img/grupos/corazonlatino.ico">
+  <meta property="og:url" content="https://deportazo.com/web/index">
   <meta property="og:type" content="website">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">

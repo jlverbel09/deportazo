@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Deportazo - El Corazón Digital del Voleibol de Madrid</title>
-    <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
+    <link rel="icon" href="https://deportazo.com/dist/assets/img/logo2.png" type="image/x-icon">
     <meta name="theme-color" content="#1e40af">
     <meta name="description" content="Plataforma interactiva para el registro de campeonatos, deportistas interesados en formar parte de la comunidad deportiva en Madrid - España.">
     <meta property="og:title" content="Deportazo - El Corazón Digital del Voleibol de Madrid">
     <meta property="og:description" content="Plataforma interactiva para el registro de campeonatos y deportistas en Madrid.">
-    <meta property="og:image" content="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png">
+    <meta property="og:image" content="https://deportazo.com/dist/assets/img/logo2.png">
     <meta property="og:url" content="https://deportazo.com">
     <meta property="og:type" content="website">
 
