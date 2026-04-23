@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deportazo | Voleibol Madrid</title>
+    <link rel="icon" href="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png" type="image/x-icon">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Deportazo es la plataforma de voleibol para torneos, equipos y jugadores en Madrid.">
+    <meta property="og:title" content="Deportazo | Voleibol Madrid">
+    <meta property="og:description" content="Gestiona torneos, conecta equipos y lleva tu voleibol al siguiente nivel.">
+    <meta property="og:image" content="https://deportazo.com/corazonlatino/dist/assets/img/logo2.png">
+    <meta property="og:url" content="https://deportazo.com">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#0f172a',
+                        accent: '#fbbf24',
+                        accent2: '#2563eb'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+        }
+        .hero-bg {
+            background-image: linear-gradient(180deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.55) 45%, rgba(15,23,42,0.95) 100%), url('./dist/assets/img/portadas/22.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('./dist/assets/img/portadas/11.jpg') center/cover no-repeat;
+            opacity: 0.18;
+            mix-blend-mode: screen;
+        }
+        .section-glow {
+            box-shadow: 0 40px 120px rgba(15,23,42,0.35);
+            backdrop-filter: blur(20px);
+        }
+        .card-image {
+            background: linear-gradient(180deg, rgba(15,23,42,0.85), rgba(15,23,42,0.55)), url('./dist/assets/img/portadas/33.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-glow {
+            box-shadow: 0 20px 80px rgba(251,191,36,0.28);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="./dist/assets/img/logo.png" alt="Deportazo" class="h-12 w-12 rounded-full border border-slate-700 bg-white/5">
+                <div>
+                    <p class="text-lg font-semibold text-white">Deportazo</p>
+                    <p class="text-xs text-slate-400">Voleibol Madrid</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-slate-200 font-medium">
+                <a href="#inicio" class="hover:text-white transition">Inicio</a>
+                <a href="#grupos" class="hover:text-white transition">Grupos</a>
+                <a href="#beneficios" class="hover:text-white transition">Beneficios</a>
+                <a href="#contacto" class="hover:text-white transition">Contacto</a>
+            </nav>
+            <a href="./dist/pages/login.php" class="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-slate-950 font-semibold hover:bg-yellow-400 transition">
+                <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero-bg hero-overlay relative min-h-[calc(100vh-88px)] flex items-center">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/30 to-slate-950/95"></div>
+            <div class="relative max-w-7xl mx-auto px-6 py-24">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <span class="inline-flex items-center gap-3 rounded-full border border-slate-700 bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.35em] text-slate-300">
+                            <i class="fas fa-volleyball-ball text-yellow-400"></i>
+                            Comunidad deportiva
+                        </span>
+                        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            El corazón digital del <span class="text-yellow-400">voleibol</span> en Madrid
+                        </h1>
+                        <p class="max-w-xl text-lg text-slate-200 leading-relaxed">
+                            Gestiona torneos, equipos y resultados con una experiencia clara, moderna y hecha para la comunidad deportiva de Madrid.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="./dist/pages/login.php" class="inline-flex items-center justify-center rounded-full bg-yellow-400 px-8 py-4 text-sm font-semibold text-slate-950 transition hover:bg-yellow-300 cta-glow">
+                                <i class="fas fa-play mr-2"></i> Comenzar ahora
+                            </a>
+                            <a href="#beneficios" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-8 py-4 text-sm font-semibold text-white transition hover:bg-white/15">
+                                <i class="fas fa-chart-line mr-2"></i> Ver beneficios
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rounded-[2rem] overflow-hidden section-glow border border-white/10">
+                        <div class="card-image h-[420px] relative">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <p class="text-sm uppercase tracking-[0.35em] text-slate-300">Torneo destacado</p>
+                                <h2 class="text-3xl font-bold mt-3">Liga urbana de voleibol</h2>
+                                <p class="mt-4 max-w-xs text-slate-200">Resultados, estadísticas y programación listo para tu equipo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" class="bg-slate-950 py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-14">
+                    <p class="text-sm uppercase tracking-[0.35em] text-yellow-400">Ventajas</p>
+                    <h2 class="mt-4 text-4xl font-bold text-white">Todo lo que tu equipo necesita</h2>
+                    <p class="mx-auto mt-4 max-w-2xl text-slate-400">Torneos, equipos, plantillas y estadísticas en una plataforma intuitiva y segura.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-slate-950/20">
+                        <div class="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-yellow-400 text-slate-950 mb-6">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Calendario</h3>
+                        <p class="text-slate-300">Organiza fechas de partidos y lleva control de cada jornada.</p>
+                    </article>
+                    <article class="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-slate-950/20">
+                        <div class="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-500 text-white mb-6">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Equipos</h3>
+                        <p class="text-slate-300">Gestiona jugadores, plantillas y posiciones para cada torneo.</p>
+                    </article>
+                    <article class="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-slate-950/20">
+                        <div class="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-violet-500 text-white mb-6">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-3">Resultados</h3>
+                        <p class="text-slate-300">Visualiza clasificaciones, victorias y estadísticas de tus partidos.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="grupos" class="py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-14">
+                    <p class="text-sm uppercase tracking-[0.35em] text-yellow-400">Grupos asociados</p>
+                    <h2 class="mt-4 text-4xl font-bold text-white">Conoce nuestra red</h2>
+                    <p class="mx-auto mt-4 max-w-2xl text-slate-400">Equipos y colectivos que ya usan Deportazo para competir y organizar.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="rounded-[2rem] overflow-hidden bg-slate-950/95 border border-white/10 shadow-xl shadow-slate-950/20">
+                        <img src="./dist/assets/img/grupos/corazonlatino.png" alt="Corazón Latino" class="h-56 w-full object-cover">
+                        <div class="p-8 text-center text-white">
+                            <h3 class="text-2xl font-semibold mb-3">Corazón Latino</h3>
+                            <p class="text-slate-400">Pasión por el voleibol en Madrid con identidad latina.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-[2rem] overflow-hidden bg-slate-950/95 border border-white/10 shadow-xl shadow-slate-950/20">
+                        <img src="./dist/assets/img/grupos/latinforce.jpg" alt="Latin Force" class="h-56 w-full object-cover">
+                        <div class="p-8 text-center text-white">
+                            <h3 class="text-2xl font-semibold mb-3">Latin Force</h3>
+                            <p class="text-slate-400">Un equipo con fuerza, disciplina y espíritu competitivo.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-[2rem] overflow-hidden bg-slate-950/95 border border-white/10 shadow-xl shadow-slate-950/20">
+                        <div class="h-56 bg-slate-800/80 flex items-center justify-center">
+                            <i class="fas fa-plus text-5xl text-yellow-400"></i>
+                        </div>
+                        <div class="p-8 text-center text-white">
+                            <h3 class="text-2xl font-semibold mb-3">Únete</h3>
+                            <p class="text-slate-400">Registra tu equipo y forma parte de la liga más activa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="bg-slate-950 py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="rounded-[2rem] border border-white/10 bg-white/5 p-12 shadow-xl shadow-slate-950/20">
+                    <div class="grid lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <p class="text-sm uppercase tracking-[0.35em] text-yellow-400">Contacto</p>
+                            <h2 class="mt-4 text-4xl font-bold text-white">¿Listo para llevar tu equipo al siguiente nivel?</h2>
+                            <p class="mt-4 text-slate-300">Escríbenos y te ayudamos a configurar tu torneo o equipo en Deportazo.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-slate-200"><i class="fas fa-envelope mr-3 text-yellow-400"></i> info@deportazo.com</p>
+                            <p class="text-slate-200"><i class="fas fa-phone mr-3 text-yellow-400"></i> +34 123 456 789</p>
+                            <p class="text-slate-200"><i class="fas fa-map-marker-alt mr-3 text-yellow-400"></i> Madrid, España</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800 bg-slate-950/95 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center text-slate-400 text-sm">
+            &copy; 2024 Deportazo. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
+</body>
+</html>
