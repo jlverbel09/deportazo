@@ -183,7 +183,7 @@
                     <img src="./dist/assets/img/grupos/corazonlatino.png" alt="Corazón Latino" class="w-24 h-24 mx-auto mb-6 rounded-full border-4 border-white">
                     <h3 class="text-2xl font-bold mb-4">Corazón Latino</h3>
                     <p class="text-blue-100 mb-6">Pasión por el voleibol en el corazón de Madrid</p>
-                    <a href="./corazonlatino" class="inline-flex items-center text-yellow-300 hover:text-yellow-400 font-medium">
+                    <a href="./corazonlatino/" class="inline-flex items-center text-yellow-300 hover:text-yellow-400 font-medium">
                         <i class="fas fa-external-link-alt mr-2"></i>
                         Visitar
                     </a>

@@ -53,18 +53,18 @@ where
 where u.id_rol  = 3 and u.id <> 3 and u.oficial = 1
 group by 1,2 order by triunfos desc,u.nombre ) union 
 
-select u.id, u.nombre, 1 as triunfos, u.foto, u.numero,1 from usuario u  
-where u.id  in (
-select ej.id_jugador  from torneo t
+select u.id, u.nombre, sum(1) as triunfos, u.foto, u.numero,1 from usuario u  
+inner join (select ej.id_jugador  from torneo t
 inner join equipos e  on e.id_torneo  = t.id 
 inner join equipo_jugador ej on ej.id_equipo = e.id and t.id = ej.id_torneo 
-where t.status  = 4 and t.id = $id_torneo) 
+where t.status  = 4 ) d on d.id_jugador  = u.id 
+group by 1,2,4,5,6 
 ) k  where k.id in ($data2Texto) group by  1,2,4,5 order by 3 desc
 	
 	
 	";
-/* 
-print_r($query);
+
+/* print_r('<pre>' . $query . '</pre>');
 die(); */
 
 $response = $conexion->query($query)->fetchAll();
