@@ -3,10 +3,10 @@ require_once './conexion.php';
 ini_set('session.gc_maxlifetime', 3600);
 session_set_cookie_params(3600);
 session_start();
-
+$grupo = $_GET['grupo'] ?? null;
 
 if (empty($_SESSION['usuario']) && $_GET['public'] == 0) {
-    header('Location: login.php');
+    header('Location: login.php?grupo=' . $grupo);
 }
 $responseTorneo = $conexion->query("select id from torneo t where status !=2  order by id desc limit 1")->fetch();
 ?>

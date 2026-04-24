@@ -1,17 +1,60 @@
+<?php
+$grupo = $_GET['grupo'] ?? null;
+
+$dataGrupo = [
+    'latinforce' => [
+        'nombre' => 'Latin Force',
+        'logo' => 'latinforce.png',
+        'slogan' => 'Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.',
+        'ubicacion_logo' => '../../dist/assets/img/grupos/latinforce2.jpg',
+        'carrusel' => [
+            '../assets/img/portadas/8.jpg',
+            '../assets/img/portadas/7.jpg',
+            '../assets/img/portadas/6.jpg',
+            '../assets/img/portadas/5.jpg',
+        ],
+        'colores' => [
+            'fondo' => '#000000',
+            'primario' => '#b40202',
+            'secundario' => '#ffffff',
+            'terciario' => '#ffffff82'
+        ],
+        'logodeportazo' => 'logo_rojo.png'
+    ],
+    'corazonlatino' => [
+        'nombre' => 'Corazón Latino',
+        'logo' => 'corazonlatino.png',
+        'slogan' => 'Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.',
+        'ubicacion_logo' => '../../dist/assets/img/grupos/corazonlatino.png',
+        'carrusel' => [
+            '../assets/img/portadas/4.jpg',
+            '../assets/img/portadas/2.jpg',
+            '../assets/img/portadas/3.jpg',
+            '../assets/img/galeria/847f24d2-67aa-47fc-bb99-f13fa11193e4.jpeg',
+        ],
+        'colores' => [
+            'fondo' => '#000000',
+            'primario' => '#0d6efd',
+            'secundario' => '#ffffff',
+            'terciario' => '#0d6efd'
+        ]
+    ]
+]
+?>
 <html lang="en" style="height: auto;">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>CORAZÓN LATINO</title>
-    <link rel="icon" href=" https://deportazo.com/dist/assets/img/grupos/corazonlatino.png" type="image/x-icon">
+    <title><?= $dataGrupo[$grupo]['nombre'] ?? 'Deportazo' ?></title>
+    <link rel="icon" href=" https://deportazo.com/<?= $grupo ?>/dist/assets/img/grupos/<?= $dataGrupo[$grupo]['logo'] ?? 'logo2.png' ?>" type="image/x-icon">
     <meta name="theme-color" content="#000000">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Corazón Latino 1.0">
+    <meta name="title" content=" <?= $dataGrupo[$grupo]['nombre'] ?? 'Deportazo' ?> 1.0">
     <meta name="author" content="Deportazo By GeorkingWeb">
     <meta name="description"
-        content="Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.">
+        content=" <?= $dataGrupo[$grupo]['slogan'] ?? 'Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.' ?>">
 
 
 
@@ -1461,7 +1504,7 @@
 <body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm" style="height: auto;">
     <div id="app" class="wrapper" data-v-app="">
         <div class="preloader flex-column justify-content-center align-items-center bg-principal" style="height: 0px;">
-            <img class="animation__wobble" src="../assets/img/galeria/847f24d2-67aa-47fc-bb99-f13fa11193e4.jpeg" alt="logo" height="60" width="60"
+            <img class="animation__wobble" src=" <?= $dataGrupo[$grupo]['ubicacion_logo'] ?? '' ?>" alt="logo" height="60" width="60"
                 style="display: none;">
         </div>
         <main class="">
@@ -1470,30 +1513,19 @@
                     <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade height-100"
                         data-bs-ride="carousel">
                         <div class="carousel-inner height-100">
-                            <!--    <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/6.jpg); background-size: cover;">
-                            </div> -->
                             <div class="carousel-item w-100 h-100 active carousel-item-start" data-bs-interval="5000"
-                                style="background-image: url(../assets/img/portadas/4.jpg); background-size: cover;">
+                                style="background-image: url(<?= $dataGrupo[$grupo]['carrusel'][0] ?? '' ?>); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/2.jpg); background-size: cover;">
+                                style="background-image: url(<?= $dataGrupo[$grupo]['carrusel'][1] ?? '' ?>); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/3.jpg); background-size: cover;">
+                                style="background-image: url(<?= $dataGrupo[$grupo]['carrusel'][2] ?? '' ?>); background-size: cover;">
                             </div>
                             <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/galeria/847f24d2-67aa-47fc-bb99-f13fa11193e4.jpeg); background-size: cover;">
+                                style="background-image: url(<?= $dataGrupo[$grupo]['carrusel'][3] ?? '' ?>); background-size: cover;">
                             </div>
-                            <!--  <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/5.jpg); background-size: cover;">
-                            </div>
-                            <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/8.jpg); background-size: cover;">
-                            </div>
-                            <div class="carousel-item w-100 h-100" data-bs-interval="3000"
-                                style="background-image: url(../assets/img/portadas/6.jpg); background-size: cover;">
-                            </div> -->
+
                         </div>
                     </div>
                     <div class="row justify-content-center d-flex align-items-center fondo">
@@ -1507,8 +1539,8 @@
 
 
                                         <img width="60%" style="    border-radius: 130px;
-    border: 3px solid #0d6efd;
-    padding: 5px;" src="../../dist/assets/img/grupos/corazonlatino.png" alt="">
+    border: 3px solid <?= $dataGrupo[$grupo]['colores']['terciario'] ?? '#ffffff82' ?>;
+    padding: 5px;" src="<?= $dataGrupo[$grupo]['ubicacion_logo'] ?? '' ?>" alt="">
                                     </h1>
 
 
@@ -1527,7 +1559,7 @@
                                         class="form-control inputs_log py-2 mb-2" name="password"
                                         placeholder="Contraseña" value="123456"></div>
                                 <div class="col-12 mb-2"><button type="button" onClick="ingresar()"
-                                        class="btn text-white w-100 mt-4 buttons_log">INGRESAR</button></div>
+                                        class="btn text-white w-100 mt-4 buttons_log" style="border: 2px solid <?= $dataGrupo[$grupo]['colores']['terciario'] ?? '#ffffff82' ?>; background-color: <?= $dataGrupo[$grupo]['colores']['primario'] ?? '#ffffff' ?>;">INGRESAR</button></div>
                                 <!-- <div class="col-md-5 pt-2">
                                     <div class="form-check"><input class="form-check-input" type="checkbox"
                                             name="remember" id="remember"><label class="form-check-label text-white"
@@ -1537,7 +1569,7 @@
                                         Usuario</a></div> -->
                                 <div class="text-center mt-5 logologin2">
                                     <a href="../../index">
-                                        <img width="70%" class=" bordered" src="../../dist/assets/img/logo.png" alt="">
+                                        <img width="70%" class=" bordered" src="../../dist/assets/img/<?= $dataGrupo[$grupo]['logodeportazo'] ?? 'logo.png' ?>" alt="">
                                     </a>
                                 </div>
                             </form>
@@ -1550,7 +1582,7 @@
 
                         <div class="text-center logo_tiktok" style="position: relative; top: -75px">
                             <a target="_blank" href="https://www.tiktok.com/@corazon__latino">
-                                <img width="5%" style=" cursor:pointer;border: 2px solid ; border-radius:10px;" src="https://img.icons8.com/color/512/tiktok.png" alt="">
+                                <img width="5%" style=" cursor:pointer;border: 2px solid <?= $dataGrupo[$grupo]['colores']['terciario'] ?? '#ffffff82' ?>; border-radius:10px;" src="https://img.icons8.com/color/512/tiktok.png" alt="">
                             </a>
                         </div>
                     </div>
