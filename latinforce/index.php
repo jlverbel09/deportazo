@@ -24,7 +24,7 @@ if (isset($_GET['public'])) {
 
   <!-- META TAGS LATIN FORCE -->
   <title>LATIN FORCE</title>
-  <link rel="icon" href=" https://deportazo.com/dist/assets/img/grupos/latinforce.png" type="image/x-icon">
+  <link rel="icon" href=" https://deportazo.com/dist/assets/img/grupos/latinforce2.jpg" type="image/x-icon">
   <meta name="theme-color" content="#000000">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="title" content="Latin Force 1.0">
