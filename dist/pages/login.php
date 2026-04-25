@@ -19,7 +19,10 @@ $dataGrupo = [
             'secundario' => '#ffffff',
             'terciario' => '#ffffff82'
         ],
-        'logodeportazo' => 'logo_rojo.png'
+        'logodeportazo' => 'logo_rojo.png',
+        'redes' => [
+            'tiktok' => 'https://www.tiktok.com/@latin.force1503',
+        ]
     ],
     'corazonlatino' => [
         'nombre' => 'Corazón Latino',
@@ -37,7 +40,11 @@ $dataGrupo = [
             'primario' => '#0d6efd',
             'secundario' => '#ffffff',
             'terciario' => '#0d6efd'
-        ]
+        ],
+        'logodeportazo' => 'logo.png',
+        'redes' => [
+            'tiktok' => 'https://www.tiktok.com/@corazon__latino',
+        ],
     ]
 ]
 ?>
@@ -1581,7 +1588,7 @@ $dataGrupo = [
                         </div>
 
                         <div class="text-center logo_tiktok" style="position: relative; top: -75px">
-                            <a target="_blank" href="https://www.tiktok.com/@corazon__latino">
+                            <a target="_blank" href="<?= $dataGrupo[$grupo]['redes']['tiktok'] ?? '' ?>">
                                 <img width="5%" style=" cursor:pointer;border: 2px solid <?= $dataGrupo[$grupo]['colores']['terciario'] ?? '#ffffff82' ?>; border-radius:10px;" src="https://img.icons8.com/color/512/tiktok.png" alt="">
                             </a>
                         </div>
