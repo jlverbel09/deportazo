@@ -5,7 +5,7 @@ $dataGrupo = [
     'latinforce' => [
         'nombre' => 'Latin Force',
         'logo' => 'latinforce.png',
-        'slogan' => 'Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.',
+        'slogan' => 'Fuerza y determinación en cada partido',
         'ubicacion_logo' => '../../dist/assets/img/grupos/latinforce2.jpg',
         'carrusel' => [
             '../assets/img/portadas/22.jpg',

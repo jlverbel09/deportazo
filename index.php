@@ -190,15 +190,15 @@
                 </div>
 
                 <!-- Latin Force -->
-                <!-- <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl p-8 text-white text-center hover:shadow-2xl transition-shadow">
-                    <img src="./dist/assets/img/grupos/latinforce.jpg" alt="Latin Force" class="w-24 h-24 mx-auto mb-6 rounded-full border-4 border-white object-cover">
+                <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl p-8 text-white text-center hover:shadow-2xl transition-shadow">
+                    <img src="./dist/assets/img/grupos/latinforce2.jpg" alt="Latin Force" class="w-24 h-24 mx-auto mb-6 rounded-full border-4 border-white object-cover">
                     <h3 class="text-2xl font-bold mb-4">Latin Force</h3>
                     <p class="text-red-100 mb-6">Fuerza y determinación en cada partido</p>
                     <a href="./latinforce" class="inline-flex items-center text-yellow-300 hover:text-yellow-400 font-medium">
                         <i class="fas fa-external-link-alt mr-2"></i>
                         Visitar
                     </a>
-                </div> -->
+                </div>
 
                 <!-- Más grupos pueden agregarse aquí -->
                 <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-8 text-white text-center hover:shadow-2xl transition-shadow opacity-75">
