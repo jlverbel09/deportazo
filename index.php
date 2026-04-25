@@ -183,9 +183,9 @@
                     <img src="./dist/assets/img/grupos/corazonlatino.png" alt="Corazón Latino" class="w-24 h-24 mx-auto mb-6 rounded-full border-4 border-white">
                     <h3 class="text-2xl font-bold mb-4">Corazón Latino</h3>
                     <p class="text-blue-100 mb-6">Pasión por el voleibol en el corazón de Madrid</p>
-                    <a href="./corazonlatino/" class="inline-flex items-center text-yellow-300 hover:text-yellow-400 font-medium">
+                    <a target="_blank" href="./corazonlatino/" class="inline-flex items-center text-yellow-300 hover:text-yellow-400 font-medium">
                         <i class="fas fa-external-link-alt mr-2"></i>
-                        Visitar
+                        Acceder
                     </a>
                 </div>
 
@@ -194,9 +194,9 @@
                     <img src="./dist/assets/img/grupos/latinforce2.jpg" alt="Latin Force" class="w-24 h-24 mx-auto mb-6 rounded-full border-4 border-white object-cover">
                     <h3 class="text-2xl font-bold mb-4">Latin Force</h3>
                     <p class="text-red-100 mb-6">Fuerza y determinación en cada partido</p>
-                    <a href="./latinforce" class="inline-flex items-center text-yellow-300 hover:text-yellow-400 font-medium">
+                    <a target="_blank" href="./latinforce" class="inline-flex items-center text-yellow-300 hover:text-yellow-400 font-medium">
                         <i class="fas fa-external-link-alt mr-2"></i>
-                        Visitar
+                        Acceder
                     </a>
                 </div>
 
@@ -207,7 +207,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Únete</h3>
                     <p class="text-green-100 mb-6">¿Tienes un equipo? Regístrate ahora</p>
-                    <a href="./dist/pages/login.php" class="inline-flex items-center text-yellow-300 hover:text-yellow-400 font-medium">
+                    <a href="https://wa.me/34642158162?text=Hola,%20me%20gustaria%20obtener%20informacion%20para%20unirme%20a%20la%20comunidad%20deportazo." class="inline-flex bg-white p-2 border border-gray-300 rounded text-gray-900 items-center hover:bg-gray-200 font-medium">
                         <i class="fas fa-user-plus mr-2"></i>
                         Registrarse
                     </a>

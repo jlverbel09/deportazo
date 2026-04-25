@@ -19,7 +19,7 @@ $dataGrupo = [
             'secundario' => '#ffffff',
             'terciario' => '#ffffff82'
         ],
-        'logodeportazo' => 'logo_rojo.png',
+        'logodeportazo' => 'logo_plateado.png',
         'redes' => [
             'tiktok' => 'https://www.tiktok.com/@latin.force1503',
         ]
@@ -1547,7 +1547,7 @@ $dataGrupo = [
 
                                         <img width="60%" style="    border-radius: 130px;
     border: 3px solid <?= $dataGrupo[$grupo]['colores']['terciario'] ?? '#ffffff82' ?>;
-    padding: 5px;" src="<?= $dataGrupo[$grupo]['ubicacion_logo'] ?? '' ?>" alt="">
+    padding: 5px;" src="<?= $dataGrupo[$grupo]['ubicacion_logo'] ?? '../../dist/assets/img/logo2.png' ?>" alt="">
                                     </h1>
 
 
