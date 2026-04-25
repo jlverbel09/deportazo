@@ -35,7 +35,7 @@ if (isset($_GET['public'])) {
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <meta property="og:title" content="LATIN FORCE">
   <meta property="og:description" content="Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.">
-  <meta property="og:image" content="https://deportazo.com/dist/assets/img/grupos/latinforce.png">
+  <meta property="og:image" content="https://deportazo.com/dist/assets/img/grupos/latinforce2.jpg">
   <meta property="og:url" content="https://deportazo.com/latinforce">
   <meta property="og:type" content="website">
 

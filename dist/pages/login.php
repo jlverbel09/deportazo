@@ -8,10 +8,10 @@ $dataGrupo = [
         'slogan' => 'Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.',
         'ubicacion_logo' => '../../dist/assets/img/grupos/latinforce2.jpg',
         'carrusel' => [
-            '../assets/img/portadas/8.jpg',
-            '../assets/img/portadas/7.jpg',
-            '../assets/img/portadas/6.jpg',
-            '../assets/img/portadas/5.jpg',
+            '../assets/img/portadas/22.jpg',
+            '../assets/img/portadas/33.jpg',
+            '../assets/img/portadas/44.jpg',
+            '../assets/img/portadas/11.jpg',
         ],
         'colores' => [
             'fondo' => '#000000',
