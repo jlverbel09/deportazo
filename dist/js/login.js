@@ -11,7 +11,7 @@ function ingresar() {
 
             respuesta = JSON.parse(respuesta)
             if (respuesta.status == 'success') {
-                location.href = 'index'
+                location.href = 'index.php?grupo='+respuesta.grupo
             } else {
                 alert(respuesta.response)
             }
@@ -30,7 +30,7 @@ function cerrarSesion(){
         success: function (respuesta) {
             
             if (respuesta.response == 1) {
-                location.href = 'login.php'
+                location.href = 'login.php?grupo=' + respuesta.grupo;
             }
 
 

@@ -3,7 +3,7 @@
 require_once '../conexion.php';
 
 
-session_start();
+require_once 'group.php';
 
 $listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and convocado = 1")->fetchAll();
 

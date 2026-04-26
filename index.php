@@ -205,8 +205,8 @@
                     <div class="w-24 h-24 mx-auto mb-6 rounded-full border-4 border-white bg-white/20 flex items-center justify-center">
                         <i class="fas fa-plus text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Únete</h3>
-                    <p class="text-green-100 mb-6">¿Tienes un equipo? Regístrate ahora</p>
+                    <h3 class="text-2xl font-bold mb-4">Únance</h3>
+                    <p class="text-green-100 mb-6">¿Tienen un grupo? Regístrate ahora</p>
                     <a href="https://wa.me/34642158162?text=Hola,%20me%20gustaria%20obtener%20informacion%20para%20unirme%20a%20la%20comunidad%20deportazo." class="inline-flex bg-white p-2 border border-gray-300 rounded text-gray-900 items-center hover:bg-gray-200 font-medium">
                         <i class="fas fa-user-plus mr-2"></i>
                         Registrarse

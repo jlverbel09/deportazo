@@ -12,13 +12,13 @@ if (empty($responseTorneo['id'])) {
 
 <?php if ((isset($_GET['public']) && $_GET['public'] == 0) || !isset($_GET['public'])): ?>
 
-    <aside class="app-sidebar bg-principal shadow" data-bs-theme="dark">
+    <aside class="app-sidebar bg-principal shadow" data-bs-theme="dark" style="background-color: <?= $dataGrupo[$grupo]['colores']['cuaternario'] ?? '#223143' ?> !important;">
         <!--begin::Sidebar Brand-->
-        <div class="sidebar-brand justify-content-start ">
+        <div class="sidebar-brand justify-content-start " style="background-color: <?= $dataGrupo[$grupo]['colores']['quinto'] ?? '#000' ?> !important;">
             <!--begin::Brand Link--> <a href="#" onClick="redireccion('inicio')" class="brand-link">
                 <!--begin::Brand Image-->
 
-                <img src="../../dist/assets/img/logo.png"
+                <img src="../../dist/assets/img/<?= $dataGrupo[$grupo]['logodeportazo'] ?? 'default.png' ?>"
                     style="width: 100%; max-height: initial !important;" alt="AdminLTE Logo"
                     class="brand-image  shadow">
                 <!--end::Brand Image-->
@@ -56,7 +56,7 @@ if (empty($responseTorneo['id'])) {
 
                     <li>
                         <div class="logotipo">
-                            <img src="../assets/img/grupos/corazonlatino.png" alt="" width="auto">
+                            <img src="../assets/img/grupos/<?= $dataGrupo[$grupo]['logo'] ?? 'default.png' ?>" alt="" width="auto">
                         </div>
                     </li>
 

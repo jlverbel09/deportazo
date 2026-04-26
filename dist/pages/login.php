@@ -1,53 +1,12 @@
 <?php
-$grupo = $_GET['grupo'] ?? null;
-
-$dataGrupo = [
-    'latinforce' => [
-        'nombre' => 'Latin Force',
-        'logo' => 'latinforce.png',
-        'slogan' => 'Fuerza y determinación en cada partido',
-        'ubicacion_logo' => '../../dist/assets/img/grupos/latinforce2.jpg',
-        'carrusel' => [
-            '../assets/img/portadas/22.jpg',
-            '../assets/img/portadas/33.jpg',
-            '../assets/img/portadas/44.jpg',
-            '../assets/img/portadas/11.jpg',
-        ],
-        'colores' => [
-            'fondo' => '#000000',
-            'primario' => '#b40202',
-            'secundario' => '#ffffff',
-            'terciario' => '#ffffff82'
-        ],
-        'logodeportazo' => 'logo_plateado.png',
-        'redes' => [
-            'tiktok' => 'https://www.tiktok.com/@latin.force1503',
-        ]
-    ],
-    'corazonlatino' => [
-        'nombre' => 'Corazón Latino',
-        'logo' => 'corazonlatino.png',
-        'slogan' => 'Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.',
-        'ubicacion_logo' => '../../dist/assets/img/grupos/corazonlatino.png',
-        'carrusel' => [
-            '../assets/img/portadas/4.jpg',
-            '../assets/img/portadas/2.jpg',
-            '../assets/img/portadas/3.jpg',
-            '../assets/img/galeria/847f24d2-67aa-47fc-bb99-f13fa11193e4.jpeg',
-        ],
-        'colores' => [
-            'fondo' => '#000000',
-            'primario' => '#0d6efd',
-            'secundario' => '#ffffff',
-            'terciario' => '#0d6efd'
-        ],
-        'logodeportazo' => 'logo.png',
-        'redes' => [
-            'tiktok' => 'https://www.tiktok.com/@corazon__latino',
-        ],
-    ]
-]
+session_start();
+$grupo = $_GET['grupo'] ?? $_SESSION['grupo'] ?? null;
+if (!empty($_GET['grupo'])) {
+    $_SESSION['grupo'] = $grupo;
+}
+include '../../grupos/datosGrupo.php';
 ?>
+
 <html lang="en" style="height: auto;">
 
 <head>

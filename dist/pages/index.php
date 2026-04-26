@@ -1,6 +1,8 @@
 <?php
+$grupo = $_GET['grupo'] ?? null;
 
- include './layouts/header.php';
+include '../../grupos/datosGrupo.php';
+include './layouts/header.php';
 
 ?>
 <div class="row justify-content-center" id="contenido">

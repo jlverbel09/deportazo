@@ -2,6 +2,7 @@
 
 require_once '../conexion.php';
 session_start();
+$grupo = $_GET['grupo'] ?? $_SESSION['grupo'] ?? null;
 $data = (object) [];
 
 if (!empty($_GET['accion']) && $_GET['accion'] == 'iniciarSesion') {
@@ -23,17 +24,20 @@ if (!empty($_GET['accion']) && $_GET['accion'] == 'iniciarSesion') {
         } else {
             $data->response = 'Contraseña incorrecta';
         }
+        $data->grupo = $grupo;
     } else {
         $data->response = 'Usuario no encontrado';
+        $data->grupo = $grupo;
     }
 }
 
 if (!empty($_GET['accion']) && $_GET['accion'] == 'destruirSesion') {
-    if(session_destroy()){
+    if (session_destroy()) {
         $data->response = 1;
-    }else{
+    } else {
         $data->response = 0;
     }
+    $data->grupo = $grupo;
 }
 
 echo json_encode($data);

@@ -11,7 +11,7 @@
 
 
 <?php if ((isset($_GET['public']) && $_GET['public'] == 0) || !isset($_GET['public'])): ?>
-    <footer class="main-footer bg-principal text-secondary border-0 text-center p-0 footerText ">
+    <footer class="main-footer bg-principal text-secondary border-0 text-center p-0 footerText " style="background-color: <?= $dataGrupo[$grupo]['colores']['quinto'] ?? '#223143' ?> !important;">
         <strong>Copyright © 2025 <a href="https://georkingweb.com/portafolioweb/">GeorkingWeb S.A </a>.</strong> Todos los derechos reservados.
 
         <div class="float-end  d-sm-block"><b> Version</b> 1.1.0 </div>

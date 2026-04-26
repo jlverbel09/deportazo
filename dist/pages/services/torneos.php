@@ -2,7 +2,7 @@
 
 require_once '../conexion.php';
 
-session_start();
+require_once 'group.php';
 if (isset($_GET['torneo'])) {
     $_GET['id_torneo'] = $_GET['torneo'];
     $link = '';

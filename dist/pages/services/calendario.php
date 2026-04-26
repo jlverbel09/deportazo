@@ -1,6 +1,6 @@
 <?php
 require_once '../conexion.php';
-session_start();
+require_once 'group.php';
 
 // Get all matches with dates
 $query = "SELECT e.*, t.nombre as torneo_nombre, t.fecha as torneo_fecha,

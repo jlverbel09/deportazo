@@ -2,7 +2,7 @@
 
 require_once '../conexion.php';
 
-session_start();
+require_once 'group.php';
 $listTorneos = '';
 $selected = '';
 $conten = '';

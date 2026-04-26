@@ -12,7 +12,7 @@
 </style>
 
 <?php if ((isset($_GET['public']) && $_GET['public'] == 0) || !isset($_GET['public'])): ?>
-<nav class="app-header navbar navbar-expand bg-principal">
+<nav class="app-header navbar navbar-expand bg-principal" style="background-color: <?= $dataGrupo[$grupo]['colores']['sexto'] ?? '#000' ?> !important;" data-bs-theme="dark">
     <!--begin::Container-->
     <div class="container-fluid">
         <!--begin::Start Navbar Links-->
@@ -21,7 +21,7 @@
                         class="bi bi-list"></i> </a>
             </li>
             <li class="nav-item pt-2 ps-2">
-                <b  class="shadows-into-light-regular text-white">🏐CORAZÓN LATINO🏐</b>
+                <b  class="shadows-into-light-regular text-white">🏐<?= strtoupper($dataGrupo[$grupo]['nombre'] ?? 'Deportazo') ?>🏐</b>
             </li>
             <!-- <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Home</a> </li> -->
             <!--  <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Amigos</a> </li>
@@ -143,7 +143,7 @@
                     </span> </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
 
-                    <li class="user-header text-bg-primary"> <img src="../../dist/assets/img/avatar/<?= ($_SESSION['usuario']['avatar']) ?>"
+                    <li class="user-header text-bg-primary" style="background-color: <?= $dataGrupo[$grupo]['colores']['quinto'] ?? '#223143' ?> !important;"> <img src="../../dist/assets/img/avatar/<?= ($_SESSION['usuario']['avatar']) ?>"
                             class="rounded-circle shadow" alt="User Image">
                         <p>
                             <?= ucwords($_SESSION['usuario']['nombre']) ?>
