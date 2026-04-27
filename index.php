@@ -82,6 +82,11 @@
             background-size: cover;
             background-position: center;
         }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -96,8 +101,8 @@
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#inicio" class="text-white hover:text-blue-200 transition-colors">Inicio</a>
-                    <a href="#torneos" class="text-white hover:text-blue-200 transition-colors">Torneos</a>
-                    <a href="#equipos" class="text-white hover:text-blue-200 transition-colors">Equipos</a>
+                    <a href="#torneo" class="text-white hover:text-blue-200 transition-colors">Torneo</a>
+                    <a href="#grupos" class="text-white hover:text-blue-200 transition-colors">Grupos</a>
                     <a href="#contacto" class="text-white hover:text-blue-200 transition-colors">Contacto</a>
                 </div>
                 <div class="flex space-x-4">
@@ -145,7 +150,17 @@
                         <div class="flex items-center justify-between mb-6">
                             <div>
                                 <p class="text-sm uppercase tracking-[0.2em] text-slate-300">Estadísticas</p>
-                                <h2 class="text-3xl font-bold">+120</h2>
+                                <h2 class="text-3xl font-bold">
+                                    <?php
+                                    try {
+                                        require_once './dist/pages/conexion.php';
+                                        $torneosCount = $conexion->query("SELECT COUNT(*) as total FROM torneo WHERE status != 2")->fetch();
+                                        echo '+' . $torneosCount['total'];
+                                    } catch (Exception $e) {
+                                        echo '+120';
+                                    }
+                                    ?>
+                                </h2>
                             </div>
                             <div class="rounded-3xl bg-slate-950/30 p-4 text-yellow-400">
                                 <i class="fas fa-trophy fa-lg"></i>
@@ -208,9 +223,328 @@
                     <h3 class="text-2xl font-bold mb-4">Únance</h3>
                     <p class="text-green-100 mb-6">¿Tienen un grupo? Regístrate ahora</p>
                     <a href="https://wa.me/34642158162?text=Hola,%20me%20gustaria%20obtener%20informacion%20para%20unirme%20a%20la%20comunidad%20deportazo." class="inline-flex bg-white p-2 border border-gray-300 rounded text-gray-900 items-center hover:bg-gray-200 font-medium">
-                        <i class="fas fa-user-plus mr-2"></i>
+                        <i class="fab fa-whatsapp mr-2"></i>
                         Registrarse
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Último Torneo Section -->
+    <section id="torneo" class="py-20 bg-gradient-to-br from-slate-900 to-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Último Torneo</h2>
+                <p class="text-xl text-slate-300">Tabla de posiciones de los grupos participantes</p>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-white">
+                        <thead>
+                            <tr class="border-b border-white/20 bg-white/5">
+                                <th class="px-6 py-4 text-left font-semibold">Posición</th>
+                                <th class="px-6 py-4 text-left font-semibold">Equipo</th>
+                                <th class="px-6 py-4 text-center font-semibold">PJ</th>
+                                <th class="px-6 py-4 text-center font-semibold">G</th>
+                                <th class="px-6 py-4 text-center font-semibold">P</th>
+                                <th class="px-6 py-4 text-center font-semibold">AF</th>
+                                <th class="px-6 py-4 text-center font-semibold">AC</th>
+                                <th class="px-6 py-4 text-center font-semibold">DA</th>
+                                <th class="px-6 py-4 text-center font-semibold">Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="px-6 py-4 text-center font-bold text-yellow-400">1</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="./dist/assets/img/logo2.png" alt="Corazón Latino" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold">Corazón Latino</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center text-green-400">10</td>
+                                <td class="px-6 py-4 text-center text-red-400">2</td>
+                                <td class="px-6 py-4 text-center text-blue-400">180</td>
+                                <td class="px-6 py-4 text-center text-red-400">135</td>
+                                <td class="px-6 py-4 text-center text-blue-400">+45</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">30</td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="px-6 py-4 text-center font-bold text-yellow-400">2</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="./dist/assets/img/logo2.png" alt="Latin Force" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold">Latin Force</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center text-green-400">8</td>
+                                <td class="px-6 py-4 text-center text-red-400">4</td>
+                                <td class="px-6 py-4 text-center text-blue-400">165</td>
+                                <td class="px-6 py-4 text-center text-red-400">137</td>
+                                <td class="px-6 py-4 text-center text-blue-400">+28</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">24</td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="px-6 py-4 text-center font-bold text-yellow-400">3</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="./dist/assets/img/logo2.png" alt="Volley Masters" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold">Volley Masters</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center text-green-400">7</td>
+                                <td class="px-6 py-4 text-center text-red-400">5</td>
+                                <td class="px-6 py-4 text-center text-blue-400">145</td>
+                                <td class="px-6 py-4 text-center text-red-400">157</td>
+                                <td class="px-6 py-4 text-center text-red-400">-12</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">21</td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="px-6 py-4 text-center font-bold text-yellow-400">4</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="./dist/assets/img/logo2.png" alt="Beach Warriors" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold">Beach Warriors</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center text-green-400">6</td>
+                                <td class="px-6 py-4 text-center text-red-400">6</td>
+                                <td class="px-6 py-4 text-center text-blue-400">140</td>
+                                <td class="px-6 py-4 text-center text-red-400">158</td>
+                                <td class="px-6 py-4 text-center text-red-400">-18</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">18</td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="px-6 py-4 text-center font-bold text-yellow-400">5</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="./dist/assets/img/logo2.png" alt="Spike Attack" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold">Spike Attack</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center text-green-400">4</td>
+                                <td class="px-6 py-4 text-center text-red-400">8</td>
+                                <td class="px-6 py-4 text-center text-blue-400">125</td>
+                                <td class="px-6 py-4 text-center text-red-400">168</td>
+                                <td class="px-6 py-4 text-center text-red-400">-43</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="px-6 py-4 bg-white/5 border-t border-white/20 text-right">
+                    <a href="#grupos" class="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-semibold transition-colors">
+                        Ver más torneos
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Siguiente Fase -->
+            <div class="mt-16">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-white mb-4">Siguiente Fase</h3>
+                    <p class="text-lg text-slate-300">Árbol de Eliminatorias</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 relative overflow-hidden">
+                    <!-- Árbol de Eliminatorias -->
+                    <div class="relative min-h-[400px]">
+
+                        <!-- Semifinal - Nivel inferior -->
+                        <div class="flex justify-between items-end mb-16 relative">
+                            <!-- Equipo 2 (Latin Force) -->
+                            <div class="flex flex-col items-center gap-4 w-1/3">
+                                <div class="bg-white/10 rounded-lg p-4 w-full max-w-[200px] border border-slate-600">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <img src="./dist/assets/img/logo2.png" alt="Latin Force" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold text-white">Latin Force</span>
+                                    </div>
+                                    <div class="text-sm text-slate-300">2do lugar - 24 pts</div>
+                                </div>
+                                <!-- Línea horizontal hacia el centro -->
+                                <div class="w-full h-0.5 bg-yellow-400 relative">
+                                    <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <!-- Espacio central para semifinal -->
+                            <div class="w-1/3 flex justify-center">
+                                <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg p-4 min-w-[200px] border-2 border-yellow-400 shadow-lg">
+                                    <div class="text-center">
+                                        <i class="fas fa-trophy text-yellow-400 text-xl mb-2"></i>
+                                        <div class="text-white font-semibold text-sm">Semifinal</div>
+                                        <div class="text-yellow-100 text-xs">Ganador</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Equipo 3 (Volley Masters) -->
+                            <div class="flex flex-col items-center gap-4 w-1/3">
+                                <!-- Línea horizontal desde el centro -->
+                                <div class="w-full h-0.5 bg-yellow-400 relative">
+                                    <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                </div>
+                                <div class="bg-white/10 rounded-lg p-4 w-full max-w-[200px] border border-slate-600">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <img src="./dist/assets/img/logo2.png" alt="Volley Masters" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold text-white">Volley Masters</span>
+                                    </div>
+                                    <div class="text-sm text-slate-300">3er lugar - 21 pts</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Línea vertical conectando semifinal con final -->
+                        <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-0.5 h-16 bg-yellow-400"></div>
+
+                        <!-- Final - Nivel superior -->
+                        <div class="flex justify-center items-start relative">
+                            <!-- Equipo 1 (Corazón Latino) -->
+                            <div class="flex flex-col items-center gap-4 mr-8">
+                                <div class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg p-4 min-w-[200px] border-2 border-blue-400 shadow-lg">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <img src="./dist/assets/img/logo2.png" alt="Corazón Latino" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold text-white">Corazón Latino</span>
+                                    </div>
+                                    <div class="text-blue-100 text-sm">1er lugar - 30 pts</div>
+                                </div>
+                                <!-- Línea horizontal hacia la final -->
+                                <div class="w-16 h-0.5 bg-blue-400 relative">
+                                    <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-blue-400 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <!-- VS -->
+                            <div class="flex flex-col items-center justify-center mx-4">
+                                <div class="text-blue-400 text-2xl font-bold mb-2">VS</div>
+                                <div class="text-slate-400 text-sm">Final</div>
+                            </div>
+
+                            <!-- Ganador Semifinal -->
+                            <div class="flex flex-col items-center gap-4 ml-8">
+                                <!-- Línea horizontal desde la semifinal -->
+                                <div class="w-16 h-0.5 bg-yellow-400 relative">
+                                    <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                </div>
+                                <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg p-4 min-w-[200px] border-2 border-yellow-400 shadow-lg">
+                                    <div class="text-center">
+                                        <i class="fas fa-trophy text-yellow-400 text-xl mb-2"></i>
+                                        <div class="text-white font-semibold text-sm">Ganador</div>
+                                        <div class="text-yellow-100 text-xs">Semifinal</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Campeón -->
+                        <div class="flex justify-center mt-12">
+                            <div class="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-6 min-w-[250px] border-2 border-purple-400 shadow-2xl">
+                                <div class="text-center">
+                                    <i class="fas fa-crown text-yellow-400 text-3xl mb-3"></i>
+                                    <div class="text-white font-bold text-lg">Campeón del Torneo</div>
+                                    <div class="text-purple-200 text-sm mt-1">Ganador de la Final</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20 bg-gradient-to-br from-slate-800 to-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Contacto</h2>
+                <p class="text-xl text-slate-300">Conecta con la comunidad del voleibol de Madrid</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Información de Contacto -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Información de Contacto</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-blue-500 p-3 rounded-lg">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">Ubicación</h4>
+                                    <p class="text-slate-300">Madrid, España</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-green-500 p-3 rounded-lg">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">Email</h4>
+                                    <p class="text-slate-300">info@deportazo.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-purple-500 p-3 rounded-lg">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">Teléfono</h4>
+                                    <p class="text-slate-300">+34 600 000 000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociales -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Síguenos</h3>
+                        <div class="flex gap-4">
+                            <a href="#" class="bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors">
+                                <i class="fab fa-facebook-f text-blue-400 text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors">
+                                <i class="fab fa-instagram text-pink-400 text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors">
+                                <i class="fab fa-twitter text-blue-300 text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors">
+                                <i class="fab fa-youtube text-red-400 text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Envíanos un Mensaje</h3>
+                    <form class="space-y-6">
+                        <div >
+                                <label class="block text-sm font-medium text-slate-300 mb-2">Nombre</label>
+                                <input type="text" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tu nombre">
+                            
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Asunto</label>
+                            <input type="text" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Asunto del mensaje">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Mensaje</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" placeholder="Tu mensaje..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800">
+                            Enviar Mensaje
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -259,5 +593,16 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
     <script src="./dist/js/login.js"></script>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34642158162?text=Hola,%20me%20gustaría%20información%20sobre%20Deportazo"
+       target="_blank"
+       class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50 group">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            ¡Contáctanos por WhatsApp!
+        </span>
+    </a>
+
 </body>
 </html>
