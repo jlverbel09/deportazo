@@ -3,11 +3,11 @@ require_once '../conexion.php';
 $data =  (object) [];
 
 if (isset($_POST['accion']) && $_POST['accion'] == 'crear'){
-
+    session_start();
     $hashedPassword = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
     
-    $stm = $conexion->prepare("INSERT INTO usuario (nombre, `user`, password, correo, avatar, id_rol, created_at)  
-    VALUES (?,?,?,?,?,?,?)");
+    $stm = $conexion->prepare("INSERT INTO usuario (nombre, `user`, password, correo, avatar, id_rol, created_at, id_grupo)  
+    VALUES (?,?,?,?,?,?,?,?)");
     
     /* 
     print_r($_POST);
@@ -19,7 +19,8 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear'){
         $_POST['correo'],
         'default.png',
         3,
-        date('Y-m-d')
+        date('Y-m-d'),
+        $_SESSION['usuario']['id_grupo'] ?? 0
     ]);
     
     $data = [
