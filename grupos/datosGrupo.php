@@ -6,6 +6,8 @@ $dataGrupo = [
         'logo' => 'latinforce2.jpg',
         'slogan' => 'Fuerza y determinación en cada partido',
         'ubicacion_logo' => '../../dist/assets/img/grupos/latinforce2.jpg',
+        'imagenApp' => '../../dist/assets/img/grupos/latinforce2.jpg',
+        'apk' => '../../grupos/latinforce/appLatinForce.apk',
         'carrusel' => [
             '../assets/img/portadas/22.jpg',
             '../assets/img/portadas/33.jpg',
@@ -33,6 +35,8 @@ $dataGrupo = [
         'logo' => 'corazonlatino.png',
         'slogan' => 'Pasión por el voleibol en el corazón de Madrid: aquí cada set se juega como una final.',
         'ubicacion_logo' => '../../dist/assets/img/grupos/corazonlatino.png',
+        'imagenApp' => '../../dist/assets/img/grupos/corazonlatino.png',
+        'apk' => '../../grupos/corazonlatino/appCorazonLatino.apk',
         'carrusel' => [
             '../assets/img/portadas/4.jpg',
             '../assets/img/portadas/2.jpg',
