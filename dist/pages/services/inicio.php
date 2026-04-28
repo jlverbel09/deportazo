@@ -3,18 +3,31 @@
         require_once 'group.php';
         include './../../../grupos/datosGrupo.php';
         require_once '../conexion.php';
-        $miembros = $conexion->query("select count(1) from usuario where id_rol in (3) and oficial = 1")->fetch();
-        $torneos = $conexion->query("select count(*) from torneo where status != 2")->fetch();
-        $fotos = $conexion->query("select count(*) from fotos f inner join torneo t on t.id  = f.id_torneo  where t.status  != 2")->fetch();
+        
+        // Validar que existe el grupo en la sesión
+        $id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+        $grupo = isset($_SESSION['usuario']['nombre_grupo']) ? $_SESSION['usuario']['nombre_grupo'] : null;
+
+        /* print_r($_SESSION['usuario']); */
+        if (!$id_grupo) {
+            die('Error: No autorizado. Grupo no identificado.');
+        }
+        
+        // Consulta de miembros del grupo
+        $miembros = $conexion->query("select count(1) from usuario where id_rol in (3) and oficial = 1 and id IN (select id_jugador from equipo_jugador where id_grupo = '$id_grupo')")->fetch();
+        // Consulta de torneos del grupo
+        $torneos = $conexion->query("select count(*) from torneo where status != 2 and id_grupo = '$id_grupo'")->fetch();
+        // Consulta de fotos del grupo
+        $fotos = $conexion->query("select count(*) from fotos f inner join torneo t on t.id = f.id_torneo where t.status != 2 and t.id_grupo = '$id_grupo'")->fetch();
         $triunfos = $conexion->query("select count(u.id) from enfrentamientos2 en
 inner join equipos e  on e.id = en.ganador 
 inner join equipo_jugador ej  on ej.id_torneo = en.id_torneo and ej.id_equipo = e.id 
 inner join usuario u on u.id = ej.id_jugador  
 inner join torneo t on t.id = e.id_torneo 
-where  
+where t.id_grupo = '$id_grupo' and
 	case 
-		when t.tipo = 1 or t.tipo = 2 then fase = 3 
-		when t.tipo = 3 then fase = 2 
+		when t.tipo = 1 or t.tipo = 2 then en.fase = 3 
+		when t.tipo = 3 then en.fase = 2 
 	end 
 	")->fetch();
 

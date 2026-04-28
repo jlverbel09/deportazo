@@ -2,10 +2,11 @@
 function ingresar() {
     let user = $('#user').val();
     let password = $('#password').val();
+    let grupo = $('#_grupo').val();
     $.ajax({
         type: "POST",
         url: './services/login.php?accion=iniciarSesion',
-        data: { user: user, password: password },
+        data: { user: user, password: password, grupo: grupo },
         dataType: "html",
         success: function (respuesta) {
 

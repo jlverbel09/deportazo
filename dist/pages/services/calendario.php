@@ -2,13 +2,19 @@
 require_once '../conexion.php';
 require_once 'group.php';
 
+// Validar que existe el grupo en la sesión
+$id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+if (!$id_grupo) {
+    die('Error: No autorizado. Grupo no identificado.');
+}
+
 // Get all matches with dates
 $query = "SELECT e.*, t.nombre as torneo_nombre, t.fecha as torneo_fecha,
           e2.nombre as equipo_local, e3.nombre as equipo_visitante,
           DATE_FORMAT(e.fecha, '%Y-%m-%d') as fecha_formateada,
           DATE_FORMAT(e.fecha, '%W %d %M %Y') as fecha_legible
           FROM enfrentamientos2 e
-          INNER JOIN torneo t ON t.id = e.id_torneo
+          INNER JOIN torneo t ON t.id = e.id_torneo AND t.id_grupo = '$id_grupo'
           INNER JOIN equipos e2 ON e2.id = e.id_equipo_local
           INNER JOIN equipos e3 ON e3.id = e.id_equipo_visitante
           WHERE e.fecha IS NOT NULL AND e.fecha != '0000-00-00'

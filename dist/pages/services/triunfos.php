@@ -9,6 +9,13 @@ if (isset($_GET['torneo'])) {
 }
 
 require_once '../conexion.php';
+require_once 'group.php';
+
+// Validar que existe el grupo en la sesión
+$id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+if (!$id_grupo) {
+    die('Error: No autorizado. Grupo no identificado.');
+}
 
 $query = "select id, nombre, sum(triunfos) as triunfos, foto, numero from ((select u.id, u.nombre, count(j.id) as triunfos, u.foto, u.numero,0 from usuario u  
 left join (select u.* from enfrentamientos2 en
@@ -16,21 +23,22 @@ inner join equipos e  on e.id = en.ganador
 inner join equipo_jugador ej  on ej.id_torneo = en.id_torneo and ej.id_equipo = e.id 
 inner join usuario u on u.id = ej.id_jugador  
 inner join torneo t on t.id = e.id_torneo 
-where  
+where t.id_grupo = '$id_grupo' and
 	case 
-		when t.tipo = 1 or t.tipo = 2 then fase = 3 
-		when t.tipo not in (1,2) then fase = 2 
+		when t.tipo = 1 or t.tipo = 2 then en.fase = 3 
+		when t.tipo not in (1,2) then en.fase = 2 
 	end 
-	) j on j.id = u.id
-where u.id_rol  = 3 and u.id <> 3 and u.oficial = 1
+	) j on j.id = u.id 
+where u.id_rol = 3 and u.id <> 3 and u.oficial = 1 and j.id_grupo  = '$id_grupo'
 group by 1,2 order by triunfos desc,u.nombre)
 union 
 select u.id, u.nombre, sum(1) as triunfos, u.foto, u.numero,1 from usuario u  
-inner join (select ej.id_jugador  from torneo t
-inner join equipos e  on e.id_torneo  = t.id 
+inner join (select ej.id_jugador from torneo t
+inner join equipos e on e.id_torneo = t.id 
 inner join equipo_jugador ej on ej.id_equipo = e.id and t.id = ej.id_torneo 
-where t.status  = 4) d on d.id_jugador  = u.id 
-group by 1,2,4,5,6 ) j  group by 1,2,4,5 order by triunfos desc , nombre "   ;
+where t.status = 4 and t.id_grupo = '$id_grupo') d on d.id_jugador = u.id 
+group by 1,2,4,5,6 ) j group by 1,2,4,5 order by triunfos desc , nombre ";
+
 
 $response = $conexion->query($query)->fetchAll();
 

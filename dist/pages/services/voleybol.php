@@ -1,8 +1,14 @@
 <?php
 
 require_once '../conexion.php';
-
 require_once 'group.php';
+
+// Validar que existe el grupo en la sesión
+$id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+if (!$id_grupo) {
+    die('Error: No autorizado. Grupo no identificado.');
+}
+
 $listTorneos = '';
 $selected = '';
 $conten = '';
@@ -11,7 +17,7 @@ $contentJugadoresGlobal = '';
 $contentPosiciones = '';
 $contenido = '';
 
-$responseTorneo = $conexion->query("select * from torneo t where t.status != 2 order by t.id desc ")->fetchAll();
+$responseTorneo = $conexion->query("select * from torneo t where t.id_grupo = '$id_grupo' and t.status != 2 order by t.id desc ")->fetchAll();
 
 $listadoTorneos = '';
 foreach ($responseTorneo as $resTorneo) {
@@ -98,7 +104,7 @@ $wheretorneo = "";
 if (!empty($_GET['torneo'])) {
     $seleccionado = "";
     $wheretorneo = " where id_torneo = " . $_GET['torneo'];
-    $responseEquipo = $conexion->query("select * from equipos e where e.id_deporte = 1 and e.id_torneo =  " . $_GET['torneo'])->fetchAll();
+    $responseEquipo = $conexion->query("select * from equipos e where e.id_grupo = '$id_grupo' and e.id_deporte = 1 and e.id_torneo =  " . $_GET['torneo'])->fetchAll();
     $i = 0;
     if ($responseEquipo) {
 

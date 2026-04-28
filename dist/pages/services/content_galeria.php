@@ -12,7 +12,7 @@ require_once '../conexion.php';
     <title>Untitled</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
         integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
@@ -76,7 +76,13 @@ require_once '../conexion.php';
     </div>
     <div class="photo-gallery">
         <?php
-        $response1 = $conexion->query("SELECT * FROM torneo WHERE status != 2 order by id desc")->fetchAll();
+        // Validar que existe el grupo en la sesión
+        $id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+        if (!$id_grupo) {
+            die('Error: No autorizado. Grupo no identificado.');
+        }
+        
+        $response1 = $conexion->query("SELECT * FROM torneo WHERE id_grupo = '$id_grupo' and status != 2 order by id desc")->fetchAll();
 
 
         $i=0;
@@ -84,7 +90,7 @@ require_once '../conexion.php';
             $i++;
             $id_torneo = $t['id'];
             $nombre_torneo = $t['nombre'];
-        ?>
+        ?>  
             <div class="container p-0 ">
                 <div class="intro">
                     <h2 class="text-center"><?= ucwords($nombre_torneo) ?></h2>

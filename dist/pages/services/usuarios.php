@@ -1,11 +1,18 @@
 
 
 <?php
+session_start();
 
+// Validar que existe el grupo en la sesión
+$id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+if (!$id_grupo) {
+    die('Error: No autorizado. Grupo no identificado.');
+}
 
 require_once '../conexion.php';
-$response = $conexion->query("select u.*, r.rol from usuario u 
-inner join rol r on r.id = u.id_rol  order by u.id   desc")->fetchAll();
+$query = "select u.*, r.rol from usuario u 
+inner join rol r on r.id = u.id_rol where u.id_grupo = '$id_grupo' order by u.id desc";
+$response = $conexion->query($query)->fetchAll();
 $list_usuarios = '';
 $i = 0;
 foreach($response as $res){

@@ -1,11 +1,15 @@
 <?php
 
 require_once '../conexion.php';
-
-
 require_once 'group.php';
 
-$listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and convocado = 1")->fetchAll();
+// Validar que existe el grupo en la sesión
+$id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+if (!$id_grupo) {
+    die('Error: No autorizado. Grupo no identificado.');
+}
+
+$listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and convocado = 1 and id IN (select id_jugador from equipo_jugador where id_grupo = '$id_grupo')")->fetchAll();
 
 $contenido = "<div class='row justify-content-center d-flex'>
 <div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> CONVOCADOS</h2></div>
@@ -37,7 +41,7 @@ foreach ($listMiembros as $miembro) {
 
 
 
-$listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and oficial = 1 order by foto desc, nombre ")->fetchAll();
+$listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and oficial = 1 and id IN (select id_jugador from equipo_jugador where id_grupo = '$id_grupo') order by foto desc, nombre ")->fetchAll();
 if ($j > 1) {
 
     $contenido .= "<div class='row justify-content-center d-flex mt-5'>";

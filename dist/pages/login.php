@@ -1,9 +1,6 @@
 <?php
 session_start();
-$grupo = $_GET['grupo'] ?? $_SESSION['grupo'] ?? null;
-if (!empty($_GET['grupo'])) {
-    $_SESSION['grupo'] = $grupo;
-}
+$grupo = $_GET['grupo'] ?? null;
 include '../../grupos/datosGrupo.php';
 ?>
 
@@ -1509,7 +1506,7 @@ include '../../grupos/datosGrupo.php';
     padding: 5px;" src="<?= $dataGrupo[$grupo]['ubicacion_logo'] ?? '../../dist/assets/img/logo2.png' ?>" alt="">
                                     </h1>
 
-
+    <input type="text" id="_grupo" value="<?= $grupo ?>" hidden>
                                 </div>
                                 <div class="col-12">
 
