@@ -340,7 +340,7 @@ if ($tipo == 1 or $tipo == 2) {
     if (!isset($_GET['torneo'])) {
         if ($_SESSION['usuario']['id_rol'] == 1) {
 
-            $enfrentarEquipos = ' <div class="col-6 col-md-6 "> <button class="btn btn-info w-100 text-white h-100" onclick="simuladorEnfrentamientoGrupo(' . $_GET['id_torneo'] . ')">
+            $enfrentarEquipos = ' <div class="col-6 col-md-6 "> <button class="btn btn-info w-100 text-white h-100" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="simuladorEnfrentamientoGrupo(' . $_GET['id_torneo'] . ')">
                     <i class="bi bi-shuffle h5"></i><br> ENFRENTAR EQUIPOS
                 </button></div>';
         } else {
@@ -393,7 +393,7 @@ if ($tipo == 1 or $tipo == 2) {
             </div>
 
             <!--<div class="col-sm-6 col-md-1 d-flex justify-content-center">
-                 <button class="btn btn-info w-75 h-75 m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+                 <button class="btn btn-info w-75 h-75 m-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
                     <i class="bi bi-arrow-clockwise h3 m-0"></i>
                 </button>
             </div>  -->
@@ -604,7 +604,7 @@ if ($tipo == 1 or $tipo == 2) {
                         <tr>
                             <th colspan="6">CLASIFICACIÓN</th>
                             <th colspan="3" class="text-end">
-                                 <button class="btn btn-info m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+                                 <button class="btn btn-info m-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
                                     <i class="bi bi-arrow-clockwise m-0"></i>
                                 </button>
                             </th>
@@ -886,7 +886,7 @@ if ($tipo == 1 or $tipo == 2) {
     if (!isset($_GET['torneo'])) {
         if ($_SESSION['usuario']['id_rol'] == 1) {
 
-            $enfrentarEquipos = ' <div class="col-6 col-md-6 "> <button class="btn btn-info w-100 text-white h-100" onclick="simuladorEnfrentamientoGrupo(' . $_GET['id_torneo'] . ')">
+            $enfrentarEquipos = ' <div class="col-6 col-md-6 "> <button class="btn btn-info w-100 text-white h-100" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="simuladorEnfrentamientoGrupo(' . $_GET['id_torneo'] . ')">
                     <i class="bi bi-shuffle h5"></i><br> ENFRENTAR EQUIPOS
                 </button></div>';
         } else {
@@ -938,7 +938,7 @@ if ($tipo == 1 or $tipo == 2) {
             </div>
 
             <!--<div class="col-sm-6 col-md-1 d-flex justify-content-center">
-                 <button class="btn btn-info w-75 h-75 m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+                 <button class="btn btn-info w-75 h-75 m-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
                     <i class="bi bi-arrow-clockwise h3 m-0"></i>
                 </button>
             </div>  -->
@@ -1065,7 +1065,7 @@ if ($tipo == 1 or $tipo == 2) {
                         <tr>
                             <th colspan="6">CLASIFICACIÓN</th>
                             <th colspan="3" class="text-end">
-                                 <button class="btn btn-info m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+                                 <button class="btn btn-info m-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
                                     <i class="bi bi-arrow-clockwise m-0"></i>
                                 </button>
                             </th>
@@ -1349,7 +1349,7 @@ if ($tipo == 1 or $tipo == 2) {
     if (!isset($_GET['torneo'])) {
         if ($_SESSION['usuario']['id_rol'] == 1) {
 
-            $enfrentarEquipos = ' <div class="col-6 col-md-6 "> <button class="btn btn-info w-100 text-white h-100" onclick="simuladorEnfrentamientoGrupo(' . $_GET['id_torneo'] . ')">
+            $enfrentarEquipos = ' <div class="col-6 col-md-6 "> <button class="btn btn-info w-100 text-white h-100" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="simuladorEnfrentamientoGrupo(' . $_GET['id_torneo'] . ')">
                     <i class="bi bi-shuffle h5"></i><br> ENFRENTAR EQUIPOS
                 </button></div>';
         } else {
@@ -1401,7 +1401,7 @@ if ($tipo == 1 or $tipo == 2) {
             </div>
 
             <!--<div class="col-sm-6 col-md-1 d-flex justify-content-center">
-                 <button class="btn btn-info w-75 h-75 m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+                 <button class="btn btn-info w-75 h-75 m-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
                     <i class="bi bi-arrow-clockwise h3 m-0"></i>
                 </button>
             </div>  -->
@@ -1533,7 +1533,7 @@ if ($tipo == 1 or $tipo == 2) {
     $contRecarga = '';
 
     if (!isset($recarga)) {
-        $contRecarga = '  <button class="btn btn-info m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+        $contRecarga = '  <button class="btn btn-info m-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
                                     <i class="bi bi-arrow-clockwise m-0"></i>
                                 </button>';
     }
@@ -1779,7 +1779,7 @@ if ($tipo == 1 or $tipo == 2) {
     if (!isset($_GET['torneo'])) {
         if ($_SESSION['usuario']['id_rol'] == 1) {
 
-            $enfrentarEquipos = ' <div class="col-12 col-md-4 "> <button class="btn btn-info w-100 text-white h-100" onclick="simuladorEnfrentamiento(' . $_GET['id_torneo'] . ')">
+            $enfrentarEquipos = ' <div class="col-12 col-md-4 "> <button class="btn btn-info w-100 text-white h-100" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="simuladorEnfrentamiento(' . $_GET['id_torneo'] . ')">
                     <i class="bi bi-shuffle h5"></i><br> ENFRENTAR EQUIPOS
                 </button></div>';
         } else {
@@ -1826,7 +1826,7 @@ if ($tipo == 1 or $tipo == 2) {
             </div>
 
             <!--<div class="col-sm-6 col-md-1 d-flex justify-content-center">
-                 <button class="btn btn-info w-75 h-75 m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+                 <button class="btn btn-info w-75 h-75 m-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
                     <i class="bi bi-arrow-clockwise h3 m-0"></i>
                 </button>
             </div>  -->
@@ -2120,7 +2120,7 @@ if ($tipo == 1 or $tipo == 2) {
     $contRecarga = '';
 
     if (!isset($recarga)) {
-        $contRecarga = '  <button class="btn btn-info m-1" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
+        $contRecarga = '  <button class="btn btn-info m-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="actualizarEnfrentamientosAuto(' . $_GET['id_torneo'] . ')">
                                     <i class="bi bi-arrow-clockwise m-0"></i>
                                 </button>';
     }

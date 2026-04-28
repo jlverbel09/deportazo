@@ -1,5 +1,6 @@
 
 <?php 
+require_once 'group.php';
 
 
 $contenido ='<iframe height="135%" style="position:absolute" src="./calendario/index.html" frameborder="0"></iframe>';

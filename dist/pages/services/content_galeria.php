@@ -78,7 +78,7 @@ require_once '../conexion.php';
         require_once 'group.php';
         if ($_SESSION['usuario']['id_rol'] == 1 or $_SESSION['usuario']['id_rol'] == 2) {
         ?>
-            <button class="btn btn-info text-white " title="Guardar Foto" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-camera"></i> Crear Foto</button>
+            <button class="btn btn-info text-white" style="background-color: <?= $botones ?>; border-color: <?= $botones ?>; color: <?= $textobotones ?>;" title="Guardar Foto" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-camera"></i> Crear Foto</button>
         <?php
         }
         ?>
@@ -220,7 +220,7 @@ require_once '../conexion.php';
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" name="formulario">Guardar</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: <?= $botones ?>; border-color: <?= $botones ?>; color: <?= $textobotones ?>;" name="formulario">Guardar</button>
                     </div>
                 </div>
             </div>

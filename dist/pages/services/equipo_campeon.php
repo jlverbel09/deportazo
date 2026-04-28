@@ -1,4 +1,5 @@
 <?php
+require_once 'group.php';
 $id_torneo = $_GET['idTorneo'];
 if (isset($_GET['torneo'])) {
     $link = '../';

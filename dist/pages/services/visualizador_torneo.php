@@ -1,4 +1,5 @@
 <?php
+require_once 'group.php';
 require_once '../conexion.php';
 error_reporting(0);
 

@@ -1,12 +1,20 @@
 <?php
+require_once 'group.php';
 require_once '../conexion.php';
 $data =  (object) [];
 
+$id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+if (!$id_grupo) {
+    echo json_encode(['estado' => 'error', 'mensaje' => 'Grupo no identificado']);
+    exit;
+}
+
+$whereGrupo = " and id_grupo = '$id_grupo'";
 
 if (isset($_POST['accion']) && $_POST['accion'] == 'crear_torneo') {
 
-    $stm = $conexion->prepare("INSERT INTO torneo (nombre, id_deporte,  nro_equipos,tipo, descripcion, fecha, direccion, status,created_at)  
-    VALUES (?,?,?,?,?,?,?,?,?)");
+    $stm = $conexion->prepare("INSERT INTO torneo (nombre, id_deporte,  nro_equipos,tipo, descripcion, fecha, direccion, status,created_at,id_grupo)  
+    VALUES (?,?,?,?,?,?,?,?,?,?)");
 
     $stm->execute([
         $_POST['torneo_nombre'],
@@ -17,7 +25,8 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear_torneo') {
         $_POST['torneo_fecha'],
         $_POST['torneo_direccion'],
         1,
-        date('Y-m-d')
+        date('Y-m-d'),
+        $id_grupo
     ]);
 
     if ($stm) {
@@ -28,17 +37,18 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear_torneo') {
 
 if (isset($_POST['accion']) && $_POST['accion'] == 'crear_equipo') {
     $codTorneo = $_POST['id_torneo'];
-    $respColor = $conexion->query("select codigo from colores where codigo not in (select color from equipos  where equipos.id_torneo = $codTorneo) order by colores.id asc limit 1 ")->fetch();
+    $respColor = $conexion->query("select codigo from colores where codigo not in (select color from equipos  where equipos.id_torneo = $codTorneo and equipos.id_grupo = '$id_grupo') order by colores.id asc limit 1 ")->fetch();
 
 
-    $stm = $conexion->prepare("INSERT INTO equipos (nombre, id_deporte,  id_torneo, color)  
-    VALUES (?,?,?,?)");
+    $stm = $conexion->prepare("INSERT INTO equipos (nombre, id_deporte,  id_torneo, color, id_grupo)  
+    VALUES (?,?,?,?,?)");
 
     $stm->execute([
         $_POST['nombre_equipo'],
         $_POST['deporte'],
         $_POST['id_torneo'],
-        $respColor['codigo']
+        $respColor['codigo'],
+        $id_grupo
     ]);
 
     if ($stm) {
@@ -48,8 +58,8 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'crear_equipo') {
 }
 
 if (isset($_POST['accion']) && $_POST['accion'] == 'asignar_jugador') {
-    $stm = $conexion->prepare("INSERT INTO equipo_jugador (id_jugador, id_equipo, posicion, numero, seleccionado,id_torneo)  
-    VALUES (?,?,?,?,?,?)");
+    $stm = $conexion->prepare("INSERT INTO equipo_jugador (id_jugador, id_equipo, posicion, numero, seleccionado,id_torneo,id_grupo)  
+    VALUES (?,?,?,?,?,?,?)");
 
     $stm->execute([
         $_POST['asig_jugador'],
@@ -57,7 +67,8 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'asignar_jugador') {
         $_POST['asig_posicion'],
         $_POST['asig_numero'],
         1,
-        $_POST['id_torneo']
+        $_POST['id_torneo'],
+        $id_grupo
     ]);
 
     if ($stm) {
@@ -71,7 +82,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'ver_marcador') {
     $resMarcador = $conexion->query("select e.*, e2.nombre as equipo_local, e2.color as color_equipo_local, e3.nombre as equipo_visitante , e3.color as color_equipo_visitante from enfrentamientos2 e
     inner join equipos e2 on e2.id = e.id_equipo_local
     inner join equipos e3 on e3.id = e.id_equipo_visitante 
-    where e.id  =  " . $_POST['id'])->fetch();
+    where e.id  =  " . $_POST['id'] . " and e2.id_grupo = '$id_grupo' and e3.id_grupo = '$id_grupo'")->fetch();
 
     if ($resMarcador) {
         $data->estado = 'success';
@@ -112,8 +123,8 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'guardarAnotacion') {
 
 if (isset($_POST['accion']) && $_POST['accion'] == 'guardarEnfrentamiento') {
 
-    $query = "insert into enfrentamiento_rapido (cantidad_equipos, estado, equipo1,equipo2,equipo3,equipo4,equipo5,equipo6,fecha_reg)
-    values(?,?,?,?,?,?,?,?,?)";
+    $query = "insert into enfrentamiento_rapido (cantidad_equipos, estado, equipo1,equipo2,equipo3,equipo4,equipo5,equipo6,fecha_reg,id_grupo)
+    values(?,?,?,?,?,?,?,?,?,?)";
 
     $stm = $conexion->prepare($query);
 
@@ -126,7 +137,8 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'guardarEnfrentamiento') {
         'D-' . $_POST['equipo_4'],
         'E-' . $_POST['equipo_5'],
         'F-' . $_POST['equipo_6'],
-        date('Y-m-d')
+        date('Y-m-d'),
+        $id_grupo
     ]);
 
     if ($stm) {
@@ -137,15 +149,22 @@ if (isset($_POST['accion']) && $_POST['accion'] == 'guardarEnfrentamiento') {
 
 
 if (isset($_GET['accion']) && $_GET['accion'] == 'finalizarEnfrentamiento') {
-    $restms = $conexion->query("update enfrentamiento_rapido er  set estado = 'I'");
+    $restms = $conexion->query("update enfrentamiento_rapido er  set estado = 'I' where id_grupo = '$id_grupo'");
     if ($restms) {
         $data->estado = 'success';
         $data->mensaje = 'Enfrentamiento finalizado correctamente';
     }
 }
 if (isset($_GET['accion']) && $_GET['accion'] == 'cargarEnfrentamiento') {
-    $query = $conexion->query("select * from enfrentamiento_rapido er  where estado = 'A'");
+    $query = $conexion->query("select * from enfrentamiento_rapido er  where estado = 'A' and id_grupo = '$id_grupo'");
     $restms = $query->fetch();
+
+    if (!$restms) {
+        $data->estado = 'error';
+        $data->mensaje = 'No hay enfrentamiento activo';
+        echo json_encode($data);
+        exit;
+    }
 
     if ($restms['cantidad_equipos'] <= 4) {
         $cantidad = 2;
@@ -154,37 +173,38 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'cargarEnfrentamiento') {
     }
     $html = '<div>
                 <br><b>Jornada 1</b>';
-    $listEnfrentamientos = $conexion->query("select id,
+                $query = "select id,
         case when `local` = 'A' then
-            (select equipo1 from enfrentamiento_rapido where estado = 'A')
+            (select equipo1 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             when `local` = 'B' then 
-            (select equipo2 from enfrentamiento_rapido where estado = 'A')
+            (select equipo2 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             when `local` = 'C' then 
-            (select equipo3 from enfrentamiento_rapido where estado = 'A')
+            (select equipo3 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             when `local` = 'D' then 
-            (select equipo4 from enfrentamiento_rapido where estado = 'A')
+            (select equipo4 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             when `local` = 'E' then 
-	        (select equipo5 from enfrentamiento_rapido where estado = 'A')
+        (select equipo5 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
              when `local` = 'F' then 
-	        (select equipo6 from enfrentamiento_rapido where estado = 'A')
+        (select equipo6 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             end as local, 
         case when `visitante` = 'A' then
-            (select equipo1 from enfrentamiento_rapido where estado = 'A')
+            (select equipo1 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             when `visitante` = 'B' then 
-            (select equipo2 from enfrentamiento_rapido where estado = 'A')
+            (select equipo2 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             when `visitante` = 'C' then 
-            (select equipo3 from enfrentamiento_rapido where estado = 'A')
+            (select equipo3 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             when `visitante` = 'D' then 
-            (select equipo4 from enfrentamiento_rapido where estado = 'A')
+            (select equipo4 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
              when `visitante` = 'E' then 
-            (select equipo5 from enfrentamiento_rapido where estado = 'A')
+            (select equipo5 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             when `visitante` = 'F' then 
-            (select equipo6 from enfrentamiento_rapido where estado = 'A')
+            (select equipo6 from enfrentamiento_rapido where estado = 'A' and id_grupo = '$id_grupo')
             end as visitante,estado,ganador
-        from guia_enfrentamiento_rapido ger where cant_equipos = (select cantidad_equipos   from enfrentamiento_rapido er where estado = 'A' )")->fetchAll();
-
-    $j = 0;
-    $i = 1;
+        from guia_enfrentamiento_rapido ger where cant_equipos = (select cantidad_equipos   from enfrentamiento_rapido er where estado = 'A' and id_grupo = '$id_grupo' )";
+   
+    $listEnfrentamientos = $conexion->query($query)->fetchAll();
+        $i = 1;
+        $j = 0;
     foreach ($listEnfrentamientos as $l) {
 
         if ($j == $cantidad) {
@@ -270,17 +290,17 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'cambiarEstado') {
     $equipo = explode('-', $equipo);
     $equipo = $equipo[0];
     if ($equipo == 'A') {
-        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo1 = (select punt_equipo1 +3 from enfrentamiento_rapido er where estado = 'A') where estado = 'A'";
+        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo1 = (select punt_equipo1 +3 from enfrentamiento_rapido er where estado = 'A' and id_grupo = '$id_grupo') where estado = 'A' and id_grupo = '$id_grupo'";
     } else if ($equipo == 'B') {
-        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo2 = (select punt_equipo2 +3 from enfrentamiento_rapido er where estado = 'A') where estado = 'A'";
+        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo2 = (select punt_equipo2 +3 from enfrentamiento_rapido er where estado = 'A' and id_grupo = '$id_grupo') where estado = 'A' and id_grupo = '$id_grupo'";
     } else if ($equipo == 'C') {
-        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo3 = (select punt_equipo3 +3 from enfrentamiento_rapido er where estado = 'A') where estado = 'A'";
+        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo3 = (select punt_equipo3 +3 from enfrentamiento_rapido er where estado = 'A' and id_grupo = '$id_grupo') where estado = 'A' and id_grupo = '$id_grupo'";
     } else if ($equipo == 'D') {
-        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo4 = (select punt_equipo4 +3 from enfrentamiento_rapido er where estado = 'A') where estado = 'A'";
+        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo4 = (select punt_equipo4 +3 from enfrentamiento_rapido er where estado = 'A' and id_grupo = '$id_grupo') where estado = 'A' and id_grupo = '$id_grupo'";
     } else if ($equipo == 'E') {
-        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo5 = (select punt_equipo5 +3 from enfrentamiento_rapido er where estado = 'A') where estado = 'A'";
+        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo5 = (select punt_equipo5 +3 from enfrentamiento_rapido er where estado = 'A' and id_grupo = '$id_grupo') where estado = 'A' and id_grupo = '$id_grupo'";
     } else if ($equipo == 'F') {
-        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo6 = (select punt_equipo6 +3 from enfrentamiento_rapido er where estado = 'A') where estado = 'A'";
+        $campoPunt = "update  enfrentamiento_rapido set  punt_equipo6 = (select punt_equipo6 +3 from enfrentamiento_rapido er where estado = 'A' and id_grupo = '$id_grupo') where estado = 'A' and id_grupo = '$id_grupo'";
     }
 
     $restms = $conexion->query("update guia_enfrentamiento_rapido  set estado = 'F', ganador = '$equipo' where id = " . $_GET['id']);
@@ -292,9 +312,9 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'cambiarEstado') {
 }
 
 if (isset($_GET['accion']) && $_GET['accion'] == 'restaurarReencuentros') {
-    $restms = $conexion->query("update guia_enfrentamiento_rapido  set estado = 'A' , ganador = null where cant_equipos = (select cantidad_equipos   from enfrentamiento_rapido er where estado = 'A' )");
+    $restms = $conexion->query("update guia_enfrentamiento_rapido  set estado = 'A' , ganador = null where cant_equipos = (select cantidad_equipos   from enfrentamiento_rapido er where estado = 'A' and id_grupo = '$id_grupo' )");
     if ($restms) {
-        $conexion->query("update  enfrentamiento_rapido set  punt_equipo1 = 0, punt_equipo2=0, punt_equipo3=0, punt_equipo4=0, punt_equipo5=0, punt_equipo6=0 where estado = 'A'");
+        $conexion->query("update  enfrentamiento_rapido set  punt_equipo1 = 0, punt_equipo2=0, punt_equipo3=0, punt_equipo4=0, punt_equipo5=0, punt_equipo6=0 where estado = 'A' and id_grupo = '$id_grupo'");
         $data->estado = 'success';
         $data->mensaje = 'Enfrentamientos reestablecidos correctamente';
     }
@@ -304,17 +324,17 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'cargarTablaEnfrentamientosRapi
 
     $cantidad_equipos = $_GET['cantidad_equipos'];
     $resEnfRapidos = $conexion->query("select * from (
-select 1 as posicion, equipo1 as equipo , punt_equipo1 as puntos  from enfrentamiento_rapido where estado  = 'A'
+select 1 as posicion, equipo1 as equipo , punt_equipo1 as puntos  from enfrentamiento_rapido where estado  = 'A' and id_grupo = '$id_grupo'
 union
-select 2 as posicion, equipo2 as equipo , punt_equipo2  as puntos from enfrentamiento_rapido where estado  = 'A'
+select 2 as posicion, equipo2 as equipo , punt_equipo2  as puntos from enfrentamiento_rapido where estado  = 'A' and id_grupo = '$id_grupo'
 union 
-select 3 as posicion,equipo3 as equipo , punt_equipo3  as puntos from enfrentamiento_rapido where estado  = 'A'
+select 3 as posicion,equipo3 as equipo , punt_equipo3  as puntos from enfrentamiento_rapido where estado  = 'A' and id_grupo = '$id_grupo'
 union
-select 4 as posicion,equipo4 as equipo , punt_equipo4  as puntos from enfrentamiento_rapido where estado  = 'A'
+select 4 as posicion,equipo4 as equipo , punt_equipo4  as puntos from enfrentamiento_rapido where estado  = 'A' and id_grupo = '$id_grupo'
 union 
-select 5 as posicion,equipo5 as equipo , punt_equipo5  as puntos from enfrentamiento_rapido where estado  = 'A'
+select 5 as posicion,equipo5 as equipo , punt_equipo5  as puntos from enfrentamiento_rapido where estado  = 'A' and id_grupo = '$id_grupo'
 union 
-select 6 as posicion,equipo6 as equipo , punt_equipo6  as puntos from enfrentamiento_rapido where estado  = 'A'
+select 6 as posicion,equipo6 as equipo , punt_equipo6  as puntos from enfrentamiento_rapido where estado  = 'A' and id_grupo = '$id_grupo'
 ) j order by 3 desc,1 limit " . $cantidad_equipos)->fetchAll();
 
     $tablaRapida = [];
@@ -336,7 +356,7 @@ select 6 as posicion,equipo6 as equipo , punt_equipo6  as puntos from enfrentami
                     <tbody>';
 
 
-    static $i = 0;
+    $i = 0;
     foreach ($resEnfRapidos as $r) {
         $estado = '';
         if ($resEnfRapidos[0]['puntos'] == $r['puntos'] && $resEnfRapidos[0]['puntos'] != 0) {

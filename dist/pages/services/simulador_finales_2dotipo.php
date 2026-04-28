@@ -1,4 +1,5 @@
 <?php 
+require_once 'group.php';
 
 require_once '../conexion.php';
 $sql = "select count(*) as cantidad from enfrentamientos2  where id_torneo  =  " . $_POST['id_torneo'] . " and fase = 1 ";

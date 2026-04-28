@@ -120,9 +120,7 @@ if (!empty($_GET['torneo'])) {
 
 
             if ($_SESSION['usuario']['id_rol'] == 1 or $_SESSION['usuario']['id_rol'] == 2) {
-                $dataAsignar = '<td><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#asignarJugador" onclick="buscarEquipo(' . $resEquipo['id'] . ')">Asignar</button></td>';
-            } else {
-                $dataAsignar = '';
+                $dataAsignar = '<td><button class="btn btn-primary btn-sm" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" data-bs-toggle="modal" data-bs-target="#asignarJugador" onclick="buscarEquipo(' . $resEquipo['id'] . ')">Asignar</button></td>';
             }
 
             $conten .= '
@@ -130,7 +128,7 @@ if (!empty($_GET['torneo'])) {
                     <th scope="row">' . $i . '</th>
                     <td><i class="bi bi-shield-fill mt-1 me-1" style="color:' . $resEquipo['color'] . '"></i>' . $resEquipo['nombre'] . '</td>
                     ' . $dataAsignar . '
-                    <td><button class="btn btn-primary btn-sm "  onClick="redireccion(`voleybol`, `torneo=' . $_GET['torneo'] . '&equipo=`+' . $resEquipo['id'] . ')"><i class="bi bi-eye"></i></button></td>
+                    <td><button class="btn btn-primary btn-sm " style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onClick="redireccion(`voleybol`, `torneo=' . $_GET['torneo'] . '&equipo=`+' . $resEquipo['id'] . ')"><i class="bi bi-eye"></i></button></td>
                     </tr>';
         }
     }
@@ -198,10 +196,10 @@ foreach ($responsePosiciones as $resPosiciones) {
 if ($_SESSION['usuario']['id_rol'] == 1) {
     $nuevoTorneo = ' <div class="col-md-2 col-sm-12">
             
-                <button class="btn btn-primary  mb-1 h-100 w-100"  data-bs-toggle="modal" data-bs-target="#nuevoTorneo"><i class="bi bi-plus-square h3"></i><br>Nuevo Torneo</button>
+                <button class="btn btn-primary  mb-1 h-100 w-100" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" data-bs-toggle="modal" data-bs-target="#nuevoTorneo"><i class="bi bi-plus-square h3"></i><br>Nuevo Torneo</button>
             </div>';
     $altNuevoTorneo = 'col-md-10';
-    $crearEquipo = '<button class="btn btn-primary  mb-1" data-bs-toggle="modal"    data-bs-target="#nuevoEquipo">Crear Equipo</button>';
+    $crearEquipo = '<button class="btn btn-primary  mb-1" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" data-bs-toggle="modal"    data-bs-target="#nuevoEquipo">Crear Equipo</button>';
     $jugador = '<th scope="col">Jugador </th>';
 } else {
     $altNuevoTorneo = '';
@@ -279,7 +277,7 @@ $contenido .= '
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onClick="save_torneo()">Crear</button>
+        <button type="button" class="btn btn-primary" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onClick="save_torneo()">Crear</button>
       </div>
     </div>
   </div>
@@ -314,7 +312,7 @@ $contenido .= '
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="save_equipo()">Crear</button>
+        <button type="button" class="btn btn-primary" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="save_equipo()">Crear</button>
       </div>
     </div>
   </div>
@@ -361,7 +359,7 @@ $contenido .= '
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="save_jugador()">Crear</button>
+        <button type="button" class="btn btn-primary" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="save_jugador()">Crear</button>
       </div>
     </div>
   </div>
@@ -399,7 +397,7 @@ if (!empty($_GET['torneo'])) {
         <div class="row">
         <div class="col-sm-12 col-md-6">
              ' . $crearEquipo . '
-             <a class="btn btn-outline-primary" target="_blank" href="./services/visualizador_general.php?torneo='.$_GET['torneo'].'"><i class="fa fa-share"></i></a>
+             <a class="btn btn-outline-primary" style="background-color: transparent; border-color: '.$botones.'; color: '.$botones.';" target="_blank" href="./services/visualizador_general.php?torneo='.$_GET['torneo'].'"><i class="fa fa-share"></i></a>
             <h5 class="mt-1">Equipos</h5>
             <table class="table table-hover">
             <thead>

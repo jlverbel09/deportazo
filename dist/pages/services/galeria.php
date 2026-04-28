@@ -1,5 +1,6 @@
 
 <?php 
+require_once 'group.php';
 
 
 $contenido ='<iframe class="m-0 p-0" style="position: absolute;

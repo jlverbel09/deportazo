@@ -1,4 +1,5 @@
 <?php
+require_once 'group.php';
 $idtorneo = $_GET['torneo'];
 ?>
 

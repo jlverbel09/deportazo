@@ -1,4 +1,5 @@
 <?php
+require_once 'group.php';
 require_once '../conexion.php';
 
 $res = $conexion->query("select * from equipos  where id_torneo  =  " . $_POST['id_torneo'] . " order by id ")->fetchAll();

@@ -1,4 +1,5 @@
 <?php
+require_once 'group.php';
 
 require_once '../conexion.php';/* 
 $res = $conexion->query("")->fetch(); */
@@ -18,7 +19,7 @@ $contenido = '<div class="row m-0 p-0">
                     <button class="w-100 btn btn-warning" onclick="restaurarReencuentros()"><i class="fa fa-rotate-right"></i></button>
                 </div>
                 <div class="col-2 mt-4 mx-0 px-1" id="cuadroCrearEnfrentamiento">
-                    <button class="w-100 btn btn-info" onclick="crearEnfrentamiento()"><i class="fa fa-save"></i></button>
+                    <button class="w-100 btn btn-info" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="crearEnfrentamiento()"><i class="fa fa-save"></i></button>
                 </div>
                 <div class="col-2 mt-4 mx-0 px-0 " style="display:none" id="cuadroPararEnfrentamientos">
                     <button class="w-100 btn btn-danger" onclick="finalizarEnfrentamiento()"><i class="fa fa-stop"></i></button>

@@ -10,6 +10,7 @@ if (!$id_grupo) {
 }
 
 require_once '../conexion.php';
+require_once 'group.php';
 $query = "select u.*, r.rol from usuario u 
 inner join rol r on r.id = u.id_rol where u.id_grupo = '$id_grupo' and id_rol <> 1 order by u.id desc";
 $response = $conexion->query($query)->fetchAll();
@@ -24,7 +25,7 @@ foreach($response as $res){
         <td>'.$res['user'].'</td>
         <td>'.$res['rol'].'</td>
         <td>
-            <button class="btn btn-sm btn-info" onClick="load_usuario('.$res['id'].')"><i class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-sm btn-info" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onClick="load_usuario('.$res['id'].')"><i class="bi bi-pencil-square"></i></button>
             <button class="btn btn-sm btn-danger" onClick="delete_usuario('.$res['id'].')"><i class="bi bi-trash"></i></button>
         </td>
     </tr>';
@@ -65,7 +66,7 @@ $contenido = '
             <input type="text" class="form-control" id="avatar">
         </div>-->
         
-        <button type="button" class="btn btn-primary mt-1 mb-4" onClick="save_usuarios()">Guardar</button>
+        <button type="button" class="btn btn-primary mt-1 mb-4" style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onClick="save_usuarios()">Guardar</button>
         </form>
 
     </div>

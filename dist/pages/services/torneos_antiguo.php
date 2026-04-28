@@ -1,4 +1,5 @@
 <?php 
+require_once 'group.php';
 require_once '../conexion.php';
 $enfrentamiento = '';
 $clasificacionEquipo = '';
@@ -127,13 +128,13 @@ $contenido .= '
                 <div class="text-center mt-1   "><i class="bi bi-shield-fill h2 text-primary"></i></div>
             </div>
              <div class="col-sm-12 col-md-1 ">
-                <button class="btn btn-info w-100 " onclick="simuladorEnfrentamiento('.$_GET['id_torneo'].')">
+                <button class="btn btn-info w-100 " style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="simuladorEnfrentamiento('.$_GET['id_torneo'].')">
                     <i class="bi bi-eye h5"></i><br> Enfrentar Equipos
                 </button>
             </div>  
 
              <div class="col-sm-12 col-md-2 ">
-                 <button class="btn btn-info w-100 " onclick="simuladorEnfrentamientoGrupo('.$_GET['id_torneo'].')">
+                 <button class="btn btn-info w-100 " style="background-color: '.$botones.'; border-color: '.$botones.'; color: '.$textobotones.';" onclick="simuladorEnfrentamientoGrupo('.$_GET['id_torneo'].')">
                     <i class="bi bi-eye h5"></i><br> Enfrentar Equipos en Grupo
                 </button>
             </div>  
