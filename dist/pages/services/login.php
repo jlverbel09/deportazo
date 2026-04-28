@@ -11,7 +11,7 @@ if (!empty($_GET['accion']) && $_GET['accion'] == 'iniciarSesion') {
     $contraseña = $_POST['password'];
     $grupo = $_POST['grupo'];
     // Use prepared statement to prevent SQL injection
-    $sql = "SELECT u.*, g.nombre as nombre_grupo FROM usuario u JOIN grupos g ON u.id_grupo = g.id WHERE u.user = '$usuario' AND g.url = '$grupo'";
+    $sql = "SELECT u.*, g.url as nombre_grupo, g.id as id_grupo FROM usuario u JOIN grupos g ON u.id_grupo = g.id WHERE u.user = '$usuario' AND g.url = '$grupo'";
     $response = $conexion->query($sql)->fetch();
     if ($response) {
         // Check password using password_verify
@@ -22,6 +22,8 @@ if (!empty($_GET['accion']) && $_GET['accion'] == 'iniciarSesion') {
         } else {
             $data->response = 'Contraseña incorrecta';
         }
+     /*    print_r($_SESSION['usuario']);
+        die(); */
         $data->grupo =  $_SESSION['usuario']['nombre_grupo'] ?? null;
     } else {
         $data->response = 'Usuario no encontrado';

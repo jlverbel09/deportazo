@@ -11,7 +11,7 @@ if (!$id_grupo) {
 
 require_once '../conexion.php';
 $query = "select u.*, r.rol from usuario u 
-inner join rol r on r.id = u.id_rol where u.id_grupo = '$id_grupo' order by u.id desc";
+inner join rol r on r.id = u.id_rol where u.id_grupo = '$id_grupo' and id_rol <> 1 order by u.id desc";
 $response = $conexion->query($query)->fetchAll();
 $list_usuarios = '';
 $i = 0;

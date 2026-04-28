@@ -29,7 +29,7 @@ where t.id_grupo = '$id_grupo' and
 		when t.tipo not in (1,2) then en.fase = 2 
 	end 
 	) j on j.id = u.id 
-where u.id_rol = 3 and u.id <> 3 and u.oficial = 1 and j.id_grupo  = '$id_grupo'
+where u.id_rol = 3 and u.id <> 3 and u.oficial = 1 and u.id_grupo  = '$id_grupo'
 group by 1,2 order by triunfos desc,u.nombre)
 union 
 select u.id, u.nombre, sum(1) as triunfos, u.foto, u.numero,1 from usuario u  
@@ -38,8 +38,6 @@ inner join equipos e on e.id_torneo = t.id
 inner join equipo_jugador ej on ej.id_equipo = e.id and t.id = ej.id_torneo 
 where t.status = 4 and t.id_grupo = '$id_grupo') d on d.id_jugador = u.id 
 group by 1,2,4,5,6 ) j group by 1,2,4,5 order by triunfos desc , nombre ";
-
-
 $response = $conexion->query($query)->fetchAll();
 
 
@@ -77,17 +75,17 @@ $contenido = '
 
 
 $urlfoto = "./../$link/assets/img/miembros/";
-$j = 1;
+$j = 0;
+$hasWinners = false;
 foreach ($response as $miembro) {
-    $j++;
-    if ($miembro['foto'] == 1) {
-        $foto = $miembro['id'] . '.jpg';
-    } else {
-        $foto = 'default.png';
-    }
-//&& $miembro['foto'] != 0
-    if ($miembro['triunfos'] > 0 ) {
-
+    if ($miembro['triunfos'] > 0) {
+        $hasWinners = true;
+        $j++;
+        if ($miembro['foto'] == 1) {
+            $foto = $miembro['id'] . '.jpg';
+        } else {
+            $foto = 'default.png';
+        }
 
         $contenido .= '<div class="col-md-3 mb-2" style="    padding: 5px;"><div class="card m-0 px-2" style="height: auto">
                         <div class="cardfoto" style="height:150px"><img src="' . $urlfoto . '' . $foto . '" class="card-img-top mt-2 w-100"  ></div>
@@ -109,6 +107,10 @@ foreach ($response as $miembro) {
                         </div>
                     </div>';
     }
+}
+
+if (!$hasWinners) {
+    $contenido .= '<div class="col-12 text-center mb-4">No existe ningún ganador aún</div>';
 }
 
 

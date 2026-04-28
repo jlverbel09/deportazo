@@ -11,21 +11,23 @@ if (!$id_grupo) {
 
 $listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and convocado = 1 and id IN (select id_jugador from equipo_jugador where id_grupo = '$id_grupo')")->fetchAll();
 
-$contenido = "<div class='row justify-content-center d-flex'>
-<div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> CONVOCADOS</h2></div>
-";
+$contenido = "";
 
 $urlfoto = "./../assets/img/miembros/";
-$j = 1;
-foreach ($listMiembros as $miembro) {
-    $j++;
-    if ($miembro['foto'] == 1) {
-        $foto = $miembro['id'] . '.jpg';
-    } else {
-        $foto = 'default.png';
-    }
+$j = 0;
+if (!empty($listMiembros)) {
+    $contenido = "<div class='row justify-content-center d-flex'>
+    <div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> CONVOCADOS</h2></div>";
 
-    $contenido .= '<div class="card col-md-3 mx-4 my-1" >
+    foreach ($listMiembros as $miembro) {
+        $j++;
+        if ($miembro['foto'] == 1) {
+            $foto = $miembro['id'] . '.jpg';
+        } else {
+            $foto = 'default.png';
+        }
+
+        $contenido .= '<div class="card col-md-3 mx-4 my-1" >
   <img src="' . $urlfoto . '' . $foto . '" class="card-img-top mt-2" >
   <div class="card-body">
     <h5 class="card-title text-center w-100">' . $miembro['nombre'] . '</h5><br>
@@ -37,17 +39,16 @@ foreach ($listMiembros as $miembro) {
         
   </div>
 </div>';
+    }
+
+    $contenido .= '</div>';
 }
 
-
-
 $listMiembros = $conexion->query(" select * from usuario where id_rol = 3 and id <> 3 and oficial = 1 and id IN (select id_jugador from equipo_jugador where id_grupo = '$id_grupo') order by foto desc, nombre ")->fetchAll();
-if ($j > 1) {
-
-    $contenido .= "<div class='row justify-content-center d-flex mt-5'>";
+if ($j > 0) {
+    $contenido .= "</div><div class='row justify-content-center d-flex mt-5'>";
 } else {
-
-    $contenido = "<div class='row justify-content-center d-flex'>";
+    $contenido .= "</div><div class='row justify-content-center d-flex'>";
 }
 $contenido .= "<div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> MIEMBROS </h2></div>";
 $urlfoto = "./../assets/img/miembros/";
@@ -78,6 +79,10 @@ foreach ($listMiembros as $miembro) {
 </div>
 
 ';
+}
+
+if (empty($listMiembros)) {
+    $contenido .= '<div class="col-12 text-center mb-4">No existen miembros para mostrar.</div>';
 }
 
 $contenido .= '</div> ';

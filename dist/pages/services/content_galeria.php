@@ -58,6 +58,16 @@ require_once '../conexion.php';
         .photo-gallery .item {
             padding-bottom: 30px;
         }
+
+        .empty-message {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.25rem;
+            color: #6c757d;
+        }
     </style>
 </head>
 
@@ -83,13 +93,18 @@ require_once '../conexion.php';
         }
         
         $response1 = $conexion->query("SELECT * FROM torneo WHERE id_grupo = '$id_grupo' and status != 2 order by id desc")->fetchAll();
+        $totalPhotos = 0;
 
-
-        $i=0;
-        foreach ($response1 as $t) {
-            $i++;
-            $id_torneo = $t['id'];
-            $nombre_torneo = $t['nombre'];
+        if (empty($response1)) {
+            ?>
+            <div class="empty-message">
+                No existen fotos para mostrar.
+            </div>
+            <?php
+        } else {
+            foreach ($response1 as $t) {
+                $id_torneo = $t['id'];
+                $nombre_torneo = $t['nombre'];
         ?>  
             <div class="container p-0 ">
                 <div class="intro">
@@ -103,6 +118,7 @@ require_once '../conexion.php';
                     $response = $conexion->query("SELECT * FROM fotos f WHERE f.id_torneo = $id_torneo  ORDER BY id_torneo desc, campeon desc")->fetchAll();
                     foreach ($response as $fotos) {
                         $i++;
+                        $totalPhotos++;
                         $url = "../../assets/img/galeria/" . $fotos['foto'];
                     ?>
                         <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="<?= $url ?>" data-lightbox="photos"><img class="img-fluid" src="<?= $url ?>"></a></div>
@@ -121,6 +137,14 @@ require_once '../conexion.php';
             </div>
 
         <?php
+            }
+            if ($totalPhotos === 0) {
+                ?>
+                <div class="empty-message">
+                    No existen fotos para mostrar.
+                </div>
+                <?php
+            }
         }
 
       /*   if($i==0){
