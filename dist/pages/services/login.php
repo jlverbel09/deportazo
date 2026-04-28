@@ -11,12 +11,8 @@ if (!empty($_GET['accion']) && $_GET['accion'] == 'iniciarSesion') {
     $contraseña = $_POST['password'];
     $grupo = $_POST['grupo'];
     // Use prepared statement to prevent SQL injection
-    $stmt = $conexion->prepare("SELECT usuario.*, g.url as nombre_grupo FROM usuario
-    inner join grupos g on g.id = usuario.id_grupo
-     WHERE user = ? and g.url = ?");
-    $stmt->execute([$usuario, $grupo]);
-    $response = $stmt->fetch();
-
+    $sql = "SELECT u.*, g.nombre as nombre_grupo FROM usuario u JOIN grupos g ON u.id_grupo = g.id WHERE u.user = '$usuario' AND g.url = '$grupo'";
+    $response = $conexion->query($sql)->fetch();
     if ($response) {
         // Check password using password_verify
         if (password_verify($contraseña, $response['password'])) {
