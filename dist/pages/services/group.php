@@ -17,7 +17,9 @@ if (!empty($grupo)) {
 
 $botones = '#000';
 $textobotones = '#ffffff';
+$logoGrupo = '../../dist/assets/img/grupos/corazonlatino.png';
 if (!empty($grupo) && isset($dataGrupo[$grupo])) {
     $botones = $dataGrupo[$grupo]['colores']['botones'] ?? $botones;
     $textobotones = $dataGrupo[$grupo]['colores']['textoBotones'] ?? $textobotones;
+    $logoGrupo = $dataGrupo[$grupo]['ubicacion_logo2'] ?? $logoGrupo;
 }

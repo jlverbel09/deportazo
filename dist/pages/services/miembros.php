@@ -17,7 +17,7 @@ $urlfoto = "./../assets/img/miembros/";
 $j = 0;
 if (!empty($listMiembros)) {
     $contenido = "<div class='row justify-content-center d-flex'>
-    <div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> CONVOCADOS</h2></div>";
+    <div class='col-12 text-center'><h2> <img width='100px' src='" . $logoGrupo . "' /> CONVOCADOS</h2></div>";
 
     foreach ($listMiembros as $miembro) {
         $j++;
@@ -50,7 +50,7 @@ if ($j > 0) {
 } else {
     $contenido .= "</div><div class='row justify-content-center d-flex'>";
 }
-$contenido .= "<div class='col-12 text-center'><h2> <img width='100px' src='../../dist/assets/img/grupos/corazonlatino2.png' /> MIEMBROS </h2></div>";
+$contenido .= "<div class='col-12 text-center'><h2> <img width='100px' class='rounded' src='" . $logoGrupo . "' /> MIEMBROS </h2></div>";
 $urlfoto = "./../assets/img/miembros/";
 
 foreach ($listMiembros as $miembro) {
