@@ -3,9 +3,10 @@
 require_once '../conexion.php';
 require_once 'group.php';
 
-// Validar que existe el grupo en la sesión
-$id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
-if (!$id_grupo) {
+// Validar grupo o permitir acceso público para el visualizador de torneo
+$id_grupo = $_SESSION['usuario']['id_grupo'] ?? $_SESSION['grupo'] ?? null;
+$publicViewer = empty($_SESSION['usuario']) && isset($_GET['torneo']);
+if (!$id_grupo && !$publicViewer) {
     die('Error: No autorizado. Grupo no identificado.');
 }
 
@@ -17,7 +18,11 @@ if (isset($_GET['torneo'])) {
 }
 $enfrentamiento = '';
 $clasificacionEquipo = '';
-$responseTorneo = $conexion->query("select * from torneo t where t.id = " . $_GET['id_torneo'] . " and t.id_grupo = '$id_grupo'")->fetch();
+if ($id_grupo) {
+    $responseTorneo = $conexion->query("select * from torneo t where t.id = " . $_GET['id_torneo'] . " and t.id_grupo = '$id_grupo'")->fetch();
+} else {
+    $responseTorneo = $conexion->query("select * from torneo t where t.id = " . $_GET['id_torneo'])->fetch();
+}
 $listTorneos = '';
 $fecha = date_create($responseTorneo['fecha']);
 
