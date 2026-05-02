@@ -260,7 +260,7 @@
                                 <td class="px-6 py-4 text-center font-bold text-yellow-400">1</td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="./dist/assets/img/logo2.png" alt="Corazón Latino" class="w-8 h-8 rounded object-cover">
+                                        <img src="./dist/assets/img/grupos/corazonlatino.png" alt="Corazón Latino" class="w-8 h-8 rounded object-cover">
                                         <span class="font-semibold">Corazón Latino</span>
                                     </div>
                                 </td>
@@ -276,7 +276,7 @@
                                 <td class="px-6 py-4 text-center font-bold text-yellow-400">2</td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="./dist/assets/img/logo2.png" alt="Latin Force" class="w-8 h-8 rounded object-cover">
+                                        <img src="./dist/assets/img/grupos/latinforce2.jpg" alt="Latin Force" class="w-8 h-8 rounded object-cover">
                                         <span class="font-semibold">Latin Force</span>
                                     </div>
                                 </td>
@@ -292,8 +292,8 @@
                                 <td class="px-6 py-4 text-center font-bold text-yellow-400">3</td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="./dist/assets/img/logo2.png" alt="Volley Masters" class="w-8 h-8 rounded object-cover">
-                                        <span class="font-semibold">Volley Masters</span>
+                                        <img src="./dist/assets/img/grupos/sentimientolatino.jpg" alt="Sentimiento Latino" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold">Sentimiento Latino</span>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-center">12</td>
@@ -308,8 +308,8 @@
                                 <td class="px-6 py-4 text-center font-bold text-yellow-400">4</td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="./dist/assets/img/logo2.png" alt="Beach Warriors" class="w-8 h-8 rounded object-cover">
-                                        <span class="font-semibold">Beach Warriors</span>
+                                        <img src="./dist/assets/img/grupos/deporteparatodos.jpg" alt="Deporte para Todos" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold">Deporte para Todos</span>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-center">12</td>
@@ -324,8 +324,8 @@
                                 <td class="px-6 py-4 text-center font-bold text-yellow-400">5</td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="./dist/assets/img/logo2.png" alt="Spike Attack" class="w-8 h-8 rounded object-cover">
-                                        <span class="font-semibold">Spike Attack</span>
+                                        <img src="./dist/assets/img/grupos/multicultural.jpg" alt="Multicultural" class="w-8 h-8 rounded object-cover">
+                                        <span class="font-semibold">Multicultural</span>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-center">12</td>
@@ -354,103 +354,84 @@
                     <p class="text-lg text-slate-300">Árbol de Eliminatorias</p>
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 relative overflow-hidden">
-                    <!-- Árbol de Eliminatorias -->
-                    <div class="relative min-h-[400px]">
-
-                        <!-- Semifinal - Nivel inferior -->
-                        <div class="flex justify-between items-end mb-16 relative">
-                            <!-- Equipo 2 (Latin Force) -->
-                            <div class="flex flex-col items-center gap-4 w-1/3">
-                                <div class="bg-white/10 rounded-lg p-4 w-full max-w-[200px] border border-slate-600">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <img src="./dist/assets/img/logo2.png" alt="Latin Force" class="w-8 h-8 rounded object-cover">
-                                        <span class="font-semibold text-white">Latin Force</span>
-                                    </div>
-                                    <div class="text-sm text-slate-300">2do lugar - 24 pts</div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 overflow-x-auto">
+                    <!-- Árbol de Eliminatorias Horizontal - Semifinal vs Final -->
+                    <div class="min-w-full flex justify-between items-center gap-12 py-8 px-4">
+                        
+                        <!-- Semifinal: 2do vs 3ro (Izquierda) -->
+                        <div class="flex flex-col gap-8 w-56 flex-shrink-0">
+                            <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-400/30 rounded-lg p-3">
+                                <div class="text-xs text-blue-300 font-bold mb-2">2do LUGAR</div>
+                                <div class="flex items-center gap-2">
+                                    <img src="./dist/assets/img/logo2.png" alt="Team" class="w-5 h-5 rounded">
+                                    <span class="text-sm text-white font-semibold truncate">Latin Force</span>
                                 </div>
-                                <!-- Línea horizontal hacia el centro -->
-                                <div class="w-full h-0.5 bg-yellow-400 relative">
-                                    <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                </div>
+                                <div class="text-xs text-slate-400 mt-1">24 pts</div>
                             </div>
 
-                            <!-- Espacio central para semifinal -->
-                            <div class="w-1/3 flex justify-center">
-                                <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg p-4 min-w-[200px] border-2 border-yellow-400 shadow-lg">
-                                    <div class="text-center">
-                                        <i class="fas fa-trophy text-yellow-400 text-xl mb-2"></i>
-                                        <div class="text-white font-semibold text-sm">Semifinal</div>
-                                        <div class="text-yellow-100 text-xs">Ganador</div>
-                                    </div>
-                                </div>
+                            <div class="flex items-center justify-center">
+                                <div class="text-slate-400 text-lg font-bold">VS</div>
                             </div>
 
-                            <!-- Equipo 3 (Volley Masters) -->
-                            <div class="flex flex-col items-center gap-4 w-1/3">
-                                <!-- Línea horizontal desde el centro -->
-                                <div class="w-full h-0.5 bg-yellow-400 relative">
-                                    <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
+                            <div class="bg-gradient-to-br from-slate-500/20 to-slate-600/20 border border-slate-400/30 rounded-lg p-3">
+                                <div class="text-xs text-slate-300 font-bold mb-2">3er LUGAR</div>
+                                <div class="flex items-center gap-2">
+                                    <img src="./dist/assets/img/logo2.png" alt="Team" class="w-5 h-5 rounded">
+                                    <span class="text-sm text-white font-semibold truncate">Volley Masters</span>
                                 </div>
-                                <div class="bg-white/10 rounded-lg p-4 w-full max-w-[200px] border border-slate-600">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <img src="./dist/assets/img/logo2.png" alt="Volley Masters" class="w-8 h-8 rounded object-cover">
-                                        <span class="font-semibold text-white">Volley Masters</span>
-                                    </div>
-                                    <div class="text-sm text-slate-300">3er lugar - 21 pts</div>
-                                </div>
+                                <div class="text-xs text-slate-400 mt-1">21 pts</div>
                             </div>
+
+                            <div class="text-center text-xs text-slate-500 font-semibold">SEMIFINAL</div>
                         </div>
 
-                        <!-- Línea vertical conectando semifinal con final -->
-                        <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-0.5 h-16 bg-yellow-400"></div>
-
-                        <!-- Final - Nivel superior -->
-                        <div class="flex justify-center items-start relative">
-                            <!-- Equipo 1 (Corazón Latino) -->
-                            <div class="flex flex-col items-center gap-4 mr-8">
-                                <div class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg p-4 min-w-[200px] border-2 border-blue-400 shadow-lg">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <img src="./dist/assets/img/logo2.png" alt="Corazón Latino" class="w-8 h-8 rounded object-cover">
-                                        <span class="font-semibold text-white">Corazón Latino</span>
-                                    </div>
-                                    <div class="text-blue-100 text-sm">1er lugar - 30 pts</div>
-                                </div>
-                                <!-- Línea horizontal hacia la final -->
-                                <div class="w-16 h-0.5 bg-blue-400 relative">
-                                    <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-blue-400 rounded-full"></div>
-                                </div>
-                            </div>
-
-                            <!-- VS -->
-                            <div class="flex flex-col items-center justify-center mx-4">
-                                <div class="text-blue-400 text-2xl font-bold mb-2">VS</div>
-                                <div class="text-slate-400 text-sm">Final</div>
-                            </div>
-
-                            <!-- Ganador Semifinal -->
-                            <div class="flex flex-col items-center gap-4 ml-8">
-                                <!-- Línea horizontal desde la semifinal -->
-                                <div class="w-16 h-0.5 bg-yellow-400 relative">
-                                    <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                </div>
-                                <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg p-4 min-w-[200px] border-2 border-yellow-400 shadow-lg">
-                                    <div class="text-center">
-                                        <i class="fas fa-trophy text-yellow-400 text-xl mb-2"></i>
-                                        <div class="text-white font-semibold text-sm">Ganador</div>
-                                        <div class="text-yellow-100 text-xs">Semifinal</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Conector hacia Final -->
+                        <div class="flex flex-col items-center gap-2 flex-shrink-0">
+                            <div class="w-12 h-0.5 bg-gradient-to-r from-purple-400 to-transparent"></div>
+                            <div class="text-xs text-purple-400 font-bold">GANADOR</div>
+                            <div class="w-12 h-0.5 bg-gradient-to-r from-transparent to-purple-400"></div>
                         </div>
 
-                        <!-- Campeón -->
-                        <div class="flex justify-center mt-12">
-                            <div class="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-6 min-w-[250px] border-2 border-purple-400 shadow-2xl">
+                        <!-- Final: Ganador Semifinal vs 1ro (Centro-Derecha) -->
+                        <div class="flex flex-col gap-8 w-56 flex-shrink-0">
+                            <div class="bg-gradient-to-br from-purple-500/30 to-purple-600/30 border border-purple-400/40 rounded-lg p-3 shadow-lg shadow-purple-500/20">
+                                <div class="text-xs text-purple-300 font-bold mb-2">GANADOR SEMIFINAL</div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-arrow-up text-purple-400 text-xs"></i>
+                                    <span class="text-sm text-white font-semibold">Ganador</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-center">
+                                <div class="text-yellow-400 text-lg font-bold">VS</div>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 border border-yellow-400/30 rounded-lg p-3">
+                                <div class="text-xs text-yellow-300 font-bold mb-2">1er LUGAR</div>
+                                <div class="flex items-center gap-2">
+                                    <img src="./dist/assets/img/logo2.png" alt="Team" class="w-5 h-5 rounded">
+                                    <span class="text-sm text-white font-semibold truncate">Corazón Latino</span>
+                                </div>
+                                <div class="text-xs text-slate-400 mt-1">30 pts</div>
+                            </div>
+
+                            <div class="text-center text-xs text-slate-500 font-semibold">FINAL</div>
+                        </div>
+
+                        <!-- Conector hacia Campeón -->
+                        <div class="flex flex-col items-center gap-2 flex-shrink-0">
+                            <div class="w-12 h-0.5 bg-gradient-to-r from-amber-400 to-transparent"></div>
+                            <div class="text-xs text-amber-400 font-bold">GANADOR</div>
+                            <div class="w-12 h-0.5 bg-gradient-to-r from-transparent to-amber-400"></div>
+                        </div>
+
+                        <!-- Campeón (Derecha) -->
+                        <div class="flex-shrink-0">
+                            <div class="bg-gradient-to-br from-amber-400/40 to-amber-600/30 border-2 border-amber-400/60 rounded-xl p-5 shadow-2xl shadow-amber-400/30 w-56">
                                 <div class="text-center">
-                                    <i class="fas fa-crown text-yellow-400 text-3xl mb-3"></i>
-                                    <div class="text-white font-bold text-lg">Campeón del Torneo</div>
-                                    <div class="text-purple-200 text-sm mt-1">Ganador de la Final</div>
+                                    <i class="fas fa-crown text-amber-300 text-4xl mb-2"></i>
+                                    <div class="text-white font-bold text-lg">Campeón</div>
+                                    <div class="text-amber-200 text-xs mt-2">🏆 Ganador del Torneo</div>
                                 </div>
                             </div>
                         </div>
