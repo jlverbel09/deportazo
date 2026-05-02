@@ -13,6 +13,11 @@ require_once 'group.php';
 
 // Validar que existe el grupo en la sesión
 $id_grupo = isset($_SESSION['usuario']['id_grupo']) ? $_SESSION['usuario']['id_grupo'] : null;
+if (!$id_grupo && isset($_GET['torneo'])) {
+    $torneoId = intval($_GET['torneo']);
+    $torneoInfo = $conexion->query("select id_grupo from torneo where id = " . $torneoId)->fetch();
+    $id_grupo = $torneoInfo['id_grupo'] ?? null;
+}
 if (!$id_grupo) {
     die('Error: No autorizado. Grupo no identificado.');
 }
