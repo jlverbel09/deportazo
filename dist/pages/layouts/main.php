@@ -194,7 +194,7 @@ if (empty($responseTorneo['id'])) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" target="_blank" href="./../../dist/pages/services/visualizador_general.php?torneo=14" class="nav-link"> <i class="nav-icon bi bi-globe"></i>
+                        <a type="button" target="_blank" href="./../../dist/pages/services/visualizador_general.php?torneo=15" class="nav-link"> <i class="nav-icon bi bi-globe"></i>
                             <p>En Vivo</p>
                         </a>
                     </li>
