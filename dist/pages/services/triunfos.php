@@ -41,7 +41,7 @@ select u.id, u.nombre, sum(1) as triunfos, u.foto, u.numero,1 from usuario u
 inner join (select ej.id_jugador from torneo t
 inner join equipos e on e.id_torneo = t.id 
 inner join equipo_jugador ej on ej.id_equipo = e.id and t.id = ej.id_torneo 
-where t.status = 4 and t.id_grupo = '$id_grupo') d on d.id_jugador = u.id 
+where t.status = 4 and t.id_grupo = '$id_grupo') d on d.id_jugador = u.id and u.oficial = 1 
 group by 1,2,4,5,6 ) j group by 1,2,4,5 order by triunfos desc , nombre ";
 $response = $conexion->query($query)->fetchAll();
 
